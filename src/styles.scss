@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+// @mixin dFlex($jc: center, $ai: center, $fd: row, $fw: nowrap){
+//     display: flex;
+//     justify-content: $jc;
+//     align-items: $ai;
+//     flex-direction: $fd;
+//     flex-wrap: $fw;
+// }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --turquoise: #3DCFB6;
+    --dark: #1C1C1C;
+    --dark-green: #08463B;
+}

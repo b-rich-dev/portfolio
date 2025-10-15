@@ -1,0 +1,11 @@
+section {
+    // @include dFlex(space-between, center);
+    height: 98px;
+
+    img {
+        width: 84px;
+        height: 28px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
