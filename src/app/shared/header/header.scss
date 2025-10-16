@@ -1,11 +1,78 @@
-section {
-    // @include dFlex(space-between, center);
-    height: 98px;
+@use '../../../styles.scss' as *;
 
-    img {
+section {
+    @include dFlex($jc: space-between);
+    @include font-fira-code($fs: 20px);
+    height: 98px;
+    padding: 0 80px;
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 30%, transparent 100%);
+        pointer-events: none;
+    }
+
+    .language-toggle {
         width: 84px;
         height: 28px;
-        object-fit: cover;
-        object-position: center;
+        background-image: url('/assets/img/header/property_1_english.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+            cursor: pointer;
+            background-image: url('/assets/img/header/property_1_english_hover.svg');
+        }
+    }
+
+    .nav-wrapper {
+        @include dFlex($jc: flex-start, $g: 32px);
+        width: 100%;
+    }
+
+    nav{
+
+        ul{
+            @include dFlex($jc: space-between, $g: 32px);
+            width: 100%;
+            list-style: none;
+
+            li {
+                position: relative;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -5px;
+                        left: 0;
+                        width: 100%;
+                        height: 2px;
+                        background-color: var(--turquoise);
+                        transform: scaleX(0);
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover {
+                        color: var(--turquoise);
+
+                        &::after {
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
