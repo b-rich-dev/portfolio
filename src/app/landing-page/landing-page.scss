@@ -1,5 +1,250 @@
+@use '../../styles.scss' as *;
+
 section {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(45deg, var(--dark) 23%, var(--dark-green) 100%);
+    background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
+    @include dFlex($fd: column, $ai: center, $jc: center, $g: 12px);
+
+    h3 {
+        @include font-fira-code($fs: 2.5rem, $fw: 300);
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    h1 {
+        @include font-karla($fs: 8rem, $fw: 700);
+    }
+
+    .btn-area {
+        @include dFlex($g: 20px);
+
+        .marquee-btn {
+            --pad-x: 30px;
+            /* visible button padding comes from label for horizontal sizing */
+            padding: 12px 0;
+            background: transparent;
+            border: 1px solid var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            // cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+
+            /* visible label that determines width and centers text */
+            .label {
+                display: inline-block;
+                padding: 0 var(--pad-x);
+                color: var(--white);
+                font-weight: 500;
+                white-space: nowrap;
+                /* keep on one line */
+                text-align: center;
+                /* center visible text */
+                transition: opacity 120ms linear;
+            }
+
+            /* hidden animated layer placed absolutely on top */
+            .text-wrap {
+                position: absolute;
+                inset: 0;
+                /* top:0; right:0; bottom:0; left:0 */
+                display: flex;
+                align-items: center;
+                pointer-events: none;
+                /* allow clicks to reach the anchor */
+                transform: translateX(0);
+                will-change: transform;
+                opacity: 0;
+                /* hidden until active */
+                transition: opacity 220ms linear, transform 600ms cubic-bezier(.22, .9, .38, 1);
+                width: 200%;
+                /* two copies side-by-side */
+                transform-origin: left center;
+            }
+
+            .text {
+                flex: 0 0 50%;
+                /* each copy takes half of the wrap (one button width) */
+                box-sizing: border-box;
+                /* match the visible label's padding so alignment is exact */
+                padding: 0 var(--pad-x);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* center text inside each copy */
+                color: var(--white);
+            }
+
+            /* animation runs only while hovering the button */
+            /* use class toggling from TS so we can control enter/leave precisely */
+            &.marquee-active {
+                .text-wrap {
+                    opacity: 1;
+                    /* start with transform 0 so it appears aligned with label */
+                    transform: translateX(0);
+                    animation: marquee 2.8s linear infinite;
+                }
+
+                .label {
+                    opacity: 0;
+                }
+            }
+
+            /* when marquee-active is removed, .text-wrap will transition its transform back to 0 */
+        }
+    }
+
+    .post-left-container {
+        position: absolute;
+        bottom: 0;
+        left: 80px;
+        @include dFlex($fd: column, $g: 20px);
+
+        .arrow-container {
+            height: 48px;
+            width: 30px;
+            border: 1px solid var(--turquoise);
+            border-radius: 16px;
+            padding-top: 4px;
+            @include dFlex($jc: center, $ai: center);
+
+            img {
+                width: 12px;
+                height: 18px;
+                animation: bounce 2s infinite;
+            }
+        }
+
+        .postleft {
+            width: 0;
+            height: 220px;
+            border: 1px solid var(--turquoise);
+        }
+    }
+
+    .post-right-container {
+        position: absolute;
+        bottom: 0;
+        right: 80px;
+        @include dFlex($fd: column, $g: 20px);
+
+        .links-container {
+            @include dFlex($fd: column, $g: 16px);
+
+            a {
+                @include font-fira-code($fs: 1rem, $fw: 400);
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+                transform: rotate(180deg);
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                    transform: rotate(-180deg);
+                    transition: all 0.3s ease;
+                }
+
+                &:nth-child(1):hover {
+                    color: var(--turquoise);
+                    text-shadow: 0 0 10px var(--turquoise), 0 0 20px var(--turquoise);
+                }
+
+                &:nth-child(2),
+                &:nth-child(3) {
+                    position: relative;
+
+                    &:hover {
+                        img {
+                            filter: brightness(0) invert(1);
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 8px;
+                            height: 8px;
+                            background-color: var(--turquoise);
+                            border-radius: 50%;
+                            top: 50%;
+                            right: 36px;
+                            transform: translateY(-50%) rotate(-180deg);
+                            box-shadow: 0 0 6px var(--turquoise);
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .postright {
+            width: 0;
+            height: 180px;
+            border: 1px solid var(--white);
+        }
+    }
+
+
+
+    .beam {
+        position: absolute;
+        bottom: 40px;
+        width: 100%;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.05);
+        pointer-events: none;
+        overflow: hidden;
+        @include dFlex($ai: center, $jc: flex-start);
+        
+        span {
+            @include font-karla($fs: 2rem, $fw: 400, $c: var(--turquoise));
+            white-space: nowrap;
+            display: inline-block;
+            animation: scroll-text 20s linear infinite;
+            padding-right: 0;
+        }
+    }
+}
+
+@keyframes scroll-text {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0%);
+    }
+
+    25% {
+        transform: translateY(-20%);
+    }
+
+    50% {
+        transform: translateY(0%);
+    }
+
+    75% {
+        transform: translateY(-20%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }

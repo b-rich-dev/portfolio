@@ -1,11 +1,16 @@
-@mixin dFlex($jc: center, $ai: center, $g: 0) {
+html{
+    font-size: 16px;
+}
+
+@mixin dFlex($jc: center, $ai: center, $fd: row, $g: 0) {
     display: flex;
     justify-content: $jc;
     align-items: $ai;
+    flex-direction: $fd;
     gap: $g;
 }
 
-@mixin font-fira-code($fs: 16px, $fw: 400, $c: var(--white)) {
+@mixin font-fira-code($fs: 1rem, $fw: 400, $c: var(--white)) {
     font-family: 'Fira Code';
     font-style: normal;
     font-weight: $fw;
@@ -13,7 +18,7 @@
     color: $c;
 }
 
-@mixin font-karla($fs: 16px, $fw: 400, $fs-italic: false, $c: var(--white)) {
+@mixin font-karla($fs: 1rem, $fw: 400, $fs-italic: false, $c: var(--white)) {
     font-family: 'Karla';
     font-style: if($fs-italic, italic, normal);
     font-weight: $fw;

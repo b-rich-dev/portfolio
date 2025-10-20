@@ -1,3 +1,46 @@
 <section>
-    <app-header></app-header>
+    <h3>Frontend Developer</h3>
+    <h1>Eugen Birich</h1>
+    <div class="btn-area">
+        <a class="marquee-btn" href="#" role="button" (mouseenter)="startMarquee($event)"
+            (mouseleave)="stopMarquee($event)">
+            <!-- visible label determines button width -->
+            <span class="label">Check out my work</span>
+
+            <!-- hidden duplicate content used for animated marquee on hover -->
+            <span class="text-wrap" aria-hidden="true">
+                <span class="text">Check out my work</span>
+                <span class="text">Check out my work</span>
+            </span>
+        </a>
+
+        <a class="marquee-btn" href="#contact" role="button" (mouseenter)="startMarquee($event)"
+            (mouseleave)="stopMarquee($event)">
+            <span class="label">Contact Me</span>
+            <span class="text-wrap" aria-hidden="true">
+                <span class="text">Contact Me</span>
+                <span class="text">Contact Me</span>
+            </span>
+        </a>
+    </div>
+    <div class="post-left-container">
+        <div class="arrow-container">
+            <img src="/assets/img/landing_page/arrow_down.svg" alt="arrow down">
+        </div>
+        <div class="postleft"></div>
+    </div>
+    <div class="post-right-container">
+        <div class="links-container">
+            <a href="mailto:inf@birich.tech" target="_blank">inf@birich.tech</a>
+            <a href="https://github.com/b-rich-dev" target="_blank"><img src="/assets/img/landing_page/github.svg"
+                    alt="GitHub Logo"></a>
+            <a href="https://www.linkedin.com/in/eugen-birich-8586aa389" target="_blank"><img
+                    src="./../../assets/img/landing_page/linkedin.svg" alt="LinkedIn Logo"></a>
+        </div>
+        <div class="postright"></div>
+    </div>
+    <div class="beam">
+        <span>Frontend Developer &#12539; Based in Gelnhausen &#12539; Open to work &#12539; Available for remote work &#12539; </span>
+        <span>Frontend Developer &#12539; Based in Gelnhausen &#12539; Open to work &#12539; Available for remote work &#12539; </span>
+    </div>
 </section>

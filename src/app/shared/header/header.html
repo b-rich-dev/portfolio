@@ -1,6 +1,11 @@
-<section>
+<header>
     <div class="nav-wrapper">
-        <div class="language-toggle" role="img" aria-label="language selection english"></div>
+        <div (click)="toggleLanguage()" 
+             class="language-toggle" 
+             [class.german]="currentLanguage === 'de'"
+             role="img" 
+             [attr.aria-label]="currentLanguage === 'en' ? 'language selection english' : 'language selection german'">
+        </div>
         <nav>
             <ul>
                 <li><a href="#">About me</a></li>
@@ -9,5 +14,5 @@
             </ul>
         </nav>
     </div>
-    <img src="/assets/img/header/Property 1=Default (2).svg" alt="Logo">
-</section>
+    <img src="/assets/img/header/property_1_logo.svg" alt="Logo">
+</header>
