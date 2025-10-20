@@ -1,0 +1,32 @@
+<!-- <a [href]="href" class="slide-button" target="_blank" rel="noopener noreferrer">
+  <span>{{ label }}</span>
+</a> -->
+<div class="btn-area">
+    <a class="marquee-btn" href="#" role="button" (mouseenter)="startMarquee($event)"
+        (mouseleave)="stopMarquee($event)">
+
+        <span class="label">Check out my work</span>
+
+        <span class="text-wrap" aria-hidden="true">
+            <span class="text">Check out my work</span>
+            <span class="text">Check out my work</span>
+        </span>
+    </a>
+
+    <a class="marquee-btn" href="#" role="button" (mouseenter)="startMarquee($event)"
+        (mouseleave)="stopMarquee($event)">
+        <span class="label">Contact Me</span>
+        <span class="text-wrap" aria-hidden="true">
+            <span class="text">Contact Me</span>
+            <span class="text">Contact Me</span>
+        </span>
+    </a>
+
+    <a class="test-btn" href="#" role="button">
+        <span>Test Me</span>
+        <!-- <span class="text-wrap" aria-hidden="true">
+            <span class="text">Contact Me</span>
+            <span class="text">Contact Me</span>
+        </span> -->
+    </a>
+</div>
