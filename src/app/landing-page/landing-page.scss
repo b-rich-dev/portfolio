@@ -16,6 +16,50 @@ section {
         @include font-karla($fs: 8rem, $fw: 700);
     }
 
+    .btn-area {
+        @include dFlex($g: 36px);
+        padding-top: 36px;
+
+        a:hover {
+            border: 1px solid var(--turquoise);
+        }
+
+        .btn {
+            height: 48px;
+            border: 1px solid var(--white);
+            border-radius: 100px;
+            padding: 0px 24px;
+            overflow: hidden;
+            position: relative;
+            @include dFlex($ai: center, $jc: center);
+            @include font-karla($fs: 1.12rem);
+
+            &:hover {
+                border-color: var(--turquoise);
+                
+                span {
+                    animation: scroll-text-button 3s linear infinite;
+                    color: var(--turquoise);
+                    transition: none;
+                }
+            }
+
+            &:not(:hover) {
+                span {
+                    animation: none;
+                    transform: translateX(0);
+                    transition: transform 3.5s ease-out,;
+                }
+            }
+
+            span {
+                display: inline-block;
+                white-space: nowrap;
+                transition: transform 1.5s ease-out, color 0.3s ease-out;
+            }
+        }
+    }
+
     .post-left-container {
         position: absolute;
         bottom: 0;
@@ -131,14 +175,32 @@ section {
                 @include font-karla($fs: 2rem, $fw: 400, $c: var(--turquoise));
                 white-space: nowrap;
                 display: inline-block;
-                animation: scroll-text 20s linear infinite;
+                animation: scroll-text-beam 20s linear infinite;
                 padding-right: 0;
             }
         }
     }
 }
 
-@keyframes scroll-text {
+@keyframes scroll-text-button {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-150%);
+    }
+
+    50.01% {
+        transform: translateX(150%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes scroll-text-beam {
     0% {
         transform: translateX(0);
     }
