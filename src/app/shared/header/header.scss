@@ -85,9 +85,13 @@ header {
     }
 
     img{
+        width: auto;
+        height: 80px;
+        filter: brightness(1.05);
         &:hover{
-            content: url(/assets/img/header/property_1_logo_hover.svg);
             cursor: pointer;
+            filter: invert(1) hue-rotate(180deg) saturate(2) brightness(1.05);
+            transform: scale(1.05);
         }
     }
 }
