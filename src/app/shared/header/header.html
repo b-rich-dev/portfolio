@@ -1,18 +1,17 @@
 <header>
-    <div class="nav-wrapper">
-        <div (click)="toggleLanguage()" 
-             class="language-toggle" 
-             [class.german]="currentLanguage === 'de'"
-             role="img" 
-             [attr.aria-label]="currentLanguage === 'en' ? 'language selection english' : 'language selection german'">
+    <div class="header-wrapper">
+        <div class="nav-wrapper">
+            <div (click)="toggleLanguage()" class="language-toggle" [class.german]="currentLanguage === 'de'" role="img"
+                [attr.aria-label]="currentLanguage === 'en' ? 'language selection english' : 'language selection german'">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">About me</a></li>
+                    <li><a href="#">Skills</a></li>
+                    <li><a href="#">Projects</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">About me</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Projects</a></li>
-            </ul>
-        </nav>
+        <img src="/assets/img/logo_kit/transparent_logo.png" alt="Logo">
     </div>
-    <img src="/assets/img/logo_kit/transparent_logo.png" alt="Logo">
 </header>

@@ -4,240 +4,249 @@ section {
     height: 100vh;
     width: 100%;
     background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
-    @include dFlex($fd: column, $ai: center, $jc: center, $g: 12px);
+    @include dFlex($fd: column);
 
-    h3 {
-        @include font-fira-code($fs: 2.5rem, $fw: 300);
-        margin-block-start: 0;
-        margin-block-end: 0;
-    }
+    .landing-page-wrapper {
+        @include dFlex($fd: column, $g: 12px);
+        position: relative;
+        height: 100%;
+        width: 100%;
+        max-width: 1940px;
+        padding: 0 80px;
 
-    h1 {
-        @include font-karla($fs: 8rem, $fw: 700);
-    }
-
-    .btn-area {
-        @include dFlex($g: 36px);
-        padding-top: 36px;
-
-        a:hover {
-            border: 1px solid var(--turquoise);
+        h3 {
+            @include font-fira-code($fs: 2.5rem, $fw: 300);
+            margin-block-start: 0;
+            margin-block-end: 0;
         }
 
-        .btn {
-            height: 48px;
-            border: 1px solid var(--white);
-            border-radius: 100px;
-            padding: 0px 24px;
-            overflow: hidden;
-            position: relative;
-            @include dFlex($ai: center, $jc: center);
-            @include font-karla($fs: 1.12rem);
+        h1 {
+            @include font-karla($fs: 8rem, $fw: 700);
+        }
 
-            &:hover {
-                border-color: var(--turquoise);
-                
+        .btn-area {
+            @include dFlex($g: 36px);
+            padding-top: 36px;
+
+            a:hover {
+                border: 1px solid var(--turquoise);
+            }
+
+            .btn {
+                height: 48px;
+                border: 1px solid var(--white);
+                border-radius: 100px;
+                padding: 0px 24px;
+                overflow: hidden;
+                position: relative;
+                @include dFlex($ai: center, $jc: center);
+                @include font-karla($fs: 1.12rem);
+
+                &:hover {
+                    border-color: var(--turquoise);
+
+                    span {
+                        animation: scroll-text-button 3s linear infinite;
+                        color: var(--turquoise);
+                        transition: none;
+                    }
+                }
+
+                &:not(:hover) {
+                    span {
+                        animation: none;
+                        transform: translateX(0);
+                        transition: transform 3.5s ease-out, ;
+                    }
+                }
+
                 span {
-                    animation: scroll-text-button 3s linear infinite;
-                    color: var(--turquoise);
-                    transition: none;
+                    display: inline-block;
+                    white-space: nowrap;
+                    transition: transform 1.5s ease-out, color 0.3s ease-out;
                 }
             }
-
-            &:not(:hover) {
-                span {
-                    animation: none;
-                    transform: translateX(0);
-                    transition: transform 3.5s ease-out,;
-                }
-            }
-
-            span {
-                display: inline-block;
-                white-space: nowrap;
-                transition: transform 1.5s ease-out, color 0.3s ease-out;
-            }
-        }
-    }
-
-    .post-left-container {
-        position: absolute;
-        bottom: 0;
-        left: 80px;
-        @include dFlex($fd: column, $g: 20px);
-
-        .arrow-container {
-            height: 48px;
-            width: 30px;
-            border: 1px solid var(--turquoise);
-            border-radius: 16px;
-            padding-top: 4px;
-            @include dFlex($jc: center, $ai: center);
-
-            img {
-                width: 12px;
-                height: 18px;
-                animation: bounce 2s infinite;
-            }
         }
 
-        .postleft {
-            width: 0;
-            height: 220px;
-            border: 1px solid var(--turquoise);
-        }
-    }
+        .post-left-container {
+            position: absolute;
+            bottom: 0;
+            left: 80px;
+            @include dFlex($fd: column, $g: 20px);
 
-    .post-right-container {
-        position: absolute;
-        bottom: 0;
-        right: 80px;
-        @include dFlex($fd: column, $g: 20px);
-
-        .links-container {
-            @include dFlex($fd: column, $g: 16px);
-
-            a {
-                @include font-fira-code($fs: 1rem, $fw: 400);
-                writing-mode: vertical-rl;
-                text-orientation: mixed;
-                transform: rotate(180deg);
+            .arrow-container {
+                height: 48px;
+                width: 32px;
+                border: 1px solid var(--turquoise);
+                border-radius: 16px;
+                padding-top: 4px;
+                @include dFlex($jc: center, $ai: center);
 
                 img {
-                    width: 32px;
-                    height: 32px;
-                    transform: rotate(-180deg);
-                    transition: all 0.3s ease;
+                    width: 12px;
+                    height: 18px;
+                    animation: bounce 2s infinite;
                 }
+            }
 
-                &:nth-child(1):hover {
-                    color: var(--turquoise);
-                    text-shadow: 0 0 10px var(--turquoise), 0 0 20px var(--turquoise);
-                }
+            .postleft {
+                width: 0;
+                height: 220px;
+                border: 1px solid var(--turquoise);
+            }
+        }
 
-                &:nth-child(2),
-                &:nth-child(3) {
-                    position: relative;
+        .post-right-container {
+            position: absolute;
+            bottom: 0;
+            right: 80px;
+            @include dFlex($fd: column, $g: 20px);
 
-                    &:hover {
-                        img {
-                            filter: brightness(0) invert(1);
-                        }
+            .links-container {
+                @include dFlex($fd: column, $g: 16px);
 
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            width: 8px;
-                            height: 8px;
-                            background-color: var(--turquoise);
-                            border-radius: 50%;
-                            top: 50%;
-                            right: 36px;
-                            transform: translateY(-50%) rotate(-180deg);
-                            box-shadow: 0 0 6px var(--turquoise);
+                a {
+                    @include font-fira-code($fs: 1rem, $fw: 400);
+                    writing-mode: vertical-rl;
+                    text-orientation: mixed;
+                    transform: rotate(180deg);
+
+                    img {
+                        width: 32px;
+                        height: 32px;
+                        transform: rotate(-180deg);
+                        transition: all 0.3s ease;
+                    }
+
+                    &:nth-child(1):hover {
+                        color: var(--turquoise);
+                        text-shadow: 0 0 10px var(--turquoise), 0 0 20px var(--turquoise);
+                    }
+
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        position: relative;
+
+                        &:hover {
+                            img {
+                                filter: brightness(0) invert(1);
+                            }
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                width: 8px;
+                                height: 8px;
+                                background-color: var(--turquoise);
+                                border-radius: 50%;
+                                top: 50%;
+                                right: 36px;
+                                transform: translateY(-50%) rotate(-180deg);
+                                box-shadow: 0 0 6px var(--turquoise);
+                            }
                         }
                     }
                 }
+
             }
 
+            .postright {
+                width: 0;
+                height: 180px;
+                border: 1px solid var(--white);
+            }
         }
 
-        .postright {
-            width: 0;
-            height: 180px;
-            border: 1px solid var(--white);
-        }
-    }
 
-
-    .beam-container {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 200px;
-        overflow: hidden;
-        z-index: 10;
-
-        .beam {
+        .beam-container {
             position: absolute;
-            bottom: 48px;
+            bottom: 0;
             width: 100%;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.199);
-            pointer-events: none;
+            height: 200px;
             overflow: hidden;
-            @include dFlex($ai: center, $jc: flex-start);
-            transform: rotate(-3deg);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
+            z-index: 10;
 
-            span {
-                @include font-karla($fs: 2rem, $fw: 400, $c: var(--turquoise));
-                white-space: nowrap;
-                display: inline-block;
-                animation: scroll-text-beam 20s linear infinite;
-                padding-right: 0;
+            .beam {
+                position: absolute;
+                bottom: 48px;
+                width: 100%;
+                height: 60px;
+                background: rgba(255, 255, 255, 0.199);
+                pointer-events: none;
+                overflow: hidden;
+                @include dFlex($ai: center, $jc: flex-start);
+                transform: rotate(-3deg);
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+
+                span {
+                    @include font-karla($fs: 2rem, $fw: 400, $c: var(--turquoise));
+                    white-space: nowrap;
+                    display: inline-block;
+                    animation: scroll-text-beam 20s linear infinite;
+                    padding-right: 0;
+                }
             }
         }
     }
-}
 
-@keyframes scroll-text-button {
-    0% {
-        transform: translateX(0);
+    @keyframes scroll-text-button {
+        0% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(-150%);
+        }
+
+        50.01% {
+            transform: translateX(150%);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
     }
 
-    50% {
-        transform: translateX(-150%);
+    @keyframes scroll-text-beam {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
     }
 
-    50.01% {
-        transform: translateX(150%);
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
     }
 
-    100% {
-        transform: translateX(0);
-    }
-}
+    @keyframes bounce {
+        0% {
+            transform: translateY(0%);
+        }
 
-@keyframes scroll-text-beam {
-    0% {
-        transform: translateX(0);
-    }
+        25% {
+            transform: translateY(-20%);
+        }
 
-    100% {
-        transform: translateX(-100%);
-    }
-}
+        50% {
+            transform: translateY(0%);
+        }
 
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
+        75% {
+            transform: translateY(-20%);
+        }
 
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateY(0%);
-    }
-
-    25% {
-        transform: translateY(-20%);
-    }
-
-    50% {
-        transform: translateY(0%);
-    }
-
-    75% {
-        transform: translateY(-20%);
-    }
-
-    100% {
-        transform: translateY(0);
+        100% {
+            transform: translateY(0);
+        }
     }
 }
