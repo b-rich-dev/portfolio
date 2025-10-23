@@ -1,0 +1,73 @@
+@use '../../styles.scss' as *;
+
+section {
+    @include dFlex();
+    background-color: var(--dark);
+    width: 100%;
+    height: 100%;
+    @include font-karla(var(--white));
+
+    .featured-projects-wrapper {
+        @include dFlex($jc: unset, $fd: column, $ai: unset);
+        padding: 0 80px 152px 80px;
+        width: 100%;
+        height: 100%;
+        max-width: 1940px;
+
+        p {
+            @include font-karla($fs: 1.5rem, $fw: 400, $c: var(--turquoise));
+        }
+
+        h2 {
+            @include font-fira-code($fs: 4rem, $fw: 700, $c: var(--turquoise));
+            padding-bottom: 20px;
+        }
+
+        span {
+            max-width: 456px;
+            @include font-karla($fs: 1.125rem, $fw: 400);
+            padding-bottom: 34px;
+        }
+
+        .block {
+            @include dFlex($jc: space-between, $ai: center);
+            width: 100%;
+            height: 100%;
+
+            .block-left {
+                @include dFlex($jc: space-between);
+                border-top: var(--turquoise) solid 1px;
+                width: 70%;
+                padding: 40px 0 40px 0;
+
+                h3 {
+                    @include font-fira-code($fs: 1.5rem, $fw: 700, $c: var(--white));
+                }
+
+                .work-sets {
+                    @include font-karla($fs: 1.125rem);
+
+                    span {
+                        color: var(--turquoise);
+                    }
+                }
+            }
+
+            .block-right {
+                position: relative;
+                width: 20%;
+                height: auto;
+
+                img {
+                    position: absolute;
+                }
+            }
+
+            &:last-child {
+                .block-left {
+                    border-bottom: var(--turquoise) solid 1px;
+                }
+            }
+        }
+    }
+}
