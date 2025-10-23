@@ -1,0 +1,184 @@
+@use '../../styles.scss' as *;
+
+section {
+    @include dFlex();
+    background: radial-gradient(ellipse at left center, var(--dark-green) 36%, var(--dark) 69%);
+    width: 100%;
+    height: 100%;
+    @include font-karla(var(--white));
+
+    .skill-set-wrapper {
+        @include dFlex($jc: unset);
+        padding: 0 80px 152px 80px;
+        width: 100%;
+        height: 100%;
+        max-width: 1940px;
+
+        .skill-set-container {
+            @include dFlex($jc: space-between, $ai: unset);
+            width: 100%;
+
+            .text-container {
+                @include dFlex($fd: column, $ai: unset, $g: 20px);
+                max-width: 568px;
+
+                p {
+                    @include font-karla($fs: 1.5rem, $fw: 400, $c: var(--turquoise));
+                }
+
+                .skill-set {
+                    border: var(--turquoise) solid 1px;
+                    border-radius: 30px;
+                    background-color: var(--dark-green);
+                    padding: 36px;
+                    width: 100%;
+                    height: 100%;
+
+                    h2 {
+                        @include font-fira-code($fs: 4rem, $fw: 700, $c: var(--turquoise));
+                        padding-bottom: 20px;
+                    }
+
+                    p {
+                        @include font-karla($fs: 1.125rem, $fw: 400, $c: var(--light-grey));
+
+                        &:hover {
+                            color: var(--white);
+                        }
+                    }
+
+                    h3 {
+                        @include font-fira-code($fs: 1.5rem, $fw: 700, $c: var(--white));
+                        margin: 32px 0 16px;
+                    }
+
+                    .turquoise {
+                        color: var(--turquoise);
+                    }
+
+                    .btn {
+                        height: 48px;
+                        border: 1px solid var(--white);
+                        border-radius: 100px;
+                        padding: 0px 24px;
+                        margin-top: 40px;
+                        overflow: hidden;
+                        position: relative;
+                        width: auto;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        @include font-karla($fs: 1.12rem);
+
+                        &:hover {
+                            border-color: var(--turquoise);
+
+                            span {
+                                animation: scroll-text-button 3s linear infinite;
+                                color: var(--turquoise);
+                                transition: none;
+                            }
+                        }
+
+                        &:not(:hover) {
+                            span {
+                                animation: none;
+                                transform: translateX(0);
+                                transition: transform 3.5s ease-out, ;
+                            }
+                        }
+
+                        span {
+                            display: inline-block;
+                            white-space: nowrap;
+                            transition: transform 1.5s ease-out, color 0.3s ease-out;
+                        }
+                    }
+                }
+            }
+
+            .icons-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 64px;
+                align-items: start;
+                padding-top: 48px;
+
+                .skill-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 8px;
+
+                    img {
+                        width: 60px;
+                        height: 60px;
+
+                        &:hover {
+                            transform: scale(1.1);
+                            transition: transform 0.3s ease-in-out;
+                        }
+                    }
+
+                    p {
+                        @include font-fira-code($fs: 1.125rem, $fw: 400, $c: var(--white));
+                        margin: 0;
+                        text-align: center;
+                    }
+                }
+
+                .special-hover {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 8px;
+
+                    &:hover {
+
+                        .gm-icon {
+                            transform: scale(1.1);
+                            transition: transform 0.3s ease-in-out;
+                        }
+
+                        p {
+                            color: var(--turquoise) !important;
+                        }
+
+                        .interest-skills {
+                            opacity: 1;
+                            transition: opacity 0.3s ease-in-out;
+                        }
+                    }
+
+                    .interest-skills {
+                        position: absolute;
+                        top: -106px;
+                        left: 0;
+                        width: 188px;
+                        height: 129px;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes scroll-text-button {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-150%);
+    }
+
+    50.01% {
+        transform: translateX(150%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
