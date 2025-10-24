@@ -1,22 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LandingPage } from './landing-page/landing-page';
 import { Header } from './shared/header/header';
-import { AboutMe } from './about-me/about-me';
-import { SkillSet } from './skill-set/skill-set';
-import { FeaturedProjects } from './featured-projects/featured-projects';
 import { Footer } from './shared/footer/footer';
 
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet, 
-    LandingPage, 
+    RouterOutlet,
     Header,
-    Footer, 
-    AboutMe, 
-    SkillSet, 
-    FeaturedProjects],
+    Footer
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
