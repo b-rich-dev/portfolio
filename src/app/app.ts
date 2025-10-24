@@ -5,10 +5,18 @@ import { Header } from './shared/header/header';
 import { AboutMe } from './about-me/about-me';
 import { SkillSet } from './skill-set/skill-set';
 import { FeaturedProjects } from './featured-projects/featured-projects';
+import { Footer } from './shared/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LandingPage, Header, AboutMe, SkillSet, FeaturedProjects],
+  imports: [
+    RouterOutlet, 
+    LandingPage, 
+    Header,
+    Footer, 
+    AboutMe, 
+    SkillSet, 
+    FeaturedProjects],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
