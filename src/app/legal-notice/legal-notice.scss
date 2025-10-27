@@ -1,0 +1,50 @@
+@use '../../mixin.scss' as *;
+
+section {
+    height: auto;
+    width: 100%;
+    background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
+    @include dFlex($fd: column);
+
+    .legal-notice-wrapper {
+        @include dFlex($fd: column);
+        padding: 160px 80px 0 80px;
+
+        .legal-notice-content {
+            @include dFlex($fd: column, $ai: flex-start);
+            padding: 0px 80px 0 80px;
+
+            h3 {
+                @include font-karla($fs: 1.25rem, $fw: 700, $c: var(--white));
+            }
+
+            ul {
+                @include font-karla($fs: 1rem, $fw: 400, $c: var(--turquoise));
+                padding: 24px;
+            }
+
+            p {
+                @include font-karla($fs: 1rem, $fw: 400, $c: var(--turquoise));
+                padding-bottom: 24px;
+            }
+
+            a {
+                color: var(--turquoise);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: var(--turquoise);
+                    text-shadow: 0 0 10px var(--turquoise), 0 0 20px var(--turquoise);
+                }
+            }
+
+            span{
+                color: var(--white);
+            }
+
+            h4{
+                @include font-karla($fs: 1.12rem, $fw: 600, $c: var(--dark-turquoise));
+            }
+        }
+    }
+}

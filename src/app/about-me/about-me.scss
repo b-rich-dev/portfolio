@@ -1,4 +1,4 @@
-@use '../../styles.scss' as *;
+@use '../../mixin.scss' as *;
 
 section {
     @include dFlex();
@@ -62,12 +62,7 @@ section {
                 padding: 36px;
                 max-width: 568px;
 
-                h2 {
-                    @include font-fira-code($fs: 4rem, $fw: 700, $c: var(--turquoise));
-                    padding-bottom: 20px;
-                }
-
-                p{
+                p {
                     @include font-karla($fs: 1.125rem, $c: var(--white));
                     padding-bottom: 20px;
                 }
@@ -77,13 +72,13 @@ section {
                     grid-template-columns: auto 1fr;
                     gap: 20px;
                     align-items: flex-start;
-                    
+
                     img {
                         height: 32px;
                         width: 32px;
                         margin: 4px 0 0 -16px;
                     }
-                    
+
                     p {
                         color: var(--light-grey);
 
