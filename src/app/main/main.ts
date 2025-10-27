@@ -3,6 +3,7 @@ import { LandingPage } from '../landing-page/landing-page';
 import { AboutMe } from '../about-me/about-me';
 import { SkillSet } from '../skill-set/skill-set';
 import { FeaturedProjects } from '../featured-projects/featured-projects';
+import { Social } from '../social/social';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,8 @@ import { FeaturedProjects } from '../featured-projects/featured-projects';
     LandingPage,
     AboutMe,
     SkillSet,
-    FeaturedProjects
+    FeaturedProjects,
+    Social
   ],
   templateUrl: './main.html',
   styleUrl: './main.scss'

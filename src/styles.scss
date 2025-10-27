@@ -11,7 +11,37 @@ html {
     font-size: 16px;
 }
 
+
+body {
+    --sb-track-color: var(--dark);
+    --sb-thumb-color: var(--turquoise);
+    --sb-size: 8px;
+    background-color: var(--dark);
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 4px;
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
 :root {
+    --light-turquoise: #00ffc3;
     --turquoise: #3DCFB6;
     --dark-turquoise: #267e6e;
     --dark: #1C1C1C;
