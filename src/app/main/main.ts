@@ -4,6 +4,7 @@ import { AboutMe } from '../about-me/about-me';
 import { SkillSet } from '../skill-set/skill-set';
 import { FeaturedProjects } from '../featured-projects/featured-projects';
 import { Social } from '../social/social';
+import { Contact } from '../contact/contact';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +13,8 @@ import { Social } from '../social/social';
     AboutMe,
     SkillSet,
     FeaturedProjects,
-    Social
+    Social,
+    Contact
   ],
   templateUrl: './main.html',
   styleUrl: './main.scss'
