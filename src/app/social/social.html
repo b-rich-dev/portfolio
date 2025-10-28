@@ -2,45 +2,17 @@
     <div class="social-wrapper">
         <h3>What my colleagues say about me</h3>
         <div class="comments-container">
-            <div class="comment">
-                <span>Die Zusammenarbeit mit Eugen hat mir großen Spaß gemacht. Wir konnten gemeinsam tolle Erfolge
-                    erzielen,
-                    uns regelmäßig über neue Themen austauschen und haben auch bei komplexen Problemstellungen immer
-                    eine
-                    sehr
-                    gute und offene Kommunikation gepflegt.
-
-                    Besonders beeindruckt haben mich seine reife und gewissenhafte Arbeitsweise sowie seine ausgeprägte
-                    Teamfähigkeit. Eugen ist jemand, auf den man sich jederzeit verlassen kann – fachlich kompetent,
-                    menschlich
-                    angenehm und immer mit einem lösungsorientierten Ansatz.
-
-                    Ich freue mich auf weitere Projekte mit ihm und kann die Zusammenarbeit mit Eugen nur absolut
-                    empfehlen.
-                </span>
-                <p>Mathias Johann Josef Voigt Team Kollege</p>
-            </div>
-            <div class="comment active">
-                <span>Er arbeitet sehr strukturiert und effizient, wodurch Aufgaben schnell und fehlerfrei umgesetzt
-                    werden.
-                    Besonders beeindruckend ist seine Fähigkeit, sich rasch und sicher in bestehenden Code
-                    einzuarbeiten. Er
-                    verfügt über fundierte Kenntnisse in HTML, CSS, JavaScript, TypeScript und Angular sowie Erfahrung
-                    mit
-                    Git,
-                    GitHub, Firebase und Figma. Die Zusammenarbeit mit ihm ist stets angenehm, professionell und
-                    konstruktiv
-                </span>
-                <p>Domenik Rombach Team Kollege</p>
-            </div>
-            <div class="comment">
-                <span>kommt noch
-                </span>
-                <p>Claudia Wick Team Kollegin</p>
+            <div class="comments-slider" [class.no-transition]="disableTransition" [class.animating]="isAnimating" [style.transform]="'translateX(' + slideOffset + 'px)'">
+                @for (item of getVisibleComments(); track i; let i = $index) {
+                    <div class="comment {{i === 2 ? 'active' : ''}}">
+                        <span>{{item.data.textEn}}</span>
+                        <p>{{item.data.authorEn}}</p>
+                    </div>
+                }
             </div>
         </div>
         <div class="controls">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg (click)="prevComment()" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_77112_958" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="32"
                     height="32">
                     <rect x="4" y="4" width="32" height="32" fill="#D9D9D9" />
@@ -52,11 +24,11 @@
                 </g>
             </svg>
             <div class="dots">
-                <span class="dot"></span>
-                <span class="dot active"></span>
-                <span class="dot"></span>
+                @for (comment of comments; track comment.authorEn; let i = $index) {
+                    <span class="dot {{i === activeCommentIndex ? 'active' : ''}}"></span>
+                }
             </div>
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg (click)="nextComment()" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_77112_965" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="32"
                     height="32">
                     <rect x="4" y="4" width="32" height="32" fill="#D9D9D9" />
