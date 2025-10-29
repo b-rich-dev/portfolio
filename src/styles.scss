@@ -44,10 +44,12 @@ body::-webkit-scrollbar-thumb {
     --light-turquoise: #00ffc3;
     --turquoise: #3DCFB6;
     --dark-turquoise: #267e6e;
+    --turquoise-hover: rgba(61, 207, 182, 0.6);
     --dark: #1C1C1C;
     --dark-green: #08463B;
     --white: #FFFFFF;
     --light-grey: rgba(255, 255, 255, 0.8);
+    --warn: rgba(236, 123, 123, 0.8);
 }
 
 .d-none {
@@ -88,7 +90,7 @@ h2 {
         span {
             animation: none;
             transform: translateX(0);
-            transition: transform 3.5s ease-out, ;
+            transition: transform 3.5s ease-out;
         }
     }
 
@@ -96,6 +98,7 @@ h2 {
         display: inline-block;
         white-space: nowrap;
         transition: transform 1.5s ease-out, color 0.3s ease-out;
+        will-change: transform;
     }
 }
 

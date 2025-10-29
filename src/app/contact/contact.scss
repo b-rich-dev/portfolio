@@ -1,0 +1,143 @@
+@use '../../mixin.scss' as *;
+
+section {
+    @include dFlex($ai: unset);
+    width: 100%;
+    height: 100%;
+    @include font-karla(var(--white));
+
+    .contact-wrapper {
+        @include dFlex($jc: unset, $ai: unset, $fd: row, $g: 40px);
+        padding: 152px 80px 152px 80px;
+        width: 100%;
+        height: 100%;
+        max-width: 1940px;
+
+        .contact-text {
+            @include dFlex($jc: unset, $fd: column, $ai: flex-start, $g: 16px);
+            width: 50%;
+
+            h3 {
+                @include font-karla($fs: 1.5rem, $fw: 500, $c: var(--turquoise));
+            }
+
+            p {
+                @include font-karla($fs: 1.125rem, $fw: 400);
+
+                span {
+                    @include font-karla($fs: 1.125rem, $fw: 700, $c: var(--turquoise));
+                }
+            }
+        }
+
+        form {
+            @include dFlex($fd: column, $g: 16px, $ai: center);
+            width: 50%;
+
+            .label-wrapper {
+                @include dFlex($fd: column, $g: 16px, $ai: flex-start);
+                width: 100%;
+                border-top: 1px solid var(--turquoise);
+                padding-top: 16px;
+                // border-bottom: 1px solid var(--turquoise);
+
+                label {
+                    @include font-fira-code($fs: 1.5rem, $fw: 500, $c: var(--turquoise));
+                    padding-left: 16px;
+                }
+
+                input,
+                textarea {
+                    background-color: var(--dark);
+                    border: none;
+                    @include font-karla($fs: 1.125rem, $fw: 400, $c: var(--white));
+                    resize: none;
+                    width: 100%;
+                    padding-left: 16px;
+
+                    &::placeholder {
+                        @include font-karla($fs: 1.125rem, $fw: 400, $c: var(--light-grey));
+                    }
+
+                    &:hover::placeholder {
+                        color: var(--white);
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                input.invalid::placeholder,
+                textarea.invalid::placeholder {
+                    @include font-karla($fs: 1.125rem, $fw: 400, $c: var(--warn));
+                }
+
+                input.invalid::placeholder,
+                textarea.invalid::placeholder {
+                    color: var(--warn);
+                }
+
+                textarea {
+                    border-bottom: 1px solid var(--turquoise);
+                }
+            }
+
+            .warn-wrapper {
+                @include dFlex($fd: column, $ai: unset, $g: 12px);
+                padding-top: 24px;
+
+                .checkbox-wrapper {
+                    @include dFlex($ai: center, $g: 12px);
+
+                    img:hover {
+                        background-color: var(--turquoise-hover);
+                        border-radius: 50%;
+                    }
+
+                    p {
+                        @include font-karla($fs: 1rem, $fw: 400, $c: var(--white));
+
+                        span {
+                            @include font-fira-code($fs: 1rem, $fw: 400, $c: var(--turquoise));
+                            cursor: pointer;
+
+                            &:hover {
+                                color: var(--white);
+                                text-decoration: underline;
+                                text-decoration-color: var(--turquoise);
+                                text-underline-offset: 8px;
+                                text-decoration-thickness: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            button {
+                margin-top: 24px;
+                background-color: transparent;
+                @include font-karla($fs: 1rem, $fw: 700, $c: var(--white));
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@keyframes scroll-text-button {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-150%);
+    }
+
+    50.01% {
+        transform: translateX(150%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

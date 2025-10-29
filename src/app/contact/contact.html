@@ -1,6 +1,6 @@
 <section>
     <div class="contact-wrapper">
-        <div>
+        <div class="contact-text">
             <h3>Contact me</h3>
             <h2>Let's work <br> together</h2>
             <h3>Got a problem to solve?</h3>
@@ -12,18 +12,38 @@
                 Need a Frontend developer? <span>Let’s talk!</span>
             </p>
         </div>
-        <form action="">
-            <label for="name">What's your name?</label>
-            <input name="name" type="text" placeholder="Your Name goes here" required />
-            <label for="email">What's your email?</label>
-            <input name="email" type="email" placeholder="yourmail@email.com" required />
-            <label for="message">How can I help you?</label>
-            <textarea name="message" rows="5" placeholder="Hello Eugen, I am interested in..." required></textarea>
-            <div>
-                <img src="./../../assets/img/contact/square.svg" alt="Square icon to check" />
-                <p>I've read the <span>private policy</span> and agree to the processing of my data as outlined.</p>
+        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+            <div class="label-wrapper">
+                <label for="name">What's your name?</label>
+                <input #name="ngModel" [(ngModel)]="contactData.name" name="name" type="text"
+                    [placeholder]="(name.invalid && (name.touched || contactForm.submitted)) ? 'Oops! it seems your name is missing' : 'Your Name goes here'"
+                    required [class.invalid]="name.invalid && (name.touched || contactForm.submitted)" />
             </div>
-            <button type="submit">Say Hello :)</button>
+            <div class="label-wrapper">
+                <label for="email">What's your email?</label>
+                <input #email="ngModel" [(ngModel)]="contactData.email" name="email" type="email"
+                    [placeholder]="(email.invalid && (email.touched || contactForm.submitted)) ? 'Hoppla! your email is required' : 'yourmail@email.com'"
+                    required pattern=".+@.+\..+"
+                    [class.invalid]="email.invalid && (email.touched || contactForm.submitted)" />
+            </div>
+            <div class="label-wrapper">
+                <label for="message">How can I help you?</label>
+                <textarea #message="ngModel" minlength="3" [(ngModel)]="contactData.message" name="message"
+                    [placeholder]="(message.invalid && (message.touched || contactForm.submitted)) ? 'What do you need to develop?' : 'Hello Eugen, I am interested in...'"
+                    required [class.invalid]="message.invalid && (message.touched || contactForm.submitted)"></textarea>
+            </div>
+            <div class="warn-wrapper">
+                <div class="checkbox-wrapper">
+                    <img id="accept-policy" (click)="toggleAcceptPolicy()"
+                        [src]="acceptPolicy ? '/assets/img/contact/square_checked.svg' : '/assets/img/contact/square.svg'"
+                        alt="Square icon to check" />
+                    <p>I've read the <span>privacy policy</span> and agree to the processing of my data as outlined.</p>
+                </div>
+                @if (!acceptPolicy && contactForm.submitted) {
+                <p style="color: var(--warn);">Please accept the privacy policy.</p>
+                }
+            </div>
+            <button class="btn" type="submit"><span>Say Hello :)</span></button>
         </form>
     </div>
 </section>
