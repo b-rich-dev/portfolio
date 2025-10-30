@@ -2,15 +2,15 @@
     <div class="footer-wrapper">
         <div>
             <img src="./../../../assets/img/logo_kit/transparent_logo.png" alt="Logo">
-            <p>Web Developer</p>
-            <p>Gelnhausen Germany</p>
+            <p>{{ currentLanguage() === 'en' ? 'Web Developer' : 'Webentwickler' }}</p>
+            <p>{{ currentLanguage() === 'en' ? 'Gelnhausen Germany' : 'Gelnhausen Deutschland' }}</p>
         </div>
-        <p>&copy; Birich 2025. All rights reserved.</p>
+        <p>&copy; {{ currentLanguage() === 'en' ? 'Birich 2025. All rights reserved.' : 'Birich 2025. Alle Rechte vorbehalten.' }}</p>
         <nav class="footer-nav">
             <a href="https://github.com/b-rich-dev" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com/in/eugen-birich-8586aa389" target="_blank">LinkedIn</a>
             <a href="mailto:info@birich.tech">Email</a>
-            <a href="legal-notice">Legal Notice</a>
+            <a href="legal-notice">{{ currentLanguage() === 'en' ? 'Legal Notice' : 'Rechtlicher Hinweis' }}</a>
         </nav>
     </div>
 </footer>

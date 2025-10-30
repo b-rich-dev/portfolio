@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
+import { LanguageService } from '../services/language';
 
 @Component({
   selector: 'app-featured-projects',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './featured-projects.scss'
 })
 export class FeaturedProjects {
-
+  public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
 }

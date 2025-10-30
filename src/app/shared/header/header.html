@@ -1,14 +1,20 @@
 <header>
     <div class="header-wrapper">
         <div class="nav-wrapper">
-            <div (click)="toggleLanguage()" class="language-toggle" [class.german]="currentLanguage === 'de'" role="img"
-                [attr.aria-label]="currentLanguage === 'en' ? 'language selection english' : 'language selection german'">
+            <div (click)="toggleLanguage()" class="language-toggle" [class.german]="currentLanguage() === 'de'" role="img"
+                [attr.aria-label]="currentLanguage() === 'en' ? 'language selection english' : 'language selection german'">
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">About me</a></li>
-                    <li><a href="#">Skills</a></li>
-                    <li><a href="#">Projects</a></li>
+                    @if (currentLanguage() === 'en') {
+                    <li><a href="#app-about-me">About me</a></li>
+                    <li><a href="#skill-set">Skills</a></li>
+                    <li><a href="#featured-projects">Projects</a></li>
+                    } @else {
+                    <li><a href="#app-about-me">Über mich</a></li>
+                    <li><a href="#skill-set">Fähigkeiten</a></li>
+                    <li><a href="#featured-projects">Projekte</a></li>
+                    }
                 </ul>
             </nav>
         </div>

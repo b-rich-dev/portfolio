@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { LanguageService } from '../../services/language';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './header.scss'
 })
 export class Header {
-  currentLanguage: 'en' | 'de' = 'en';
+  currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
+  set = inject(LanguageService);
 
   toggleLanguage() {
-    this.currentLanguage = this.currentLanguage === 'en' ? 'de' : 'en';
+    this.set.toggleLanguageService();
   }
 }

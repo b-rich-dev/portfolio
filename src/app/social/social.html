@@ -1,18 +1,29 @@
 <section>
     <div class="social-wrapper">
-        <h3>What my colleagues say about me</h3>
+        <h3>{{ currentLanguage() === 'en' ? 'What my colleagues say about me' : 'Was meine Kollegen über mich sagen' }}</h3>
         <div class="comments-container">
-            <div class="comments-slider" [class.no-transition]="disableTransition" [class.animating]="isAnimating" [style.transform]="'translateX(' + slideOffset + 'px)'">
+            <div class="comments-slider" [class.no-transition]="disableTransition" [class.animating]="isAnimating"
+                [style.transform]="'translateX(' + slideOffset + 'px)'">
+                @if (currentLanguage() === 'en') {
                 @for (item of getVisibleComments(); track i; let i = $index) {
-                    <div class="comment {{i === 2 ? 'active' : ''}}">
-                        <span>{{item.data.textEn}}</span>
-                        <p>{{item.data.authorEn}}</p>
-                    </div>
+                <div class="comment {{i === 2 ? 'active' : ''}}">
+                    <span>{{item.data.textEn}}</span>
+                    <p>{{item.data.authorEn}}</p>
+                </div>
+                }
+                } @else {
+                @for (item of getVisibleComments(); track i; let i = $index) {
+                <div class="comment {{i === 2 ? 'active' : ''}}">
+                    <span>{{item.data.textDe}}</span>
+                    <p>{{item.data.authorDe}}</p>
+                </div>
+                }
                 }
             </div>
         </div>
         <div class="controls">
-            <svg (click)="prevComment()" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg (click)="prevComment()" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_77112_958" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="32"
                     height="32">
                     <rect x="4" y="4" width="32" height="32" fill="#D9D9D9" />
@@ -25,10 +36,11 @@
             </svg>
             <div class="dots">
                 @for (comment of comments; track comment.authorEn; let i = $index) {
-                    <span class="dot {{i === activeCommentIndex ? 'active' : ''}}"></span>
+                <span class="dot {{i === activeCommentIndex ? 'active' : ''}}"></span>
                 }
             </div>
-            <svg (click)="nextComment()" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg (click)="nextComment()" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_77112_965" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="32"
                     height="32">
                     <rect x="4" y="4" width="32" height="32" fill="#D9D9D9" />

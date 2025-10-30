@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
+import { LanguageService } from '../services/language';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './landing-page.scss'
 })
 export class LandingPage {
-  
+  public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
+
 }

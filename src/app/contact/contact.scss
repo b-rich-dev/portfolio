@@ -3,7 +3,6 @@
 section {
     @include dFlex($ai: unset);
     width: 100%;
-    height: 100%;
     @include font-karla(var(--white));
 
     .contact-wrapper {
@@ -31,7 +30,7 @@ section {
         }
 
         form {
-            @include dFlex($fd: column, $g: 16px, $ai: center);
+            @include dFlex($fd: column, $g: 16px, $ai: flex-start);
             width: 50%;
 
             .label-wrapper {
@@ -80,6 +79,7 @@ section {
 
                 textarea {
                     border-bottom: 1px solid var(--turquoise);
+                    overflow: visible;
                 }
             }
 
@@ -115,7 +115,8 @@ section {
             }
 
             button {
-                margin-top: 24px;
+                margin: 16px auto 0 auto;
+                display: block;
                 background-color: transparent;
                 @include font-karla($fs: 1rem, $fw: 700, $c: var(--white));
                 cursor: pointer;

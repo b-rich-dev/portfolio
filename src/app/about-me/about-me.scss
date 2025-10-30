@@ -3,7 +3,6 @@
 section {
     @include dFlex();
     width: 100%;
-    height: 100%;
 
     .about-me-wrapper {
         @include dFlex($jc: space-between, $ai: unset);
@@ -44,7 +43,7 @@ section {
 
                 &:hover {
                     transform: translate(36px, -36px);
-
+                    content: url('/assets/img/about_me/profile_hover.jpg');
                 }
             }
         }

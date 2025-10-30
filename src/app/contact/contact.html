@@ -1,49 +1,92 @@
 <section>
     <div class="contact-wrapper">
         <div class="contact-text">
+            @if (currentLanguage() === 'en') {
             <h3>Contact me</h3>
             <h2>Let's work <br> together</h2>
             <h3>Got a problem to solve?</h3>
             <p>
-                Encourage people to contact you and describe what role you are interested in. Show that you will add
-                value to their projects through your work.
-                Need a Frontend developer? Let’s talk!
+                I’m always open to exciting opportunities in web and app development, especially in projects that value
+                modern technologies, clean code, and creative problem-solving.
+                As a curious and motivated developer, I quickly adapt to new tools and frameworks and focus on
+                delivering real value through efficient, well-structured, and scalable solutions.
+                If you’re looking for someone who combines passion, persistence, and precision, I’d be happy to connect
+                and contribute to your next project!
                 <br><br>
                 Need a Frontend developer? <span>Let’s talk!</span>
             </p>
+            } @else {
+            <h3>Kontaktieren Sie mich</h3>
+            <h2>Lasst uns <br> zusammenarbeiten</h2>
+            <h3>Haben Sie ein Problem zu lösen?</h3>
+            <p>
+                Ich bin immer offen für spannende Projekte im Bereich Web- und App-Entwicklung – besonders dort, wo
+                moderne Technologien, saubere Code-Strukturen und kreative Lösungen gefragt sind.
+                Als wissbegieriger Entwickler arbeite ich mich schnell in neue Tools und Frameworks ein und lege großen
+                Wert darauf, durch strukturierte, effiziente und nachhaltige Entwicklung echten Mehrwert zu schaffen.
+                Wenn Sie jemanden suchen, der Leidenschaft, Lernfreude und technische Präzision verbindet, dann freue
+                ich
+                mich darauf, von Ihnen zu hören.
+                <br><br>
+                Brauchen Sie einen Frontend-Entwickler? <span>Lassen Sie uns reden!</span>
+            </p>
+            }
         </div>
         <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
             <div class="label-wrapper">
-                <label for="name">What's your name?</label>
+                <label for="name">{{ currentLanguage() === 'en' ? 'What\'s your name?' : 'Wie heißen Sie?' }}</label>
+                @if (currentLanguage() === 'en') {
                 <input #name="ngModel" [(ngModel)]="contactData.name" name="name" type="text"
                     [placeholder]="(name.invalid && (name.touched || contactForm.submitted)) ? 'Oops! it seems your name is missing' : 'Your Name goes here'"
                     required [class.invalid]="name.invalid && (name.touched || contactForm.submitted)" />
+                } @else {
+                <input #name="ngModel" [(ngModel)]="contactData.name" name="name" type="text"
+                    [placeholder]="(name.invalid && (name.touched || contactForm.submitted)) ? 'Hoppla! es scheint, als ob Ihr Name fehlt' : 'Ihr Name hier eingeben'"
+                    required [class.invalid]="name.invalid && (name.touched || contactForm.submitted)" />
+                }
             </div>
             <div class="label-wrapper">
-                <label for="email">What's your email?</label>
+                <label for="email">{{ currentLanguage() === 'en' ? 'What\'s your email?' : 'Wie lautet Ihre E-Mail?' }}</label>
+                @if (currentLanguage() === 'en') {
                 <input #email="ngModel" [(ngModel)]="contactData.email" name="email" type="email"
                     [placeholder]="(email.invalid && (email.touched || contactForm.submitted)) ? 'Hoppla! your email is required' : 'yourmail@email.com'"
                     required pattern=".+@.+\..+"
                     [class.invalid]="email.invalid && (email.touched || contactForm.submitted)" />
+                } @else {
+                <input #email="ngModel" [(ngModel)]="contactData.email" name="email" type="email"
+                    [placeholder]="(email.invalid && (email.touched || contactForm.submitted)) ? 'Hoppla! Ihre E-Mail ist erforderlich' : 'deinemail@email.de'"
+                    required pattern=".+@.+\..+"
+                    [class.invalid]="email.invalid && (email.touched || contactForm.submitted)" />
+                }
             </div>
             <div class="label-wrapper">
-                <label for="message">How can I help you?</label>
+                <label for="message">{{ currentLanguage() === 'en' ? 'How can I help you?' : 'Wie kann ich Ihnen helfen?' }}</label>
+                @if (currentLanguage() === 'en') {
                 <textarea #message="ngModel" minlength="3" [(ngModel)]="contactData.message" name="message"
                     [placeholder]="(message.invalid && (message.touched || contactForm.submitted)) ? 'What do you need to develop?' : 'Hello Eugen, I am interested in...'"
                     required [class.invalid]="message.invalid && (message.touched || contactForm.submitted)"></textarea>
+                } @else {
+                <textarea #message="ngModel" minlength="3" [(ngModel)]="contactData.message" name="message"
+                    [placeholder]="(message.invalid && (message.touched || contactForm.submitted)) ? 'Was müssen Sie entwickeln?' : 'Hallo Eugen, ich interessiere mich für...'"
+                    required [class.invalid]="message.invalid && (message.touched || contactForm.submitted)"></textarea>
+                }
             </div>
             <div class="warn-wrapper">
                 <div class="checkbox-wrapper">
                     <img id="accept-policy" (click)="toggleAcceptPolicy()"
                         [src]="acceptPolicy ? '/assets/img/contact/square_checked.svg' : '/assets/img/contact/square.svg'"
                         alt="Square icon to check" />
+                        @if (currentLanguage() === 'en') {
                     <p>I've read the <span>privacy policy</span> and agree to the processing of my data as outlined.</p>
+                    } @else {
+                    <p>Ich habe die <span>Datenschutzrichtlinie</span> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.</p>
+                    }
                 </div>
                 @if (!acceptPolicy && contactForm.submitted) {
-                <p style="color: var(--warn);">Please accept the privacy policy.</p>
+                <p style="color: var(--warn);">{{ currentLanguage() === 'en' ? 'Please accept the privacy policy.' : 'Bitte akzeptieren Sie die Datenschutzrichtlinie.' }}</p>
                 }
             </div>
-            <button class="btn" type="submit"><span>Say Hello :)</span></button>
+            <button class="btn" type="submit"><span>{{ currentLanguage() === 'en' ? 'Say Hello :)' : 'Sag Hallo :)' }}</span></button>
         </form>
     </div>
 </section>

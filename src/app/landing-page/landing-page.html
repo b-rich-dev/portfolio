@@ -1,13 +1,25 @@
 <section>
     <div class="landing-page-wrapper">
+        @if (currentLanguage() === 'en') {
         <h3>Frontend Developer</h3>
+        } @else {
+        <h3>Frontend Entwickler</h3>
+        }
         <h1>Eugen Birich</h1>
         <div class="btn-area">
-            <a class="btn" href="#" role="button">
+            <a class="btn" href="#skill-set" role="button">
+                @if (currentLanguage() === 'en') {
                 <span>Check out my work</span>
+                } @else {
+                <span>Schau dir meine Arbeit an</span>
+                }
             </a>
-            <a class="btn" href="#" role="button">
+            <a class="btn" href="#contact" role="button">
+                @if (currentLanguage() === 'en') {
                 <span>Contact Me</span>
+                } @else {
+                <span>Kontaktiere mich</span>
+                }
             </a>
         </div>
         <div class="post-left-container">
@@ -18,7 +30,7 @@
         </div>
         <div class="post-right-container">
             <div class="links-container">
-                <a href="mailto:info@birich.tech" target="_blank">info@birich.tech</a>
+                <a href="mailto:info@birich.it" target="_blank">info@birich.it</a>
                 <a href="https://github.com/b-rich-dev" target="_blank"><img src="/assets/img/landing_page/github.svg"
                         alt="GitHub Logo"></a>
                 <a href="https://www.linkedin.com/in/eugen-birich-8586aa389" target="_blank"><img
@@ -28,12 +40,21 @@
         </div>
         <div class="beam-container">
             <div class="beam">
+                @if (currentLanguage() === 'en') {
                 <span>Frontend Developer &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Based in Gelnhausen
                     &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Open to work &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Available for remote
                     work &nbsp;&nbsp;&#12539;&nbsp;&nbsp; </span>
                 <span>Frontend Developer &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Based in Gelnhausen
                     &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Open to work &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Available for remote
                     work &nbsp;&nbsp;&#12539;&nbsp;&nbsp; </span>
+                } @else {
+                <span>Frontend Entwickler &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Mit Sitz in Gelnhausen
+                    &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Offen für neue Herausforderungen &nbsp;&nbsp;&#12539;&nbsp;&nbsp;
+                    Für Remote-Arbeit geeignet &nbsp;&nbsp;&#12539;&nbsp;&nbsp; </span>
+                <span>Frontend Entwickler &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Mit Sitz in Gelnhausen
+                    &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Offen für neue Herausforderungen &nbsp;&nbsp;&#12539;&nbsp;&nbsp;
+                    Für Remote-Arbeit geeignet &nbsp;&nbsp;&#12539;&nbsp;&nbsp; </span>
+                }
             </div>
         </div>
     </div>

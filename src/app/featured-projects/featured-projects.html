@@ -1,8 +1,14 @@
 <section>
     <div class="featured-projects-wrapper">
         <p>Portfolio</p>
+        @if (currentLanguage() === 'en') {
         <h2>Featured Projects</h2>
         <span>Explore a selection of my work here - Interact with projects to see my skills in action.</span>
+        } @else {
+        <h2>Ausgewählte Projekte</h2>
+        <span>Entdecken Sie hier eine Auswahl meiner Arbeiten - Interagieren Sie mit den Projekten, um meine Fähigkeiten
+            in Aktion zu sehen.</span>
+        }
         <div class="block">
             <div class="block-left">
                 <h3>Join</h3>

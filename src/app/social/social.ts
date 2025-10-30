@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
+import { LanguageService } from '../services/language';
 
 @Component({
   selector: 'app-social',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './social.scss'
 })
 export class Social {
+  public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
   commentWidth = 590;
   gap = 100;
   slideOffset = 0;

@@ -3,7 +3,6 @@
 section {
     @include dFlex();
     width: 100%;
-    height: 100%;
     @include font-karla(var(--white));
 
     .featured-projects-wrapper {
@@ -57,7 +56,7 @@ section {
                 @include dFlex($jc: space-between);
                 border-top: var(--turquoise) solid 1px;
                 width: 70%;
-                padding: 40px 0 40px 0;
+                padding: 40px 32px 40px 32px;
 
                 h3 {
                     @include font-fira-code($fs: 1.5rem, $fw: 700, $c: var(--white));

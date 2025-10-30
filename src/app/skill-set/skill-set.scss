@@ -4,7 +4,6 @@ section {
     @include dFlex();
     background: radial-gradient(ellipse at left center, var(--dark-green) 36%, var(--dark) 69%);
     width: 100%;
-    height: 100%;
     @include font-karla(var(--white));
 
     .skill-set-wrapper {
@@ -96,6 +95,7 @@ section {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    text-align: center;
                     gap: 8px;
 
                     &:hover {

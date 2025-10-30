@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
+import { LanguageService } from '../../services/language';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './footer.scss'
 })
 export class Footer {
-
+  public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
 }

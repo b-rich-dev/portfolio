@@ -2,6 +2,7 @@
     <div class="skill-set-wrapper">
         <div class="skill-set-container">
             <div class="text-container">
+                @if (currentLanguage() === 'en') {
                 <p>Technologies</p>
                 <div class="skill-set">
                     <h2>Skill Set</h2>
@@ -12,7 +13,18 @@
                         the fast-paced evolution of web development. For me, continuous learning and adaptability are
                         essential parts of becoming a better developer every day.
                     </p>
-                    <p class="d-none">
+                    <h3>You need <span class="turquoise">another skill?</span></h3>
+                    <p>Feel free to contact me. I look forward to expanding on my previous knowledge.
+                    </p>
+                    <a class="btn" href="#contact" role="button">
+                        <span>Let's talk</span>
+                    </a>
+                </div>
+                } @else {
+                <p>Technologien</p>
+                <div class="skill-set">
+                    <h2>Fähigkeiten</h2>
+                    <p>
                         Ich bin ein leidenschaftlicher angehender Fullstack-Entwickler mit Fokus auf moderne
                         Frontend-Technologien wie JavaScript, TypeScript und Angular. Besonders wichtig ist mir,
                         sauberen, strukturierten Code zu schreiben und performante Benutzeroberflächen zu gestalten.
@@ -22,13 +34,15 @@
                         dem Laufenden – denn in der dynamischen Welt der Softwareentwicklung ist lebenslanges Lernen für
                         mich selbstverständlich.
                     </p>
-                    <h3>You need <span class="turquoise">another skill?</span></h3>
-                    <p>Feel free to contact me. I look forward to expanding on my previous knowledge.
+                    <h3>Sie brauchen <span class="turquoise">eine andere Fähigkeit?</span></h3>
+                    <p>Fühlen Sie sich frei, mich zu kontaktieren. Ich freue mich darauf, mein vorheriges Wissen zu
+                        erweitern.
                     </p>
-                    <a class="btn" href="#" role="button">
-                        <span>Let's talk</span>
+                    <a class="btn" href="#contact" role="button">
+                        <span>Lassen Sie uns reden</span>
                     </a>
                 </div>
+                }
             </div>
             <div class="icons-container">
                 <div class="skill-item">
@@ -74,8 +88,8 @@
                 <div class="special-hover">
                     <img class="gm-icon" src="/assets/icons/frontend_skills/growth_mindset.svg"
                         alt="Growth Mindset Icon">
-                    <p>Growth<br>Mindset</p>
-                    <img class="interest-skills" src="/assets/icons/frontend_skills/group.png"
+                    <p [innerHTML]="currentLanguage() === 'en' ? 'Growth<br>Mindset' : 'Wachstums-<br>denken'"></p>
+                    <img class="interest-skills" [src]="currentLanguage() === 'en' ? 'assets/icons/frontend_skills/group.png' : 'assets/icons/frontend_skills/group_de.png'"
                         alt="speech bubble with interest icons">
                 </div>
             </div>

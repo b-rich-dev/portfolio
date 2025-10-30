@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../services/language';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './contact.scss'
 })
 export class Contact {
-
+  public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
   mailTest = true;
 
   http = inject(HttpClient);
