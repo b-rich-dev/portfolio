@@ -3,6 +3,7 @@ import { LanguageService } from '../services/language';
 
 @Component({
   selector: 'app-social',
+  standalone: true,
   imports: [],
   templateUrl: './social.html',
   styleUrl: './social.scss'

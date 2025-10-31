@@ -4,6 +4,7 @@ import { LanguageService } from '../../services/language';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [FormsModule],
   templateUrl: './header.html',
   styleUrl: './header.scss'

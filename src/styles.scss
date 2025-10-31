@@ -56,6 +56,11 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
+body.no-scroll {
+    overflow: hidden;
+    touch-action: none;
+}
+
 a {
     text-decoration: none;
     color: var(--white);

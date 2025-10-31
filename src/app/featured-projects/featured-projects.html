@@ -21,7 +21,7 @@
                 <img src="/assets/img/featured_projects/join.png" alt="Join Project Screenshot">
             </div>
         </div>
-        <div class="block">
+        <div (click)="overlay.openDialog()" class="block">
             <div class="block-left">
                 <h3>El Pollo Loco</h3>
                 <div class="work-sets">
@@ -46,4 +46,5 @@
             </div>
         </div>
     </div>
+    <app-overlay #overlay></app-overlay>
 </section>

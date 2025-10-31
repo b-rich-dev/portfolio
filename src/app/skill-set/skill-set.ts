@@ -3,6 +3,7 @@ import { LanguageService } from '../services/language';
 
 @Component({
   selector: 'app-skill-set',
+  standalone: true,
   imports: [],
   templateUrl: './skill-set.html',
   styleUrl: './skill-set.scss'

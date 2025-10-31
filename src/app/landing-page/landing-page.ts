@@ -3,6 +3,7 @@ import { LanguageService } from '../services/language';
 
 @Component({
   selector: 'app-landing-page',
+  standalone: true,
   imports: [],
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.scss'

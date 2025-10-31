@@ -1,9 +1,11 @@
 import { Component, inject, Signal } from '@angular/core';
 import { LanguageService } from '../services/language';
+import { Overlay } from './overlay/overlay';
 
 @Component({
   selector: 'app-featured-projects',
-  imports: [],
+  standalone: true,
+  imports: [Overlay],
   templateUrl: './featured-projects.html',
   styleUrl: './featured-projects.scss'
 })

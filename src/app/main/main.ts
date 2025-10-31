@@ -8,6 +8,7 @@ import { Contact } from '../contact/contact';
 
 @Component({
   selector: 'app-main',
+    standalone: true,
   imports: [
     LandingPage,
     AboutMe,

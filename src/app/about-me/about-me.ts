@@ -3,6 +3,7 @@ import { LanguageService } from '../services/language';
 
 @Component({
   selector: 'app-about-me',
+  standalone: true,
   imports: [],
   templateUrl: './about-me.html',
   styleUrl: './about-me.scss'
