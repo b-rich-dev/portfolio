@@ -30,15 +30,15 @@ section {
         }
 
         form {
-            @include dFlex($fd: column, $g: 16px, $ai: flex-start);
+            @include dFlex($fd: column, $ai: flex-start, $jc: unset);
             width: 50%;
+            border-top: 1px solid var(--turquoise);
 
             .label-wrapper {
                 @include dFlex($fd: column, $g: 16px, $ai: flex-start);
                 width: 100%;
-                border-top: 1px solid var(--turquoise);
-                padding-top: 16px;
-                // border-bottom: 1px solid var(--turquoise);
+                padding: 16px 0;
+                border-bottom: 1px solid var(--turquoise);
 
                 label {
                     @include font-fira-code($fs: 1.5rem, $fw: 500, $c: var(--turquoise));
@@ -78,8 +78,11 @@ section {
                 }
 
                 textarea {
-                    border-bottom: 1px solid var(--turquoise);
                     overflow: visible;
+                    height: auto;
+                    resize: none;
+                    overflow-y: hidden;
+                    transition: height 0.2s ease;
                 }
             }
 

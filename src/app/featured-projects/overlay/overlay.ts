@@ -42,7 +42,7 @@ export class Overlay {
     icons: [{ img: "javascript_icon.svg", alt: "JavaScript Icon", text: "JavaScript" },
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
-    github: "b-rich-dev/el_pollo_loco",
+    github: "https://github.com/b-rich-dev/el_pollo_loco",
     link: "https://birich.it/el_pollo_loco",
     bigImg: [{ src: "el_pollo_loco.png", alt: "El Pollo Loco Project Screenshot" }]
   },
@@ -57,7 +57,7 @@ export class Overlay {
     { img: "typescript_icon.svg", alt: "TypeScript Icon", text: "TypeScript" },
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
-    github: "b-rich-dev/portfolio",
+    github: "https://github.com/b-rich-dev/portfolio",
     link: "https://birich.it/portfolio",
     bigImg: [{ src: "portfolio.png", alt: "Portfolio Project Screenshot" }]
   }];

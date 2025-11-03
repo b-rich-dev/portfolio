@@ -62,11 +62,13 @@
             <div class="label-wrapper">
                 <label for="message">{{ currentLanguage() === 'en' ? 'How can I help you?' : 'Wie kann ich Ihnen helfen?' }}</label>
                 @if (currentLanguage() === 'en') {
-                <textarea #message="ngModel" minlength="3" [(ngModel)]="contactData.message" name="message"
+                <textarea #message="ngModel" rows="1" minlength="3" [(ngModel)]="contactData.message" name="message"
+                    (input)="onTextareaInput($event)"
                     [placeholder]="(message.invalid && (message.touched || contactForm.submitted)) ? 'What do you need to develop?' : 'Hello Eugen, I am interested in...'"
                     required [class.invalid]="message.invalid && (message.touched || contactForm.submitted)"></textarea>
                 } @else {
-                <textarea #message="ngModel" minlength="3" [(ngModel)]="contactData.message" name="message"
+                <textarea #message="ngModel" rows="1" minlength="3" [(ngModel)]="contactData.message" name="message"
+                    (input)="onTextareaInput($event)"
                     [placeholder]="(message.invalid && (message.touched || contactForm.submitted)) ? 'Was müssen Sie entwickeln?' : 'Hallo Eugen, ich interessiere mich für...'"
                     required [class.invalid]="message.invalid && (message.touched || contactForm.submitted)"></textarea>
                 }
