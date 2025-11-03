@@ -17,7 +17,36 @@ body {
     --sb-thumb-color: var(--turquoise);
     --sb-size: 8px;
     background-color: var(--dark);
+    position: relative;
+    overflow-x: hidden;
 }
+
+#mouse-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 180px; /* leicht größer für weicheren Verlauf */
+  height: 180px;
+  background: radial-gradient(
+    circle,
+    rgba(61, 207, 183, 0.45) 0%,   /* sanfter Kern – weniger hell */
+    rgba(61, 207, 183, 0.25) 25%,  /* fließender Übergang */
+    rgba(34, 115, 101, 0.10) 50%,  /* weiche Ausblendung */
+    rgba(0, 0, 0, 0.05) 70%,       /* ganz leichter Schattenrand */
+    transparent 90%                /* sanftes Ausfaden */
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform, opacity;
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+  backface-visibility: hidden;
+  mix-blend-mode: screen;
+}
+
+
 
 body::-webkit-scrollbar {
     width: var(--sb-size)

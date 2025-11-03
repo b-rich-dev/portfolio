@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, Signal, AfterViewInit, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, inject, Signal, AfterViewInit, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { LanguageService } from '../services/language';
@@ -15,9 +15,11 @@ export class Contact implements AfterViewInit {
   public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
   mailTest = true;
 
+  @ViewChild('privacyPolicyDialog') privacyPolicyDialog!: ElementRef<HTMLDialogElement>;
+
   http = inject(HttpClient);
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   contactData = {
     name: '',
@@ -83,7 +85,7 @@ export class Contact implements AfterViewInit {
     textareas.forEach(textarea => {
       // Initiale Höhe setzen
       this.adjustTextareaHeight(textarea as HTMLTextAreaElement);
-      
+
       // Event-Listener für input events
       textarea.addEventListener('input', () => {
         this.adjustTextareaHeight(textarea as HTMLTextAreaElement);
@@ -100,11 +102,11 @@ export class Contact implements AfterViewInit {
 
     // Reset height to auto to get the scroll height
     textarea.style.height = 'auto';
-    
+
     // Set height to scroll height (content height)
     const newHeight = Math.max(22, textarea.scrollHeight);
     textarea.style.height = newHeight + 'px';
-    
+
   }
 
   // Öffentliche Methode für Template-Binding (falls benötigt)
@@ -116,5 +118,34 @@ export class Contact implements AfterViewInit {
 
     const textarea = event.target as HTMLTextAreaElement;
     this.adjustTextareaHeight(textarea);
+  }
+
+  openPrivacyPolicyDialog() {
+    const dlg = this.privacyPolicyDialog?.nativeElement;
+    if (!dlg) return;
+    dlg.showModal();
+    document.body.classList.add('no-scroll');
+
+    const onBackdropClick = (e: MouseEvent) => {
+      if (e.target === dlg) {
+        dlg.close();
+      }
+    };
+
+    const onClose = () => {
+      document.body.classList.remove('no-scroll');
+      dlg.removeEventListener('click', onBackdropClick);
+      dlg.removeEventListener('close', onClose);
+    };
+
+    dlg.addEventListener('click', onBackdropClick);
+    dlg.addEventListener('close', onClose);
+  }
+
+  public closePrivacyPolicyDialog(): void {
+    const dlg = this.privacyPolicyDialog?.nativeElement;
+    if (!dlg) return;
+    dlg.close();
+    document.body.classList.remove('no-scroll');
   }
 }
