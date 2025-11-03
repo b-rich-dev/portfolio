@@ -10,7 +10,7 @@
             in Aktion zu sehen.</span>
         }
         <div class="block">
-            <div class="block-left">
+            <div (click)="overlay.openDialog(1)" class="block-left">
                 <h3>Join</h3>
                 <div class="work-sets">
                     HTML <span>|</span> CSS <span>|</span> JavaScript <span>|</span> Firebase
@@ -21,7 +21,7 @@
                 <img src="/assets/img/featured_projects/join.png" alt="Join Project Screenshot">
             </div>
         </div>
-        <div (click)="overlay.openDialog()" class="block">
+        <div (click)="overlay.openDialog(2)" class="block">
             <div class="block-left">
                 <h3>El Pollo Loco</h3>
                 <div class="work-sets">
@@ -33,7 +33,7 @@
                 <img src="/assets/img/featured_projects/el_pollo_locco.svg" alt="El Pollo Loco Project Screenshot">
             </div>
         </div>
-        <div class="block">
+        <div (click)="overlay.openDialog(3)" class="block">
             <div class="block-left">
                 <h3>Portfolio</h3>
                 <div class="work-sets">

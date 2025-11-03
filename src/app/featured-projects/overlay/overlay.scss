@@ -10,7 +10,6 @@ dialog {
     background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
     border-radius: 40px;
     border: 1px solid var(--turquoise);
-    padding: 80px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
     z-index: 1001;
 
@@ -35,6 +34,7 @@ dialog {
 
     .content {
         @include dFlex($g: 40px);
+        padding: 80px;
         .text {
             .id {
                 @include font-karla($fs: 8rem, $fw: 700, $c: var(--turquoise));
@@ -67,6 +67,7 @@ dialog {
                     img {
                         width: 24px;
                         height: 24px;
+                        border-radius: 0;
                     }
 
                     p {
@@ -109,7 +110,7 @@ dialog {
         img{
             width: 520px;
             height: auto;
-            border-radius: 16px;
+                        border-radius: 16px;
         }
     }
 
