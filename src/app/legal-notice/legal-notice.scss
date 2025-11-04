@@ -1,7 +1,7 @@
 @use '../../mixin.scss' as *;
 
 section {
-    height: auto;
+    min-height: calc(100vh - 220px);
     width: 100%;
     background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
     @include dFlex($fd: column);
@@ -9,6 +9,17 @@ section {
     .legal-notice-wrapper {
         @include dFlex($fd: column);
         padding: 160px 80px 0 80px;
+        max-width: 1940px;
+
+        .arrow {
+            display: none;
+            width: 32px;
+            height: 32px;
+
+            &:hover {
+                color: var(--turquoise);
+            }
+        }
 
         .legal-notice-content {
             @include dFlex($fd: column, $ai: flex-start);
@@ -51,14 +62,8 @@ section {
 
 @media (max-width: 1024px) {
     section {
-        a {
-            display: flex;
-            width: 32px;
-            height: 32px;
-
-            &:hover {
-                color: var(--turquoise);
-            }
+        .arrow {
+            display: flex !important;
         }
 
         .legal-notice-wrapper {
