@@ -38,13 +38,52 @@ section {
                 }
             }
 
-            span{
+            span {
                 color: var(--white);
             }
 
-            h4{
+            h4 {
                 @include font-karla($fs: 1.12rem, $fw: 600, $c: var(--dark-turquoise));
             }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    section {
+        a {
+            display: flex;
+            width: 32px;
+            height: 32px;
+
+            &:hover {
+                color: var(--turquoise);
+            }
+        }
+
+        .legal-notice-wrapper {
+            align-items: unset;
+            padding: 120px 80px 0 80px;
+
+            .legal-notice-content {
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        .legal-notice-wrapper {
+            padding: 100px 24px 0 24px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        .legal-notice-wrapper {
+            padding: 100px 16px 0 16px;
         }
     }
 }

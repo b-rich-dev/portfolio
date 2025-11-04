@@ -17,7 +17,7 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class App implements AfterViewInit, OnDestroy {
-  protected readonly title = signal('portfolio');
+  protected readonly title = signal('Eugen Birich - Frontend Developer | Web Developer Portfolio');
   private glowElement?: HTMLElement;
 
   constructor(

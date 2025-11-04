@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Signal, inject } from '@angular/core';
+import { LanguageService } from '../services/language';
 
 @Component({
   selector: 'app-legal-notice',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './legal-notice.scss'
 })
 export class LegalNotice {
-
+  public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
 }
