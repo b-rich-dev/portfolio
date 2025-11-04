@@ -46,7 +46,16 @@ body {
   mix-blend-mode: screen;
 }
 
-
+/* Mauseffekt auf Touch-Geräten und mobilen Geräten deaktivieren */
+@media (max-width: 1024px), 
+       (hover: none), 
+       (pointer: coarse),
+       (any-hover: none),
+       (any-pointer: coarse) {
+  #mouse-glow {
+    display: none;
+  }
+}
 
 body::-webkit-scrollbar {
     width: var(--sb-size)

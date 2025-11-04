@@ -83,6 +83,15 @@ header {
             }
         }
 
+        svg {
+            display: none;
+
+            &:hover {
+                cursor: pointer;
+                color: var(--turquoise);
+            }
+        }
+
         img {
             width: auto;
             height: 80px;
@@ -94,5 +103,156 @@ header {
                 transform: scale(1.05);
             }
         }
+    }
+}
+
+dialog {
+    position: fixed;
+    top: 80px;
+    right: 80px;
+    left: auto;
+    margin: 0;
+    width: 238px;
+    height: 252px;
+    background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
+    border-radius: 30px;
+    border: 1px solid var(--turquoise);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+    z-index: 1001;
+    transform: none;
+
+    &::backdrop {
+        background: rgba(0, 0, 0, 0.6);
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+    }
+
+    .nav-dialog-wrapper {
+        @include dFlex($fd: column);
+        height: 100%;
+        width: 100%;
+
+        nav {
+            @include font-fira-code($fs: 1.125rem, $fw: 400, $c: var(--white));
+
+            ul {
+                @include dFlex($fd: column, $jc: flex-start, $ai: unset, $g: 24px);
+                width: 100%;
+                list-style: none;
+                padding-bottom: 24px;
+
+                li {
+                    position: relative;
+
+                    a {
+                        position: relative;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            color: var(--turquoise);
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                width: 8px;
+                                height: 8px;
+                                background-color: var(--turquoise);
+                                border-radius: 50%;
+                                left: 50%;
+                                bottom: -12px;
+                                transform: translateX(-50%);
+                                box-shadow: 0 0 6px var(--turquoise);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .language-toggle {
+            width: 84px;
+            height: 28px;
+            background-image: url('/assets/img/header/property_1_english.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: background-image 0.3s ease;
+            position: relative;
+
+            &:hover {
+                cursor: pointer;
+                background-image: url('/assets/img/header/property_1_english_hover.svg');
+            }
+
+            &.german {
+                background-image: url('/assets/img/header/property_1_deutsch.svg');
+
+                &:hover {
+                    background-image: url('/assets/img/header/property_1_deutsch_hover.svg');
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    header {
+        .header-wrapper {
+            @include dFlex($fd: row-reverse, $jc: space-between);
+
+            img {
+                content: url("/assets/img/logo_kit/transparent_logo_b_light.png");
+                height: 48px;
+                width: 48px;
+            }
+
+            .nav-wrapper {
+                justify-content: flex-end;
+
+                .language-toggle {
+                    display: none;
+                }
+
+                nav {
+                    display: none;
+                }
+
+                svg {
+                    display: flex;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        .header-wrapper {
+            padding: 0 24px;
+        }
+    }
+
+    dialog {
+        top: 24px;
+        right: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        .header-wrapper {
+            padding: 0 16px;
+        }
+    }
+
+    dialog {
+        top: 16px;
+        right: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    dialog {
+        width: 200px;
     }
 }
