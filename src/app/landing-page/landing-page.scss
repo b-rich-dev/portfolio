@@ -2,6 +2,7 @@
 
 section {
     height: 100vh;
+    height: 100dvh;
     width: 100%;
     background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
     @include dFlex($fd: column);
@@ -89,7 +90,8 @@ section {
                     }
 
                     &:nth-child(2),
-                    &:nth-child(3) {
+                    &:nth-child(3),
+                    &:nth-child(4) {
                         position: relative;
 
                         &:hover {
@@ -111,6 +113,10 @@ section {
                             }
                         }
                     }
+                }
+
+                .mail-logo {
+                    display: none;
                 }
 
             }
@@ -194,6 +200,84 @@ section {
 
         100% {
             transform: translateY(0);
+        }
+    }
+}
+
+@media (max-width: 1024px),
+(pointer: coarse) {
+    section {
+
+        .landing-page-wrapper {
+
+            h3 {
+                @include font-fira-code($fs: 1.5rem, $fw: 300);
+                text-align: center;
+            }
+
+            h1 {
+                @include font-karla($fs: 3.875rem, $fw: 700);
+                text-align: center;
+            }
+
+            .btn-area {
+
+                a {
+                    border: 1px solid var(--turquoise);
+                }
+            }
+
+            .post-right-container {
+
+                .links-container {
+
+                    .mail-logo {
+                        display: flex;
+                    }
+
+                    .mail-text {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px),
+(pointer: coarse) {
+    section {
+
+        .landing-page-wrapper {
+            padding: 0 24px;
+
+            .post-left-container {
+                left: 24px;
+            }
+            .post-right-container {
+                right: 24px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px),
+(pointer: coarse) {
+    section {
+
+        .landing-page-wrapper {
+            padding: 0 16px;
+
+            .btn-area{
+                @include dFlex($fd: column, $g: 16px);
+            }
+
+            .post-left-container {
+                left: 16px;
+            }
+            .post-right-container {
+                right: 16px;
+            }
         }
     }
 }
