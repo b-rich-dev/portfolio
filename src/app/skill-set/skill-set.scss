@@ -7,122 +7,117 @@ section {
     @include font-karla(var(--white));
 
     .skill-set-wrapper {
-        @include dFlex($jc: unset);
+        @include dFlex($jc: space-between, $ai: unset);
         padding: 0 80px 152px 80px;
         width: 100%;
         height: 100%;
         max-width: 1940px;
 
-        .skill-set-container {
-            @include dFlex($jc: space-between, $ai: unset);
-            width: 100%;
+        .text-container {
+            @include dFlex($fd: column, $ai: unset, $g: 20px);
+            max-width: 568px;
 
-            .text-container {
-                @include dFlex($fd: column, $ai: unset, $g: 20px);
-                max-width: 568px;
+            p {
+                @include font-karla($fs: 1.5rem, $fw: 700, $c: var(--turquoise));
+            }
+
+            .skill-set {
+                border: var(--turquoise) solid 1px;
+                border-radius: 30px;
+                background-color: var(--dark-green);
+                padding: 36px;
+                width: 100%;
+                height: 100%;
 
                 p {
-                    @include font-karla($fs: 1.5rem, $fw: 400, $c: var(--turquoise));
+                    @include font-karla($fs: 1.125rem, $fw: 400, $c: var(--light-grey));
+
+                    &:hover {
+                        color: var(--white);
+                    }
                 }
 
-                .skill-set {
-                    border: var(--turquoise) solid 1px;
-                    border-radius: 30px;
-                    background-color: var(--dark-green);
-                    padding: 36px;
-                    width: 100%;
-                    height: 100%;
+                h3 {
+                    @include font-fira-code($fs: 1.5rem, $fw: 700, $c: var(--white));
+                    margin: 32px 0 16px;
+                }
 
-                    p {
-                        @include font-karla($fs: 1.125rem, $fw: 400, $c: var(--light-grey));
+                .turquoise {
+                    color: var(--turquoise);
+                }
 
-                        &:hover {
-                            color: var(--white);
-                        }
+                .btn {
+                    margin-top: 40px;
+                    width: auto;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .icons-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 64px;
+            align-items: start;
+            padding-top: 48px;
+
+            .skill-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+
+                img {
+                    width: 60px;
+                    height: 60px;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        transition: transform 0.3s ease-in-out;
                     }
+                }
 
-                    h3 {
-                        @include font-fira-code($fs: 1.5rem, $fw: 700, $c: var(--white));
-                        margin: 32px 0 16px;
-                    }
-
-                    .turquoise {
-                        color: var(--turquoise);
-                    }
-
-                    .btn {
-                        margin-top: 40px;
-                        width: auto;
-                        display: inline-flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
+                p {
+                    @include font-fira-code($fs: 1.125rem, $fw: 400, $c: var(--white));
+                    margin: 0;
+                    text-align: center;
                 }
             }
 
-            .icons-container {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 64px;
-                align-items: start;
-                padding-top: 48px;
+            .special-hover {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
 
-                .skill-item {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 8px;
+                &:hover {
 
-                    img {
-                        width: 60px;
-                        height: 60px;
-
-                        &:hover {
-                            transform: scale(1.1);
-                            transition: transform 0.3s ease-in-out;
-                        }
+                    .gm-icon {
+                        transform: scale(1.1);
+                        transition: transform 0.3s ease-in-out;
                     }
 
                     p {
-                        @include font-fira-code($fs: 1.125rem, $fw: 400, $c: var(--white));
-                        margin: 0;
-                        text-align: center;
-                    }
-                }
-
-                .special-hover {
-                    position: relative;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                    gap: 8px;
-
-                    &:hover {
-
-                        .gm-icon {
-                            transform: scale(1.1);
-                            transition: transform 0.3s ease-in-out;
-                        }
-
-                        p {
-                            color: var(--turquoise) !important;
-                        }
-
-                        .interest-skills {
-                            opacity: 1;
-                            transition: opacity 0.3s ease-in-out;
-                        }
+                        color: var(--turquoise) !important;
                     }
 
                     .interest-skills {
-                        position: absolute;
-                        top: -106px;
-                        left: 0;
-                        width: 188px;
-                        height: 129px;
-                        opacity: 0;
+                        opacity: 1;
+                        transition: opacity 0.3s ease-in-out;
                     }
+                }
+
+                .interest-skills {
+                    position: absolute;
+                    top: -106px;
+                    left: 0;
+                    width: 188px;
+                    height: 129px;
+                    opacity: 0;
                 }
             }
         }
@@ -144,5 +139,154 @@ section {
 
     100% {
         transform: translateX(0);
+    }
+}
+
+@media (max-width: 1024px),
+(pointer: coarse) {
+    section {
+
+        .skill-set-wrapper {
+            @include dFlex($jc: unset, $fd: column);
+
+            .text-container {
+
+                .skill-set {
+
+                    a {
+                        border-color: var(--turquoise);
+                    }
+                }
+            }
+
+            .icons-container {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: start;
+                gap: 0;
+
+                .skill-item {
+                    flex-basis: 33.333%;
+                    max-width: 33.333%;
+                    margin-bottom: 32px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    img {
+                        animation: pulse 1s infinite ease-in-out alternate
+                    }
+
+                    &:nth-child(1) img {
+                        animation-delay: 0s;
+                    }
+
+                    &:nth-child(2) img {
+                        animation-delay: 0.1s;
+                    }
+
+                    &:nth-child(3) img {
+                        animation-delay: 0.2s;
+                    }
+
+                    &:nth-child(4) img {
+                        animation-delay: 0.3s;
+                    }
+
+                    &:nth-child(5) img {
+                        animation-delay: 0.4s;
+                    }
+
+                    &:nth-child(6) img {
+                        animation-delay: 0.5s;
+                    }
+
+                    &:nth-child(7) img {
+                        animation-delay: 0.6s;
+                    }
+
+                    &:nth-child(8) img {
+                        animation-delay: 0.7s;
+                    }
+
+                    &:nth-child(9) img {
+                        animation-delay: 0.8s;
+                    }
+
+                    &:nth-child(10) img {
+                        animation-delay: 0.9s;
+                    }
+
+                    &:nth-child(11) img {
+                        animation-delay: 1.0s;
+                    }
+
+                    &:nth-child(12) img {
+                        animation-delay: 1.1s;
+                    }
+                }
+
+                .special-hover {
+                    flex-basis: 33.333%;
+                    max-width: 33.333%;
+                    animation: pulse 1s infinite ease-in-out alternate
+                }
+            }
+        }
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px),
+(pointer: coarse) {
+    section {
+        .skill-set-wrapper {
+            padding: 0 24px 80px 24px;
+
+            .text-container {
+
+                p {
+                    @include font-karla($fs: 1.125rem, $fw: 700, $c: var(--turquoise));
+                }
+
+                .skill-set {
+
+                    p {
+                        @include font-karla($fs: 1rem, $fw: 400, $c: var(--light-grey));
+                    }
+
+                    h3 {
+                        @include font-fira-code($fs: 1.25rem, $fw: 700, $c: var(--white));
+                    }
+                }
+            }
+
+            .icons-container {
+                .skill-item {
+
+                    p {
+                        @include font-fira-code($fs: 1rem, $fw: 400, $c: var(--white));
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px),
+(pointer: coarse) {
+    section {
+        .skill-set-wrapper {
+            padding: 0 16px 80px 16px;
+        }
     }
 }

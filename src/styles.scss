@@ -112,6 +112,11 @@ a {
 h2 {
     @include mixin.font-fira-code($fs: 4rem, $fw: 700, $c: var(--turquoise));
     padding-bottom: 20px;
+
+    @media (max-width: 1024px),
+    (pointer: coarse) {
+        @include mixin.font-fira-code($fs: 3.5rem, $fw: 700, $c: var(--turquoise));
+    }
 }
 
 .btn {
@@ -155,6 +160,7 @@ h2 {
     .btn {
 
         &:not(:hover) {
+
             span {
                 animation: scroll-text-button 3s linear infinite;
                 color: var(--turquoise);

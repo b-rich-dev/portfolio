@@ -254,8 +254,19 @@ section {
             .post-left-container {
                 left: 24px;
             }
+
             .post-right-container {
                 right: 24px;
+            }
+
+            .beam-container {
+
+                .beam {
+
+                    span {
+                        @include font-karla($fs: 1.5rem, $fw: 400, $c: var(--turquoise));
+                    }
+                }
             }
         }
     }
@@ -268,13 +279,14 @@ section {
         .landing-page-wrapper {
             padding: 0 16px;
 
-            .btn-area{
+            .btn-area {
                 @include dFlex($fd: column, $g: 16px);
             }
 
             .post-left-container {
                 left: 16px;
             }
+
             .post-right-container {
                 right: 16px;
             }

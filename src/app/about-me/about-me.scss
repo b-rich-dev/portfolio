@@ -5,7 +5,7 @@ section {
     width: 100%;
 
     .about-me-wrapper {
-        @include dFlex($jc: space-between, $ai: unset);
+        @include dFlex($jc: space-between, $ai: unset, $g: 80px);
         padding: 152px 80px;
         width: 100%;
         height: 100%;
@@ -14,9 +14,7 @@ section {
         .profile-picture-container {
             position: relative;
             height: 100%;
-            min-height: 648px;
-            min-width: 568px;
-            padding-bottom: 80px;
+            display: flex;
 
             img {
                 height: 100%;
@@ -27,9 +25,10 @@ section {
             }
 
             .bg-decor {
-                position: absolute;
-                top: 0;
-                left: 0;
+                height: 100%;
+                width: 100%;
+                max-height: 568px;
+                max-width: 568px;
                 z-index: 1;
             }
 
@@ -51,7 +50,7 @@ section {
         .profile-info-container {
             @include dFlex($ai: flex-start, $fd: column, $g: 20px);
             padding-top: 80px;
-            @include font-karla($fs: 1.5rem, $c: var(--turquoise));
+            @include font-karla($fs: 1.5rem, $c: var(--turquoise), $fw: 500);
 
             .profile-info {
                 border: var(--turquoise) solid 1px;
@@ -83,6 +82,85 @@ section {
                         &:hover {
                             color: var(--white);
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px),
+(pointer: coarse) {
+    section {
+
+        .about-me-wrapper {
+            @include dFlex($fd: column, $jc: center, $ai: center, $g: 0px);
+        }
+    }
+}
+
+@media (max-width: 768px),
+(pointer: coarse) {
+    section {
+
+        .about-me-wrapper {
+            padding: 80px 24px;
+
+            .profile-picture-container {
+
+                .profile-picture {
+                    &:hover {
+                        transform: translate(16px, -16px);
+                    }
+
+                    &:active {
+                        transform: translate(16px, -16px);
+                        content: url('/assets/img/about_me/profile_hover.jpg');
+                    }
+
+                    &:focus {
+                        transform: translate(16px, -16px);
+                        content: url('/assets/img/about_me/profile_hover.jpg');
+                    }
+                }
+            }
+
+            .profile-info-container {
+                @include font-karla($fs: 1.125rem, $c: var(--turquoise), $fw: 500);
+
+                .profile-info {
+
+                    p {
+                        @include font-karla($fs: 1rem, $c: var(--white));
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px),
+(pointer: coarse) {
+    section {
+
+        .about-me-wrapper {
+            padding: 80px 16px;
+
+            .profile-picture-container {
+
+                .profile-picture {
+                    &:hover {
+                        transform: translate(8px, -8px);
+                    }
+
+                    &:active {
+                        transform: translate(8px, -8px);
+                        content: url('/assets/img/about_me/profile_hover.jpg');
+                    }
+
+                    &:focus {
+                        transform: translate(8px, -8px);
+                        content: url('/assets/img/about_me/profile_hover.jpg');
                     }
                 }
             }
