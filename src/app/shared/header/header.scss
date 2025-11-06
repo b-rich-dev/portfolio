@@ -22,7 +22,7 @@ header {
         .language-toggle {
             width: 84px;
             height: 28px;
-            background-image: url('/assets/img/header/property_1_english.svg');
+            background-image: url('/assets/img/header/english.svg');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -31,14 +31,14 @@ header {
 
             &:hover {
                 cursor: pointer;
-                background-image: url('/assets/img/header/property_1_english_hover.svg');
+                background-image: url('/assets/img/header/english_hover.svg');
             }
 
             &.german {
-                background-image: url('/assets/img/header/property_1_deutsch.svg');
+                background-image: url('/assets/img/header/deutsch.svg');
 
                 &:hover {
-                    background-image: url('/assets/img/header/property_1_deutsch_hover.svg');
+                    background-image: url('/assets/img/header/deutsch_hover.svg');
                 }
             }
         }
@@ -172,7 +172,7 @@ dialog {
         .language-toggle {
             width: 84px;
             height: 28px;
-            background-image: url('/assets/img/header/property_1_english.svg');
+            background-image: url('/assets/img/header/english.svg');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -181,14 +181,14 @@ dialog {
 
             &:hover {
                 cursor: pointer;
-                background-image: url('/assets/img/header/property_1_english_hover.svg');
+                background-image: url('/assets/img/header/english_hover.svg');
             }
 
             &.german {
-                background-image: url('/assets/img/header/property_1_deutsch.svg');
+                background-image: url('/assets/img/header/deutsch.svg');
 
                 &:hover {
-                    background-image: url('/assets/img/header/property_1_deutsch_hover.svg');
+                    background-image: url('/assets/img/header/deutsch_hover.svg');
                 }
             }
         }

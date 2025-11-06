@@ -104,3 +104,58 @@ section {
         }
     }
 }
+
+@media (max-width: 1180px),
+(pointer: coarse) {
+    section {
+
+        .featured-projects-wrapper {
+
+            .block {
+
+                .block-left {
+                    width: 100%;
+                }
+
+                .block-right {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px),
+(pointer: coarse) {
+    section {
+
+        .featured-projects-wrapper {
+            padding: 0 24px 80px 24px;
+
+            p {
+                @include font-karla($fs: 1.125rem, $fw: 700, $c: var(--turquoise));
+            }
+
+            span {
+                @include font-karla($fs: 1rem);
+            }
+
+            .block {
+                .block-left {
+                    @include dFlex($fd: column, $ai: flex-start, $g: 16px);
+                    padding: 28px 0 28px 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px),
+(pointer: coarse) {
+    section {
+
+        .featured-projects-wrapper {
+            padding: 0 16px 80px 16px;
+        }
+    }
+}

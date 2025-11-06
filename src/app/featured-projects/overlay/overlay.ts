@@ -48,10 +48,10 @@ export class Overlay {
   },
   {
     id: 0o3,
-    title: 'Eugen Birich - Frontend Developer | Web Developer Portfolio',
+    title: 'Portfolio',
     language: [
-      { code: "en", question: "What is this project about?", description: 'Responsive developer portfolio built with Angular. Features modern design with smooth animations, multilingual support, and showcases my skills through interactive project presentations. Includes contact functionality and optimized performance.' },
-      { code: "de", question: "Worum geht es in diesem Projekt?", description: 'Responsives Entwicklerportfolio, erstellt mit Angular. Modernes Design mit flüssigen Animationen, mehrsprachiger Unterstützung und interaktiven Projektpräsentationen, die meine Fähigkeiten eindrucksvoll demonstrieren. Inklusive Kontaktfunktion und optimierter Performance.' }
+      { code: "en", question: "What is this project about?", description: 'Responsive Angular portfolio with a modern design, smooth animations, multilingual support, and interactive project showcases. Includes contact form and optimized performance.' },
+      { code: "de", question: "Worum geht es in diesem Projekt?", description: 'Responsives Angular-Portfolio mit modernem Design, flüssigen Animationen, Mehrsprachigkeit und interaktiven Projektpräsentationen. Inklusive Kontaktfunktion und optimierter Performance.' }
     ],
     icons: [{ img: "angular_icon.svg", alt: "Angular Icon", text: "Angular" },
     { img: "typescript_icon.svg", alt: "TypeScript Icon", text: "TypeScript" },

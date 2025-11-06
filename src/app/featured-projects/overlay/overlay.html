@@ -9,15 +9,17 @@
         <div class="text">
             <div class="id">{{ getCurrentProject().id.toString().padStart(2, '0') }}</div>
             <h3>{{ getCurrentProject().title }}</h3>
-            <h4>{{ currentLanguage() === 'en' ? getCurrentProject().language[0].question : getCurrentProject().language[1].question }}</h4>
+            <h4>{{ currentLanguage() === 'en' ? getCurrentProject().language[0].question :
+                getCurrentProject().language[1].question }}</h4>
             <p>
-                {{ currentLanguage() === 'en' ? getCurrentProject().language[0].description : getCurrentProject().language[1].description }}
+                {{ currentLanguage() === 'en' ? getCurrentProject().language[0].description :
+                getCurrentProject().language[1].description }}
             </p>
             <div class="icon-container">
                 @for (item of getCurrentProject().icons; track j; let j = $index) {
                 <div class="skill-item">
                     <img src="/assets/img/featured_projects/overlay/{{item.img}}" alt="{{item.alt}}">
-                    <p>{{item.text}}</p>
+                    <div>{{item.text}}</div>
                 </div>}
             </div>
             <div class="button-container">
@@ -51,7 +53,8 @@
                 </a>
             </div>
         </div>
-        <img src="/assets/img/featured_projects/overlay/{{getCurrentProject().bigImg[0].src}}" alt="{{getCurrentProject().bigImg[0].alt}}">
+        <img src="/assets/img/featured_projects/overlay/{{getCurrentProject().bigImg[0].src}}"
+            alt="{{getCurrentProject().bigImg[0].alt}}">
     </div>
     <div (click)="nextProject()" class="next-project">
         <span>next project</span>
