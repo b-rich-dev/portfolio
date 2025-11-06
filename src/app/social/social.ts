@@ -17,10 +17,37 @@ export class Social {
   isAnimating = false;
   transitionDurationMs = 350;
 
+  // Responsive Werte für mobile Geräte
+  get responsiveCommentWidth(): number {
+    if (window.innerWidth <= 320) return Math.min(280, window.innerWidth - 20);
+    if (window.innerWidth <= 480) return Math.min(290, window.innerWidth - 30);
+    if (window.innerWidth <= 768) return Math.min(300, window.innerWidth - 60);
+    if (window.innerWidth <= 1024) return Math.min(450, window.innerWidth - 80);
+    return this.commentWidth;
+  }
+
+  get responsiveGap(): number {
+    if (window.innerWidth <= 320) return 10;
+    if (window.innerWidth <= 480) return 12;
+    if (window.innerWidth <= 768) return 15;
+    if (window.innerWidth <= 1024) return 40;
+    return this.gap;
+  }
+
+  get responsiveTransitionDuration(): number {
+    if (window.innerWidth <= 320) return 200;
+    if (window.innerWidth <= 480) return 220;
+    if (window.innerWidth <= 768) return 250;
+    if (window.innerWidth <= 1024) return 280;
+    return 300;
+  }
+
   calcTranslateX(index: number): number {
-    const totalWidth = this.comments.length * this.commentWidth + (this.comments.length - 1) * this.gap;
+    const currentWidth = this.responsiveCommentWidth;
+    const currentGap = this.responsiveGap;
+    const totalWidth = this.comments.length * currentWidth + (this.comments.length - 1) * currentGap;
     const containerCenter = totalWidth / 2;
-    const activePos = index * (this.commentWidth + this.gap) + this.commentWidth / 2;
+    const activePos = index * (currentWidth + currentGap) + currentWidth / 2;
     return containerCenter - activePos;
   }
 
@@ -49,7 +76,8 @@ export class Social {
   nextComment() {
     if (this.isAnimating || this.comments.length <= 1) return;
     this.isAnimating = true;
-    const distance = this.commentWidth + this.gap;
+    const distance = this.responsiveCommentWidth + this.responsiveGap;
+    const duration = this.responsiveTransitionDuration;
     this.slideOffset = -distance;
     setTimeout(() => {
       this.disableTransition = true;
@@ -59,13 +87,14 @@ export class Social {
         this.disableTransition = false;
         this.isAnimating = false;
       }, 20);
-    }, this.transitionDurationMs);
+    }, duration);
   }
 
   prevComment() {
     if (this.isAnimating || this.comments.length <= 1) return;
     this.isAnimating = true;
-    const distance = this.commentWidth + this.gap;
+    const distance = this.responsiveCommentWidth + this.responsiveGap;
+    const duration = this.responsiveTransitionDuration;
     this.slideOffset = distance;
     setTimeout(() => {
       this.disableTransition = true;
@@ -75,7 +104,7 @@ export class Social {
         this.disableTransition = false;
         this.isAnimating = false;
       }, 20);
-    }, this.transitionDurationMs);
+    }, duration);
   }
 
   getVisibleComments() {

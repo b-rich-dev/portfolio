@@ -138,3 +138,159 @@ section {
 
     }
 }
+
+@media (max-width: 1200px),
+(pointer: coarse) {
+    section {
+        .social-wrapper {
+            .comments-container {
+                &::before {
+                    content: '';
+                    background: linear-gradient(90deg,
+                            rgba(0, 0, 0, 0.8) 0%,
+                            transparent 16%,
+                            transparent 84%,
+                            rgba(0, 0, 0, 0.8) 100%);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px),
+(pointer: coarse) {
+    section {
+        .social-wrapper {
+            .comments-container {
+                &::before {
+                    content: '';
+                    background: linear-gradient(90deg,
+                            rgba(0, 0, 0, 0.8) 0%,
+                            transparent 8%,
+                            transparent 92%,
+                            rgba(0, 0, 0, 0.8) 100%);
+                }
+
+                .comments-slider {
+                    gap: 80px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 890px),
+(pointer: coarse) {
+    section {
+        .social-wrapper {
+            .comments-container {
+                &::before {
+                    content: '';
+                    background: linear-gradient(90deg,
+                            rgba(0, 0, 0, 0.8) 0%,
+                            transparent 6%,
+                            transparent 94%,
+                            rgba(0, 0, 0, 0.8) 100%);
+                }
+
+                .comments-slider {
+                    gap: 60px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px),
+(pointer: coarse) {
+    section {
+        .social-wrapper {
+            h3 {
+                @include font-fira-code($fs: 1.5rem, $fw: 700, $c: var(--turquoise));
+                margin-bottom: 24px;
+            }
+
+            .comments-container {
+                height: 520px;
+
+                &::before {
+                    content: '';
+                    background: linear-gradient(90deg,
+                            rgba(0, 0, 0, 0.8) 0%,
+                            transparent 4%,
+                            transparent 96%,
+                            rgba(0, 0, 0, 0.8) 100%);
+                    height: 436px;
+                }
+
+                &::after {
+                    top: calc(50% - 240px);
+                    left: calc(50% - 156px);
+                }
+
+                .comments-slider {
+                    gap: 40px;
+
+                    .comment {
+                        @include font-karla($fs: 1rem, $fw: 400, $c: var(--light-grey));
+                        padding: 52px 24px;
+                        width: 360px;
+                        height: 420px;
+                    }
+                }
+
+                .comments-slider .comment.active {
+                    @include font-karla($fs: 1rem, $fw: 400, $c: var(--white));
+                }
+            }
+
+            .controls {
+                padding-top: 24px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px),
+(pointer: coarse) {
+    section {
+        .social-wrapper {
+            h3{
+                text-align: center;
+                padding: 0 16px;
+            }
+            .comments-container {
+                height: 620px;
+
+                &::before {
+                    content: '';
+                    background: linear-gradient(90deg,
+                            rgba(0, 0, 0, 0.8) 0%,
+                            transparent 4%,
+                            transparent 96%,
+                            rgba(0, 0, 0, 0.8) 100%);
+                    height: 520px;
+                }
+
+                &::after {
+                    top: calc(50% - 295px);
+                    left: calc(50% - 88px);
+                }
+
+                .comments-slider {
+                    gap: 24px;
+
+                    .comment {
+                        padding: 52px 16px 36px 16px;
+                        width: 236px;
+                        height: 520px;
+                    }
+                }
+            }
+
+            .controls {
+                padding-top: 12px;
+            }
+        }
+    }
+}
