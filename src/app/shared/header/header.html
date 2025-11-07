@@ -39,13 +39,13 @@
         <nav>
             <ul>
                 @if (currentLanguage() === 'en') {
-                <li><a href="#app-about-me">About me</a></li>
-                <li><a href="#skill-set">Skills</a></li>
-                <li><a href="#featured-projects">Projects</a></li>
+                <li><a href="#app-about-me" (click)="closeNavDialog()">About me</a></li>
+                <li><a href="#skill-set" (click)="closeNavDialog()">Skills</a></li>
+                <li><a href="#featured-projects" (click)="closeNavDialog()">Projects</a></li>
                 } @else {
-                <li><a href="#app-about-me">Über mich</a></li>
-                <li><a href="#skill-set">Fähigkeiten</a></li>
-                <li><a href="#featured-projects">Projekte</a></li>
+                <li><a href="#app-about-me" (click)="closeNavDialog()">Über mich</a></li>
+                <li><a href="#skill-set" (click)="closeNavDialog()">Fähigkeiten</a></li>
+                <li><a href="#featured-projects" (click)="closeNavDialog()">Projekte</a></li>
                 }
             </ul>
         </nav>

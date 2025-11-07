@@ -61,7 +61,7 @@ export class Social {
     },
     {
       textEn: `He works in a very structured and efficient manner, enabling tasks to be completed quickly and accurately. Particularly impressive is his ability to quickly and confidently familiarize himself with existing code. He has solid knowledge of HTML, CSS, JavaScript, TypeScript, and Angular, as well as experience with Git, GitHub, Firebase, and Figma. Working with him is always pleasant, professional, and constructive.`,
-      textDe: `Er arbeitet sehr strukturiert und effizient, wodurch Aufgaben schnell und fehlerfrei umgesetzt werden. Besonders beeindruckend ist seine Fähigkeit, sich rasch und sicher in bestehenden Code einzuarbeiten. Er verfügt über fundierte Kenntnisse in HTML, CSS, JavaScript, TypeScript und Angular sowie Erfahrung mit Git, GitHub, Firebase und Figma. Die Zusammenarbeit mit ihm ist stets angenehm, professionell und konstruktiv`,
+      textDe: `Er arbeitet sehr strukturiert und effizient, wodurch Aufgaben schnell und fehlerfrei umgesetzt werden. Besonders beeindruckend ist seine Fähigkeit, sich rasch und sicher in bestehenden Code einzuarbeiten. Er verfügt über fundierte Kenntnisse in HTML, CSS, JavaScript, TypeScript und Angular sowie Erfahrung mit Git, GitHub, Firebase und Figma. Die Zusammenarbeit mit ihm ist stets angenehm, professionell und konstruktiv.`,
       authorEn: 'Dominik Rapp - Team Partner',
       authorDe: 'Dominik Rapp - Teamkollege'
     },

@@ -160,6 +160,7 @@ section {
     section {
         .skill-set-wrapper {
             gap: 24px;
+
             .icons-container {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 12px;
@@ -175,6 +176,7 @@ section {
         .skill-set-wrapper {
             @include dFlex($jc: unset, $fd: column);
             gap: 80px;
+
             .text-container {
 
                 .skill-set {
@@ -256,7 +258,12 @@ section {
                 .special-hover {
                     flex-basis: 33.333%;
                     max-width: 33.333%;
-                    animation: pulse 1s infinite ease-in-out alternate
+                    margin-bottom: 32px;
+
+                    .gm-icon {
+                        animation: pulse 1s infinite ease-in-out alternate;
+                        animation-delay: 1.2s;
+                    }
                 }
             }
         }
@@ -314,6 +321,39 @@ section {
     section {
         .skill-set-wrapper {
             padding: 0 16px 80px 16px;
+        }
+    }
+}
+
+@media (max-width: 380px),
+(pointer: coarse) {
+    section {
+        .skill-set-wrapper {
+            .text-container {
+                .skill-set {
+                    padding: 16px;
+
+                    p {
+                        hyphens: auto;
+                        word-break: break-word;
+                        -webkit-hyphens: auto;
+                        -moz-hyphens: auto;
+                        -ms-hyphens: auto;
+                    }
+
+                    h3 {
+                        hyphens: auto;
+                        word-break: break-word;
+                        -webkit-hyphens: auto;
+                        -moz-hyphens: auto;
+                        -ms-hyphens: auto;
+                    }
+
+                    a{
+                        width: 100% !important;
+                    }
+                }
+            }
         }
     }
 }

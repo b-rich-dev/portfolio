@@ -13,7 +13,7 @@ import { LanguageService } from '../services/language';
 })
 export class Contact implements AfterViewInit {
   public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
-  mailTest = true;
+  mailTest = false;
 
   @ViewChild('privacyPolicyDialog') privacyPolicyDialog!: ElementRef<HTMLDialogElement>;
 
@@ -28,6 +28,8 @@ export class Contact implements AfterViewInit {
   };
 
   acceptPolicy: boolean = false;
+  emailSent: boolean = false;
+  emailSending: boolean = false;
 
   post = {
     endPoint: 'https://birich.it/sendMail.php',
@@ -41,24 +43,45 @@ export class Contact implements AfterViewInit {
   };
 
   onSubmit(ngForm: NgForm) {
-    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
+    if (ngForm.submitted && ngForm.form.valid && this.acceptPolicy && !this.mailTest) {
+      this.emailSending = true;
+      this.emailSent = false;
+
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
-
+            this.emailSending = false;
+            this.emailSent = true;
             ngForm.resetForm();
+            this.acceptPolicy = false;
+
+            // Erfolgsmeldung nach 5 Sekunden ausblenden
+            setTimeout(() => {
+              this.emailSent = false;
+            }, 5000);
           },
           error: (error) => {
             console.error(error);
+            this.emailSending = false;
           },
           complete: () => console.info('send post complete'),
         });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) { //&& this.acceptPolicy
+    } else if (ngForm.submitted && ngForm.form.valid && this.acceptPolicy && this.mailTest) {
       console.log('Form submitted:', this.contactData);
+      
+      // Simulate sending for test mode
+      this.emailSending = true;
+      setTimeout(() => {
+        this.emailSending = false;
+        this.emailSent = true;
+        ngForm.resetForm();
+        this.acceptPolicy = false;
 
-      ngForm.resetForm();
-      this.acceptPolicy = false;
-
+        // Erfolgsmeldung nach 5 Sekunden ausblenden
+        setTimeout(() => {
+          this.emailSent = false;
+        }, 5000);
+      }, 1000);
     }
   }
 

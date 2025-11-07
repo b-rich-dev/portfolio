@@ -117,6 +117,15 @@ h2 {
     (pointer: coarse) {
         @include mixin.font-fira-code($fs: 3.5rem, $fw: 700, $c: var(--turquoise));
     }
+
+    @media (max-width: 768px),
+    (pointer: coarse) {
+        hyphens: auto;
+        word-break: break-word;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+    }
 }
 
 .btn {

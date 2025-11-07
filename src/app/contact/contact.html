@@ -92,8 +92,23 @@
                     'Bitte akzeptieren Sie die Datenschutzrichtlinie.' }}</p>
                 }
             </div>
-            <button class="btn" type="submit"><span>{{ currentLanguage() === 'en' ? 'Say Hello :)' : 'Sag Hallo :)'
-                    }}</span></button>
+            <button class="btn" type="submit" [disabled]="emailSending">
+                @if (!emailSending) {
+                <span>{{ currentLanguage() === 'en' ? 'Say Hello :)' : 'Sag Hallo :)' }}</span>
+                } @else {
+                <span>{{ currentLanguage() === 'en' ? 'Sending...' : 'Wird gesendet...' }}</span>
+                }
+            </button>
+            
+            <!-- Erfolgsmeldung -->
+            @if (emailSent) {
+            <div class="success-message">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 6L9 17L4 12" stroke="var(--turquoise)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>{{ currentLanguage() === 'en' ? 'Message sent successfully! I\'ll get back to you soon.' : 'Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.' }}</p>
+            </div>
+            }
         </form>
     </div>
     <dialog #privacyPolicyDialog>

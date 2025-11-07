@@ -58,7 +58,7 @@ export class Overlay {
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
     github: "https://github.com/b-rich-dev/portfolio",
-    link: "https://birich.it/portfolio",
+    link: "https://birich.it",
     bigImg: [{ src: "portfolio.png", alt: "Portfolio Project Screenshot" }]
   }];
 

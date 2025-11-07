@@ -92,9 +92,18 @@ section {
 @media (max-width: 1024px),
 (pointer: coarse) {
     section {
-
         .about-me-wrapper {
             @include dFlex($fd: column, $jc: center, $ai: center, $g: 0px);
+
+            .profile-info-container {
+                .profile-info {
+                    div {
+                        img {
+                            margin: unset;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -161,6 +170,39 @@ section {
                     &:focus {
                         transform: translate(8px, -8px);
                         content: url('/assets/img/about_me/profile_hover.jpg');
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 380px),
+(pointer: coarse) {
+    section {
+        .about-me-wrapper {
+            .profile-info-container {
+                .profile-info {
+                    padding: 16px;
+
+                    p {
+                        hyphens: auto;
+                        word-break: break-word;
+                        -webkit-hyphens: auto;
+                        -moz-hyphens: auto;
+                        -ms-hyphens: auto;
+                    }
+
+                    div{
+                        gap: 16px;
+
+                        p {
+                            hyphens: auto;
+                            word-break: break-word;
+                            -webkit-hyphens: auto;
+                            -moz-hyphens: auto;
+                            -ms-hyphens: auto;
+                        }
                     }
                 }
             }
