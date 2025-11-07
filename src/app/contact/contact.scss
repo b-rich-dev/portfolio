@@ -109,7 +109,7 @@ section {
                                 color: var(--white);
                                 text-decoration: underline;
                                 text-decoration-color: var(--turquoise);
-                                text-underline-offset: 8px;
+                                text-underline-offset: 4px;
                                 text-decoration-thickness: 2px;
                             }
                         }
@@ -220,5 +220,70 @@ section {
 
     100% {
         transform: translateX(0);
+    }
+}
+
+@media (max-width: 1024px),
+(pointer: coarse) {
+    section {
+        .contact-wrapper {
+            @include dFlex($fd: column, $g: 80px);
+
+            .contact-text,
+            form {
+                width: 100%;
+
+                button {
+                    border-color: var(--turquoise);
+                    margin: 40px auto 0 auto;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px),
+(pointer: coarse) {
+    section {
+        .contact-wrapper {
+            padding: 80px 24px;
+
+            .contact-text {
+                h3 {
+                    @include font-karla($fs: 1.25rem, $fw: 500, $c: var(--turquoise));
+                }
+
+                p {
+                    @include font-karla($fs: 1rem, $fw: 400);
+
+                    span {
+                        @include font-karla($fs: 1rem, $fw: 700, $c: var(--turquoise));
+                    }
+                }
+            }
+
+            form {
+                .label-wrapper {
+                    label {
+                        @include font-fira-code($fs: 1.25rem, $fw: 500, $c: var(--turquoise));
+                    }
+
+                    input,
+                    textarea {
+                        @include font-karla($fs: 1rem, $fw: 400, $c: var(--white));
+                        line-height: 1.4;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px),
+(pointer: coarse) {
+    section {
+        .contact-wrapper {
+            padding: 80px 16px;
+        }
     }
 }
