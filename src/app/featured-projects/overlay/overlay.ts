@@ -1,8 +1,41 @@
 import { Component, inject, Signal, ViewChild, ElementRef } from '@angular/core';
 import { LanguageService } from '../../services/language';
-import { text } from 'node:stream/consumers';
-import { link } from 'node:fs';
 
+/**
+ * Interface for project data structure
+ */
+interface ProjectData {
+  id: number;
+  title: string;
+  language: Array<{ code: string; question: string; description: string; }>;
+  icons: Array<{ img: string; alt: string; text: string; }>;
+  github: string;
+  link: string;
+  bigImg: Array<{ src: string; alt: string; }>;
+}
+
+/**
+ * Project Overlay Component
+ * 
+ * Interactive modal overlay that displays detailed information about portfolio projects.
+ * 
+ * Features:
+ * - Project showcase with detailed descriptions
+ * - Multilingual content support (German/English)
+ * - Technology stack display with icons
+ * - Direct links to GitHub repository and live demo
+ * - Modal dialog with backdrop interaction
+ * - Project navigation functionality
+ * - Responsive design with scroll management
+ * 
+ * Projects included:
+ * - Join: Kanban-style task manager
+ * - El Pollo Loco: Object-oriented JavaScript game
+ * - Portfolio: Angular portfolio website
+ * 
+ * @author Eugen Birich
+ * @version 1.0.0
+ */
 @Component({
   selector: 'app-overlay',
   standalone: true,
@@ -11,13 +44,20 @@ import { link } from 'node:fs';
   styleUrl: './overlay.scss'
 })
 export class Overlay {
+  /** Current language signal from LanguageService for multilingual support */
   public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
 
+  /** Reference to the dialog element for modal functionality */
   @ViewChild('dialog') private dialog!: ElementRef<HTMLDialogElement>;
 
+  /** Currently selected project ID for display in the overlay */
   public currentProjectId: number = 1;
 
-  dialogContent = [{
+  /**
+   * Static project data containing all portfolio projects
+   * Each project includes multilingual descriptions, tech stack, and links
+   */
+  dialogContent: ProjectData[] = [{
     id: 0o1,
     title: 'Join',
     language: [
@@ -62,19 +102,58 @@ export class Overlay {
     bigImg: [{ src: "portfolio.png", alt: "Portfolio Project Screenshot" }]
   }];
 
+  /**
+   * Opens the project overlay dialog for a specific project
+   * @param id - Project ID to display (1: Join, 2: El Pollo Loco, 3: Portfolio)
+   */
   public openDialog(id: number): void {
-    const dlg = this.dialog?.nativeElement;
-    if (!dlg) return;
-
     this.currentProjectId = id;
+    this.openDialogHelper(this.dialog);
+  }
+
+  /**
+   * Closes the project overlay dialog
+   * Public method for template usage
+   */
+  public closeDialog(): void {
+    this.closeDialogHelper(this.dialog);
+  }
+
+  /**
+   * Helper method to open any dialog modal
+   * Displays modal, disables body scrolling, and sets up event listeners
+   * @param dialogRef - ElementRef to the dialog element
+   */
+  private openDialogHelper(dialogRef: ElementRef<HTMLDialogElement>) {
+    const dlg = dialogRef?.nativeElement;
+    if (!dlg) return;
 
     dlg.showModal();
     document.body.classList.add('no-scroll');
+    this.setupDialogEventListeners(dlg);
+  }
 
+  /**
+   * Helper method to close any dialog modal
+   * Closes modal and re-enables body scrolling
+   * @param dialogRef - ElementRef to the dialog element
+   */
+  private closeDialogHelper(dialogRef: ElementRef<HTMLDialogElement>) {
+    const dlg = dialogRef?.nativeElement;
+    if (!dlg) return;
+
+    dlg.close();
+    document.body.classList.remove('no-scroll');
+  }
+
+  /**
+   * Sets up event listeners for dialog interactions
+   * Handles backdrop clicks to close dialog and cleanup on dialog close
+   * @param dlg - The dialog HTML element
+   */
+  private setupDialogEventListeners(dlg: HTMLDialogElement) {
     const onBackdropClick = (e: MouseEvent) => {
-      if (e.target === dlg) {
-        dlg.close();
-      }
+      if (e.target === dlg) dlg.close();
     };
 
     const onClose = () => {
@@ -87,18 +166,21 @@ export class Overlay {
     dlg.addEventListener('close', onClose);
   }
 
-  public closeDialog(): void {
-    const dlg = this.dialog?.nativeElement;
-    if (!dlg) return;
-    dlg.close();
-    document.body.classList.remove('no-scroll');
-  }
-
-  public getCurrentProject() {
+  /**
+   * Retrieves the currently selected project data
+   * @returns Project object with all details (title, description, links, etc.)
+   * Falls back to first project if current ID is invalid
+   */
+  public getCurrentProject(): ProjectData {
     const projects = this.dialogContent;
     return projects.find(project => project.id === this.currentProjectId) || projects[0];
   }
 
+  /**
+   * Navigates to the next project in the sequence
+   * Cycles back to project 1 after reaching the last project
+   * Used for project navigation within the overlay
+   */
   public nextProject(): void {
     this.currentProjectId++;
     if (this.currentProjectId > this.dialogContent.length) {

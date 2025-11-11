@@ -111,12 +111,10 @@ section {
 @media (max-width: 768px),
 (pointer: coarse) {
     section {
-
         .about-me-wrapper {
             padding: 80px 24px;
 
             .profile-picture-container {
-
                 .profile-picture {
                     &:hover {
                         transform: translate(16px, -16px);
@@ -138,7 +136,6 @@ section {
                 @include font-karla($fs: 1.125rem, $c: var(--turquoise), $fw: 500);
 
                 .profile-info {
-
                     p {
                         @include font-karla($fs: 1rem, $c: var(--white));
                     }
@@ -151,12 +148,10 @@ section {
 @media (max-width: 480px),
 (pointer: coarse) {
     section {
-
         .about-me-wrapper {
             padding: 80px 16px;
 
             .profile-picture-container {
-
                 .profile-picture {
                     &:hover {
                         transform: translate(8px, -8px);
@@ -193,7 +188,7 @@ section {
                         -ms-hyphens: auto;
                     }
 
-                    div{
+                    div {
                         gap: 16px;
 
                         p {

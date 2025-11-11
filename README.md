@@ -1,59 +1,129 @@
-# Portfolio
+# Eugen Birich - Frontend Developer Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+A modern, responsive portfolio website showcasing my skills and projects as a Frontend Developer. Built with Angular 20 and featuring server-side rendering (SSR) for optimal performance.
 
-## Development server
+## 🚀 Live Demo
 
-To start a local development server, run:
+Visit my portfolio: [https://birich.it](https://birich.it)
+
+## 🛠️ Technologies Used
+
+- **Angular 20** - Latest Angular framework with standalone components
+- **TypeScript** - Type-safe development
+- **SCSS** - Modern CSS preprocessing
+- **Angular SSR** - Server-side rendering for SEO and performance
+- **Express.js** - Node.js server for SSR
+- **Responsive Design** - Mobile-first approach
+
+## ✨ Features
+
+- **Multilingual Support** - German and English language toggle
+- **Responsive Design** - Optimized for all devices
+- **Contact Form** - Working email functionality with validation
+- **Interactive Elements** - Smooth animations and hover effects
+- **Privacy Policy** - GDPR compliant modal dialog
+- **Modern UI/UX** - Clean, professional design
+- **Performance Optimized** - SSR for fast loading times
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/
+│   ├── about-me/           # About section component
+│   ├── contact/            # Contact form with validation
+│   ├── featured-projects/  # Project showcase
+│   ├── landing-page/       # Hero section
+│   ├── services/           # Shared services
+│   ├── shared/             # Reusable components
+│   ├── skill-set/          # Skills display
+│   └── social/             # Testimonials slider
+├── assets/                 # Images, fonts, and static files
+└── styles/                 # Global SCSS files
+```
+
+## 🚀 Development
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- Angular CLI
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/b-rich-dev/portfolio.git
+
+# Navigate to project directory
+cd portfolio
+
+# Install dependencies
+npm install
+```
+
+### Development Server
+
+```bash
+# Start development server
 ng serve
+
+# Or with SSR
+npm run serve:ssr:portfolio
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/` for development or `http://localhost:4000/` for SSR.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Building
 
 ```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+# Development build
 ng build
+
+# Production build
+ng build --configuration production
+
+# SSR build
+ng build && npm run serve:ssr:portfolio
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📦 Deployment
 
-## Running unit tests
+The project is configured for production deployment with:
+- Angular Universal SSR
+- Optimized bundle sizes
+- SEO-friendly routing
+- Express.js server setup
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 📧 Contact Form
 
-```bash
-ng test
-```
+The contact form includes:
+- Real-time validation
+- Test mode for development
+- GDPR-compliant privacy policy
+- Email sending via PHP backend
+- Success/error feedback
 
-## Running end-to-end tests
+## 🌐 Browser Support
 
-For end-to-end (e2e) testing, run:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-```bash
-ng e2e
-```
+## 👨‍💻 Author
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+**Eugen Birich** - Frontend Developer
 
-## Additional Resources
+- Website: [birich.it](https://birich.it)
+- GitHub: [@b-rich-dev](https://github.com/b-rich-dev)
+- Email: info@birich.it
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📄 License
+
+This project is private and proprietary. All rights reserved.
+
+---
+
+Built with ❤️ using Angular 20

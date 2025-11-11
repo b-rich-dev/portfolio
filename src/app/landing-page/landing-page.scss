@@ -118,7 +118,6 @@ section {
                 .mail-logo {
                     display: none;
                 }
-
             }
 
             .postright {
@@ -127,7 +126,6 @@ section {
                 border: 1px solid var(--white);
             }
         }
-
 
         .beam-container {
             position: absolute;
@@ -207,9 +205,7 @@ section {
 @media (max-width: 1024px),
 (pointer: coarse) {
     section {
-
         .landing-page-wrapper {
-
             h3 {
                 @include font-fira-code($fs: 1.5rem, $fw: 300);
                 text-align: center;
@@ -228,9 +224,7 @@ section {
             }
 
             .post-right-container {
-
                 .links-container {
-
                     .mail-logo {
                         display: flex;
                     }
@@ -247,7 +241,6 @@ section {
 @media (max-width: 768px),
 (pointer: coarse) {
     section {
-
         .landing-page-wrapper {
             padding: 0 24px;
 
@@ -260,9 +253,7 @@ section {
             }
 
             .beam-container {
-
                 .beam {
-
                     span {
                         @include font-karla($fs: 1.5rem, $fw: 400, $c: var(--turquoise));
                     }
@@ -275,7 +266,6 @@ section {
 @media (max-width: 480px),
 (pointer: coarse) {
     section {
-
         .landing-page-wrapper {
             padding: 0 16px;
 

@@ -32,15 +32,15 @@
             </p>
             }
         </div>
-        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" autocomplete="off" data-form-type="other">
             <div class="label-wrapper">
                 <label for="name">{{ currentLanguage() === 'en' ? 'What\'s your name?' : 'Wie heißen Sie?' }}</label>
                 @if (currentLanguage() === 'en') {
-                <input #name="ngModel" [(ngModel)]="contactData.name" name="name" type="text"
+                <input #name="ngModel" autocomplete="off" [(ngModel)]="contactData.name" name="name" type="text"
                     [placeholder]="(name.invalid && (name.touched || contactForm.submitted)) ? 'Oops! it seems your name is missing' : 'Your Name goes here'"
                     required [class.invalid]="name.invalid && (name.touched || contactForm.submitted)" />
                 } @else {
-                <input #name="ngModel" [(ngModel)]="contactData.name" name="name" type="text"
+                <input #name="ngModel" autocomplete="off" [(ngModel)]="contactData.name" name="name" type="text"
                     [placeholder]="(name.invalid && (name.touched || contactForm.submitted)) ? 'Hoppla! es scheint, als ob Ihr Name fehlt' : 'Ihr Name hier eingeben'"
                     required [class.invalid]="name.invalid && (name.touched || contactForm.submitted)" />
                 }
@@ -49,12 +49,12 @@
                 <label for="email">{{ currentLanguage() === 'en' ? 'What\'s your email?' : 'Wie lautet Ihre E-Mail?'
                     }}</label>
                 @if (currentLanguage() === 'en') {
-                <input #email="ngModel" [(ngModel)]="contactData.email" name="email" type="email"
+                <input #email="ngModel" autocomplete="off" [(ngModel)]="contactData.email" name="email" type="email"
                     [placeholder]="(email.invalid && (email.touched || contactForm.submitted)) ? 'Hoppla! your email is required' : 'yourmail@email.com'"
                     required pattern=".+@.+\..+"
                     [class.invalid]="email.invalid && (email.touched || contactForm.submitted)" />
                 } @else {
-                <input #email="ngModel" [(ngModel)]="contactData.email" name="email" type="email"
+                <input #email="ngModel" autocomplete="off" [(ngModel)]="contactData.email" name="email" type="email"
                     [placeholder]="(email.invalid && (email.touched || contactForm.submitted)) ? 'Hoppla! Ihre E-Mail ist erforderlich' : 'deinemail@email.de'"
                     required pattern=".+@.+\..+"
                     [class.invalid]="email.invalid && (email.touched || contactForm.submitted)" />
@@ -87,10 +87,12 @@
                         stimme der Verarbeitung meiner Daten wie beschrieben zu.</p>
                     }
                 </div>
-                @if (!acceptPolicy && contactForm.submitted) {
-                <p style="color: var(--warn);">{{ currentLanguage() === 'en' ? 'Please accept the privacy policy.' :
-                    'Bitte akzeptieren Sie die Datenschutzrichtlinie.' }}</p>
-                }
+                <p class="policy-warning">
+                    @if (!acceptPolicy && contactForm.submitted) {
+                    {{ currentLanguage() === 'en' ? 'Please accept the privacy policy.' :
+                    'Bitte akzeptieren Sie die Datenschutzrichtlinie.' }}
+                    }
+                </p>
             </div>
             <button class="btn" type="submit" [disabled]="emailSending">
                 @if (!emailSending) {
@@ -99,8 +101,6 @@
                 <span>{{ currentLanguage() === 'en' ? 'Sending...' : 'Wird gesendet...' }}</span>
                 }
             </button>
-            
-            <!-- Erfolgsmeldung -->
             @if (emailSent) {
             <div class="success-message">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

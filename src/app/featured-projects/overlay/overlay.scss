@@ -159,7 +159,6 @@ dialog {
 @media (max-width: 1200px),
 (pointer: coarse) {
     dialog {
-
         .close-x {
             position: absolute;
             top: 40px;
@@ -180,7 +179,6 @@ dialog {
 @media (max-width: 1024px),
 (pointer: coarse) {
     dialog {
-
         .close-x {
             position: absolute;
             top: 40px;
@@ -242,7 +240,7 @@ dialog {
                     padding-bottom: 20px;
                 }
 
-                p{
+                p {
                     @include font-karla($fs: 1rem, $fw: 400, $c: var(--white));
                 }
             }

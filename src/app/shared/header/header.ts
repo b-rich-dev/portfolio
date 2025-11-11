@@ -2,6 +2,15 @@ import { Component, inject, Signal, ViewChild, ElementRef } from '@angular/core'
 import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../services/language';
 
+/**
+ * Header Component
+ * Handles the header section functionality including:
+ * - Displaying navigation links
+ * - Language toggle (German/English)
+ * 
+ * @author Eugen Birich
+ * @version 1.0.0
+ */
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -10,25 +19,68 @@ import { LanguageService } from '../../services/language';
   styleUrl: './header.scss'
 })
 export class Header {
+  /** Current language signal from LanguageService for multilingual support */
   currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
+
+  /** LanguageService instance for managing language state */
   set = inject(LanguageService);
 
+  /** Reference to the navigation dialog element */
   @ViewChild('navDialog') navDialog!: ElementRef<HTMLDialogElement>;
 
-  toggleLanguage() {
+  /** Toggles the current language between English and German */
+  public toggleLanguage(): void {
     this.set.toggleLanguageService();
   }
 
-  openNavDialog(){
-    const dlg = this.navDialog?.nativeElement;
+  /** Opens the navigation dialog modal */
+  public openNavDialog(): void {
+    this.openDialog(this.navDialog);
+  }
+
+  /**
+   * Closes the navigation dialog modal
+   * Public method for template usage
+   */
+  public closeNavDialog(): void {
+    this.closeDialog(this.navDialog);
+  }
+
+  /**
+   * Generic method to open any dialog modal
+   * Disables body scrolling and sets up event listeners
+   * @param dialogRef - ElementRef to the dialog element
+   */
+  private openDialog(dialogRef: ElementRef<HTMLDialogElement>) {
+    const dlg = dialogRef?.nativeElement;
     if (!dlg) return;
+
     dlg.showModal();
     document.body.classList.add('no-scroll');
+    this.setupDialogEventListeners(dlg);
+  }
 
+  /**
+   * Generic method to close any dialog modal
+   * Re-enables body scrolling
+   * @param dialogRef - ElementRef to the dialog element
+   */
+  private closeDialog(dialogRef: ElementRef<HTMLDialogElement>) {
+    const dlg = dialogRef?.nativeElement;
+    if (!dlg) return;
+
+    dlg.close();
+    document.body.classList.remove('no-scroll');
+  }
+
+  /**
+   * Sets up event listeners for dialog interactions
+   * Handles backdrop clicks and cleanup on dialog close
+   * @param dlg - The dialog HTML element
+   */
+  private setupDialogEventListeners(dlg: HTMLDialogElement) {
     const onBackdropClick = (e: MouseEvent) => {
-      if (e.target === dlg) {
-        dlg.close();
-      }
+      if (e.target === dlg) dlg.close();
     };
 
     const onClose = () => {
@@ -39,12 +91,5 @@ export class Header {
 
     dlg.addEventListener('click', onBackdropClick);
     dlg.addEventListener('close', onClose);
-  }
-
-  public closeNavDialog(): void {
-    const dlg = this.navDialog?.nativeElement;
-    if (!dlg) return;
-    dlg.close();
-    document.body.classList.remove('no-scroll');
   }
 }

@@ -172,15 +172,12 @@ section {
 @media (max-width: 1024px),
 (pointer: coarse) {
     section {
-
         .skill-set-wrapper {
             @include dFlex($jc: unset, $fd: column);
             gap: 80px;
 
             .text-container {
-
                 .skill-set {
-
                     a {
                         border-color: var(--turquoise);
                     }
@@ -203,7 +200,11 @@ section {
                     align-items: center;
 
                     img {
-                        animation: pulse 1s infinite ease-in-out alternate
+                        -webkit-animation: pulse 2s infinite ease-in-out;
+                        animation: pulse 2s infinite ease-in-out;
+                        -webkit-transform: scale(1);
+                        transform: scale(1);
+                        will-change: transform, opacity;
                     }
 
                     &:nth-child(1) img {
@@ -261,8 +262,13 @@ section {
                     margin-bottom: 32px;
 
                     .gm-icon {
-                        animation: pulse 1s infinite ease-in-out alternate;
+                        -webkit-animation: pulse 2s infinite ease-in-out;
+                        animation: pulse 2s infinite ease-in-out;
+                        -webkit-animation-delay: 1.2s;
                         animation-delay: 1.2s;
+                        -webkit-transform: scale(1);
+                        transform: scale(1);
+                        will-change: transform, opacity;
                     }
                 }
             }
@@ -271,12 +277,42 @@ section {
 }
 
 @keyframes pulse {
-    from {
+    0% {
+        -webkit-transform: scale(0.9);
         transform: scale(0.9);
+        opacity: 0.8;
     }
 
-    to {
+    50% {
+        -webkit-transform: scale(1);
         transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+
+    50% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        opacity: 0.8;
     }
 }
 
@@ -287,13 +323,11 @@ section {
             padding: 0 24px 80px 24px;
 
             .text-container {
-
                 p {
                     @include font-karla($fs: 1.125rem, $fw: 700, $c: var(--turquoise));
                 }
 
                 .skill-set {
-
                     p {
                         @include font-karla($fs: 1rem, $fw: 400, $c: var(--light-grey));
                     }
@@ -349,7 +383,7 @@ section {
                         -ms-hyphens: auto;
                     }
 
-                    a{
+                    a {
                         width: 100% !important;
                     }
                 }

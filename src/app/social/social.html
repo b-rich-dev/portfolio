@@ -1,6 +1,7 @@
 <section>
     <div class="social-wrapper">
-        <h3>{{ currentLanguage() === 'en' ? 'What my colleagues say about me' : 'Was meine Kollegen über mich sagen' }}</h3>
+        <h3>{{ currentLanguage() === 'en' ? 'What my colleagues say about me' : 'Was meine Kollegen über mich sagen' }}
+        </h3>
         <div class="comments-container">
             <div class="comments-slider" [class.no-transition]="disableTransition" [class.animating]="isAnimating"
                 [style.transform]="'translateX(' + slideOffset + 'px)'">
@@ -51,7 +52,6 @@
                         fill="currentColor" />
                 </g>
             </svg>
-
         </div>
     </div>
 </section>

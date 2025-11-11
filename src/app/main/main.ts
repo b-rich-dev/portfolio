@@ -6,9 +6,16 @@ import { FeaturedProjects } from '../featured-projects/featured-projects';
 import { Social } from '../social/social';
 import { Contact } from '../contact/contact';
 
+/**
+ * Main Component
+ * Handles the main application layout including:
+ * - Integrating various sections like landing page, about me, skills, projects, social links, and contact form
+ * @author Eugen Birich
+ * @version 1.0.0
+ */
 @Component({
   selector: 'app-main',
-    standalone: true,
+  standalone: true,
   imports: [
     LandingPage,
     AboutMe,

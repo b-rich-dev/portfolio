@@ -18,7 +18,6 @@ header {
         height: 100%;
         padding: 0 80px;
 
-
         .language-toggle {
             width: 84px;
             height: 28px;
@@ -49,7 +48,6 @@ header {
         }
 
         nav {
-
             ul {
                 @include dFlex($jc: space-between, $g: 32px);
                 width: 100%;

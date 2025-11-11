@@ -39,7 +39,6 @@ footer {
         .footer-nav {
             @include dFlex($fd: column, $ai: flex-start, $g: 8px);
 
-
             a {
                 position: relative;
 

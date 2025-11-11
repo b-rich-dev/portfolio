@@ -1,6 +1,29 @@
 import { Component, inject, Signal } from '@angular/core';
 import { LanguageService } from '../services/language';
 
+/** 
+ * Interface for individual comment data structure
+ * Contains multilingual text and author information
+ */
+interface CommentData {
+  /** English version of the comment text */
+  textEn: string;
+  /** German version of the comment text */
+  textDe: string;
+  /** English version of the author name and title */
+  authorEn: string;
+  /** German version of the author name and title */
+  authorDe: string;
+}
+
+/**
+ * Social Component
+ * Handles the social section functionality including:
+ * - Displaying colleague testimonials
+ * - Multilingual support (German/English)
+ * @author Eugen Birich
+ * @version 1.0.0
+ */
 @Component({
   selector: 'app-social',
   standalone: true,
@@ -9,15 +32,28 @@ import { LanguageService } from '../services/language';
   styleUrl: './social.scss'
 })
 export class Social {
+  /** Current language signal from LanguageService for multilingual support */
   public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
-  commentWidth = 590;
-  gap = 100;
-  slideOffset = 0;
-  disableTransition = false;
-  isAnimating = false;
-  transitionDurationMs = 350;
+  
+  /** Width of each comment card in pixels */
+  commentWidth: number = 590;
 
-  // Responsive Werte für mobile Geräte
+  /** Gap between comment cards in pixels */
+  gap: number = 100;
+
+  /** Current slide offset for the comments slider */
+  slideOffset: number = 0;
+
+  /** Flag to disable CSS transitions */
+  disableTransition: boolean = false;
+
+  /** Flag to indicate if an animation is in progress */
+  isAnimating: boolean = false;
+
+  /** Duration of the slide transition in milliseconds */
+  transitionDurationMs: number = 350;
+
+  /** Calculates responsive comment width based on viewport size */
   get responsiveCommentWidth(): number {
     if (window.innerWidth <= 320) return Math.min(280, window.innerWidth - 20);
     if (window.innerWidth <= 480) return Math.min(290, window.innerWidth - 30);
@@ -26,6 +62,7 @@ export class Social {
     return this.commentWidth;
   }
 
+  /** Calculates responsive gap between comment cards based on viewport size */
   get responsiveGap(): number {
     if (window.innerWidth <= 320) return 10;
     if (window.innerWidth <= 480) return 12;
@@ -34,6 +71,7 @@ export class Social {
     return this.gap;
   }
 
+  /** Calculates responsive transition duration based on viewport size */
   get responsiveTransitionDuration(): number {
     if (window.innerWidth <= 320) return 200;
     if (window.innerWidth <= 480) return 220;
@@ -42,6 +80,7 @@ export class Social {
     return 300;
   }
 
+  /** Calculates the translateX value for centering the active comment */
   calcTranslateX(index: number): number {
     const currentWidth = this.responsiveCommentWidth;
     const currentGap = this.responsiveGap;
@@ -51,8 +90,11 @@ export class Social {
     return containerCenter - activePos;
   }
 
-  activeCommentIndex = 1;
-  comments = [
+  /** Index of the currently active comment */
+  activeCommentIndex: number = 1;
+
+  /** Array of comment objects containing text and author information in English and German */
+  comments: CommentData[] = [
     {
       textEn: `Working with Eugen was a great experience. His reliable, conscientious, and team-oriented approach helped us achieve excellent results together. I especially value his openness, expertise, and solution-focused mindset – I can fully recommend collaborating with him.`,
       textDe: `Die Zusammenarbeit mit Eugen war äußerst angenehm und erfolgreich. Durch seine zuverlässige, gewissenhafte und teamorientierte Arbeitsweise konnten wir gemeinsam starke Ergebnisse erzielen. Besonders schätze ich seine Offenheit, Fachkompetenz und lösungsorientierte Haltung – eine Zusammenarbeit, die ich uneingeschränkt empfehlen kann.`,
@@ -73,7 +115,8 @@ export class Social {
     }
   ];
 
-  nextComment() {
+  /** Advances to the next comment in the carousel */
+  public nextComment(): void {
     if (this.isAnimating || this.comments.length <= 1) return;
     this.isAnimating = true;
     const distance = this.responsiveCommentWidth + this.responsiveGap;
@@ -90,7 +133,8 @@ export class Social {
     }, duration);
   }
 
-  prevComment() {
+  /** Moves to the previous comment in the carousel */
+  public prevComment(): void {
     if (this.isAnimating || this.comments.length <= 1) return;
     this.isAnimating = true;
     const distance = this.responsiveCommentWidth + this.responsiveGap;
@@ -107,7 +151,8 @@ export class Social {
     }, duration);
   }
 
-  getVisibleComments() {
+  /** Retrieves the five comments to be displayed in the carousel */
+  public getVisibleComments(): { data: CommentData; idx: number }[] {
     const len = this.comments.length;
     if (len === 0) return [];
     const prev = (this.activeCommentIndex - 1 + len) % len;

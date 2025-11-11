@@ -33,6 +33,7 @@ section {
             @include dFlex($fd: column, $ai: flex-start, $jc: unset);
             width: 50%;
             border-top: 1px solid var(--turquoise);
+            position: relative;
 
             .label-wrapper {
                 @include dFlex($fd: column, $g: 16px, $ai: flex-start);
@@ -93,9 +94,13 @@ section {
                 .checkbox-wrapper {
                     @include dFlex($ai: center, $g: 12px);
 
-                    img:hover {
-                        background-color: var(--turquoise-hover);
-                        border-radius: 50%;
+                    img {
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: var(--turquoise-hover);
+                            border-radius: 50%;
+                        }
                     }
 
                     p {
@@ -115,10 +120,15 @@ section {
                         }
                     }
                 }
+
+                .policy-warning {
+                    height: 24px;
+                    @include font-karla($fs: 1rem, $fw: 400, $c: var(--warn));
+                }
             }
 
             button {
-                margin: 16px auto 0 auto;
+                margin: 16px auto 80px auto;
                 display: block;
                 background-color: transparent;
                 @include font-karla($fs: 1rem, $fw: 700, $c: var(--white));
@@ -131,13 +141,18 @@ section {
             }
 
             .success-message {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
                 @include dFlex($ai: center, $g: 12px, $jc: center);
                 margin: 24px auto 0 auto;
                 padding: 16px 24px;
                 background: rgba(61, 207, 182, 0.1);
                 border: 1px solid var(--turquoise);
                 border-radius: 100px;
-                animation: fadeInUp 0.5s ease-out;
+                animation: fadeInUpCenter 0.5s ease-out;
+                width: 100%;
 
                 svg {
                     flex-shrink: 0;
@@ -167,13 +182,11 @@ section {
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
         z-index: 1001;
 
-        /* Scrollbalken verstecken für Webkit-Browser (Chrome, Safari, Edge) */
         &::-webkit-scrollbar {
             width: 0px;
             background: transparent;
         }
 
-        /* Scrollbalken verstecken für Firefox */
         scrollbar-width: none;
 
         &::backdrop {
@@ -253,6 +266,19 @@ section {
         opacity: 0;
         transform: translateY(20px);
     }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUpCenter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -272,6 +298,10 @@ section {
                 button {
                     border-color: var(--turquoise);
                     margin: 40px auto 0 auto;
+                }
+
+                .success-message {
+                    bottom: -100px;
                 }
             }
         }
