@@ -6,7 +6,7 @@ section {
 
     .about-me-wrapper {
         @include dFlex($jc: space-between, $ai: unset, $g: 80px);
-        padding: 152px 80px;
+        padding: 152px 80px 128px 80px;
         width: 100%;
         height: 100%;
         max-width: 1940px;
@@ -50,7 +50,10 @@ section {
         .profile-info-container {
             @include dFlex($ai: flex-start, $fd: column, $g: 20px);
             padding-top: 80px;
-            @include font-karla($fs: 1.5rem, $c: var(--turquoise), $fw: 500);
+
+            h4 {
+                @include font-karla($fs: 1.5rem, $fw: 700, $c: var(--turquoise));
+            }
 
             .profile-info {
                 border: var(--turquoise) solid 1px;
@@ -112,7 +115,7 @@ section {
 (pointer: coarse) {
     section {
         .about-me-wrapper {
-            padding: 80px 24px;
+            padding: 80px 24px 56px 24px;
 
             .profile-picture-container {
                 .profile-picture {
@@ -133,8 +136,6 @@ section {
             }
 
             .profile-info-container {
-                @include font-karla($fs: 1.125rem, $c: var(--turquoise), $fw: 500);
-
                 .profile-info {
                     p {
                         @include font-karla($fs: 1rem, $c: var(--white));
@@ -149,7 +150,7 @@ section {
 (pointer: coarse) {
     section {
         .about-me-wrapper {
-            padding: 80px 16px;
+            padding: 80px 16px 56px 16px;
 
             .profile-picture-container {
                 .profile-picture {

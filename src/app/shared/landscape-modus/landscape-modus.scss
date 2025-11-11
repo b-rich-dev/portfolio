@@ -1,0 +1,66 @@
+@use '../../../mixin.scss' as *;
+
+.landscape-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: none;
+  
+  @media (orientation: landscape) and (max-height: 600px) and (pointer: coarse) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .landscape-content {
+    @include dFlex($fd: column, $ai: center, $jc: center, $g: 24px);
+    text-align: center;
+    padding: 40px 24px;
+    width: 100%;
+
+    .rotate-icon {
+      img{
+        width: 128px;
+        height: 64px;
+      }
+      animation: rotatePhone 3s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    h2 {
+      @include font-karla($fs: 3rem, $fw: 700, $c: var(--turquoise));
+      padding-top: 24px ;
+    }
+
+    p {
+      @include font-karla($fs: 1.125rem, $fw: 400, $c: var(--white) );
+    }
+  }
+}
+
+@keyframes rotatePhone {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  50% {
+    transform: rotate(90deg);
+  }
+  
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@media (orientation: portrait), (min-height: 601px), (pointer: fine) {
+  .landscape-overlay {
+    display: none !important;
+  }
+}

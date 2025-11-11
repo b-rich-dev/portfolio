@@ -7,7 +7,7 @@ section {
 
     .contact-wrapper {
         @include dFlex($jc: unset, $ai: unset, $fd: row, $g: 40px);
-        padding: 152px 80px 152px 80px;
+        padding: 24px 80px 152px 80px;
         width: 100%;
         height: 100%;
         max-width: 1940px;
@@ -312,7 +312,7 @@ section {
 (pointer: coarse) {
     section {
         .contact-wrapper {
-            padding: 80px 24px;
+            padding: 24px 24px;
 
             .contact-text {
                 h3 {
@@ -349,7 +349,7 @@ section {
 (pointer: coarse) {
     section {
         .contact-wrapper {
-            padding: 80px 16px;
+            padding: 24px 16px;
         }
     }
 }

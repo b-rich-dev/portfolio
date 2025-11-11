@@ -7,13 +7,13 @@ section {
 
     .featured-projects-wrapper {
         @include dFlex($jc: unset, $fd: column, $ai: unset);
-        padding: 0 80px 152px 80px;
+        padding: 24px 80px 128px 80px;
         width: 100%;
         height: 100%;
         max-width: 1940px;
 
-        p {
-            @include font-karla($fs: 1.5rem, $fw: 400, $c: var(--turquoise));
+        h4 {
+            @include font-karla($fs: 1.5rem, $fw: 700, $c: var(--turquoise));
         }
 
         span {
@@ -126,11 +126,7 @@ section {
 (pointer: coarse) {
     section {
         .featured-projects-wrapper {
-            padding: 0 24px 80px 24px;
-
-            p {
-                @include font-karla($fs: 1.125rem, $fw: 700, $c: var(--turquoise));
-            }
+            padding: 24px 24px 56px 24px;
 
             span {
                 @include font-karla($fs: 1rem);
@@ -150,7 +146,7 @@ section {
 (pointer: coarse) {
     section {
         .featured-projects-wrapper {
-            padding: 0 16px 80px 16px;
+            padding: 24px 16px 56px 16px;
         }
     }
 }

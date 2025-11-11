@@ -8,7 +8,7 @@ section {
 
     .skill-set-wrapper {
         @include dFlex($jc: space-between, $ai: unset);
-        padding: 0 80px 152px 80px;
+        padding: 24px 80px 128px 80px;
         width: 100%;
         height: 100%;
         max-width: 1940px;
@@ -18,7 +18,7 @@ section {
             @include dFlex($fd: column, $ai: unset, $g: 20px);
             max-width: 568px;
 
-            p {
+            >h4 {
                 @include font-karla($fs: 1.5rem, $fw: 700, $c: var(--turquoise));
             }
 
@@ -38,7 +38,7 @@ section {
                     }
                 }
 
-                h3 {
+                h4 {
                     @include font-fira-code($fs: 1.5rem, $fw: 700, $c: var(--white));
                     margin: 32px 0 16px;
                 }
@@ -320,20 +320,16 @@ section {
 (pointer: coarse) {
     section {
         .skill-set-wrapper {
-            padding: 0 24px 80px 24px;
+            padding: 24px 24px 56px 24px;
 
             .text-container {
-                p {
-                    @include font-karla($fs: 1.125rem, $fw: 700, $c: var(--turquoise));
-                }
-
                 .skill-set {
                     p {
                         @include font-karla($fs: 1rem, $fw: 400, $c: var(--light-grey));
                     }
 
-                    h3 {
-                        @include font-fira-code($fs: 1.25rem, $fw: 700, $c: var(--white));
+                    h4 {
+                        margin: 16px 0 8px;
                     }
                 }
             }
@@ -354,7 +350,7 @@ section {
 (pointer: coarse) {
     section {
         .skill-set-wrapper {
-            padding: 0 16px 80px 16px;
+            padding: 24px 16px 56px 16px;
         }
     }
 }
@@ -375,7 +371,7 @@ section {
                         -ms-hyphens: auto;
                     }
 
-                    h3 {
+                    h4 {
                         hyphens: auto;
                         word-break: break-word;
                         -webkit-hyphens: auto;
@@ -385,9 +381,32 @@ section {
 
                     a {
                         width: 100% !important;
+
+                        span {
+                            animation: scroll-text-button-mobile 3s linear infinite;
+                        }
                     }
                 }
             }
         }
+    }
+
+}
+
+@keyframes scroll-text-button-mobile {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-300%);
+    }
+
+    50.01% {
+        transform: translateX(300%);
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }

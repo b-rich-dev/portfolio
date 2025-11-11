@@ -9,6 +9,7 @@ section {
         max-width: 1940px;
         overflow: hidden;
         position: relative;
+        padding: 24px 0 128px 0;
 
         h3 {
             @include font-fira-code($fs: 2rem, $fw: 700, $c: var(--turquoise));
@@ -161,6 +162,8 @@ section {
 (pointer: coarse) {
     section {
         .social-wrapper {
+            padding: 24px 0 56px 0;
+
             .comments-container {
                 &::before {
                     content: '';
@@ -206,7 +209,7 @@ section {
     section {
         .social-wrapper {
             h3 {
-                @include font-fira-code($fs: 1.5rem, $fw: 700, $c: var(--turquoise));
+                @include font-fira-code($fs: 1.6rem, $fw: 700, $c: var(--turquoise));
                 margin-bottom: 24px;
             }
 

@@ -103,20 +103,18 @@ a {
 h2 {
     @include mixin.font-fira-code($fs: 4rem, $fw: 700, $c: var(--turquoise));
     padding-bottom: 20px;
+    hyphens: auto;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
 
     @media (max-width: 1024px),
     (pointer: coarse) {
-        @include mixin.font-fira-code($fs: 3.5rem, $fw: 700, $c: var(--turquoise));
+        @include mixin.font-fira-code($fs: 3.2rem, $fw: 700, $c: var(--turquoise));
+        padding-bottom: 14px;
     }
 
-    @media (max-width: 768px),
-    (pointer: coarse) {
-        hyphens: auto;
-        word-break: break-word;
-        -webkit-hyphens: auto;
-        -moz-hyphens: auto;
-        -ms-hyphens: auto;
-    }
 }
 
 .btn {

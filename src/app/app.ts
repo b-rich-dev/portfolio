@@ -3,6 +3,7 @@ import { FaviconService } from './services/favicon.service';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './shared/header/header';
 import { Footer } from './shared/footer/footer';
+import { LandscapeModus } from './shared/landscape-modus/landscape-modus';
 import { isPlatformBrowser } from '@angular/common';
 
 /**
@@ -18,7 +19,8 @@ import { isPlatformBrowser } from '@angular/common';
   imports: [
     RouterOutlet,
     Header,
-    Footer
+    Footer,
+    LandscapeModus
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

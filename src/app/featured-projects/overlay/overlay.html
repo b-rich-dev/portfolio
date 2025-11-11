@@ -57,7 +57,7 @@
             alt="{{getCurrentProject().bigImg[0].alt}}">
     </div>
     <div (click)="nextProject()" class="next-project">
-        <span>next project</span>
+        <span>{{ currentLanguage() === 'en' ? 'next project' : 'nächstes Projekt' }}</span>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_78117_852" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32"
                 height="32">
