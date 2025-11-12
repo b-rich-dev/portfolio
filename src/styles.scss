@@ -115,6 +115,11 @@ h2 {
         padding-bottom: 14px;
     }
 
+    @media (max-width: 380px),
+    (pointer: coarse) {
+        @include mixin.font-fira-code($fs: 2.25rem, $fw: 700, $c: var(--turquoise));
+    }
+
 }
 
 .btn {
@@ -165,6 +170,13 @@ h2 {
                 transition: none;
             }
         }
+    }
+}
+
+@media (max-width: 380px),
+(pointer: coarse) {
+    .btn {
+        padding: 0px 0;
     }
 }
 

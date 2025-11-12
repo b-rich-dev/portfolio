@@ -4,10 +4,28 @@
         @if (currentLanguage() === 'en') {
         <h2>Featured Projects</h2>
         <span>Explore a selection of my work here - Interact with projects to see my skills in action.</span>
+        <div class="portfolio-info-wrapper">
+            <div class="portfolio-left">
+                <p>This <span>Portfolio</span> was created using the following technologies:</p>
+                <div class="work-sets">
+                    HTML <span>|</span> CSS <span>|</span>Angular <span>|</span> TypeScript
+                </div>
+            </div>
+            <div class="portfolio-right"></div>
+        </div>
         } @else {
         <h2>Ausgewählte Projekte</h2>
         <span>Entdecken Sie hier eine Auswahl meiner Arbeiten - Interagieren Sie mit den Projekten, um meine Fähigkeiten
             in Aktion zu sehen.</span>
+        <div class="portfolio-info-wrapper">
+            <div class="portfolio-left">
+                <p>Dieses <span>Portfolio</span> wurde mit folgenden Technologien erstellt:</p>
+                <div class="work-sets">
+                    HTML <span>|</span> CSS <span>|</span>Angular <span>|</span> TypeScript
+                </div>
+            </div>
+            <div class="portfolio-right"></div>
+        </div>
         }
         <div class="block">
             <div (click)="overlay.openDialog(1)" class="block-left">
@@ -35,14 +53,14 @@
         </div>
         <div (click)="overlay.openDialog(3)" class="block">
             <div class="block-left">
-                <h3>Portfolio</h3>
+                <h3>Pokedex</h3>
                 <div class="work-sets">
-                    HTML <span>|</span> CSS <span>|</span>Angular <span>|</span> TypeScript
+                    HTML <span>|</span> CSS <span>|</span> JavaScript <span>|</span> REST API
                 </div>
             </div>
             <div class="block-right">
                 <img src="/assets/img/featured_projects/background.svg" alt="Background Project Screenshot">
-                <img src="/assets/img/featured_projects/portfolio.png" alt="Portfolio Project Screenshot">
+                <img src="/assets/img/featured_projects/pokedex.png" alt="Pokedex Project Screenshot">
             </div>
         </div>
     </div>

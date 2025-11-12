@@ -283,3 +283,14 @@ section {
         }
     }
 }
+
+@media (max-width: 380px),
+(pointer: coarse) {
+    section {
+        .landing-page-wrapper {
+            .btn-area {
+                padding-top: 88px;
+            }
+        }
+    }
+}

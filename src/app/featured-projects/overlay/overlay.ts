@@ -31,10 +31,10 @@ interface ProjectData {
  * Projects included:
  * - Join: Kanban-style task manager
  * - El Pollo Loco: Object-oriented JavaScript game
- * - Portfolio: Angular portfolio website
+ * - Pokedex: REST API based Pokemon encyclopedia
  * 
  * @author Eugen Birich
- * @version 1.0.0
+ * @version 1.0.1
  */
 @Component({
   selector: 'app-overlay',
@@ -68,8 +68,8 @@ export class Overlay {
     { img: "firebase_icon.svg", alt: "Firebase Icon", text: "Firebase" },
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
-    github: "https://github.com/b-rich-dev/join",
-    link: "https://birich.it/join",
+    github: "https://github.com/b-rich-dev/Join-Team-Work",
+    link: "https://birich.it/Join-Team-Work",
     bigImg: [{ src: "join.png", alt: "Join Project Screenshot" }]
   },
   {
@@ -88,23 +88,23 @@ export class Overlay {
   },
   {
     id: 0o3,
-    title: 'Portfolio',
+    title: 'Pokedex',
     language: [
-      { code: "en", question: "What is this project about?", description: 'Responsive Angular portfolio with a modern design, smooth animations, multilingual support, and interactive project showcases. Includes contact form and optimized performance.' },
-      { code: "de", question: "Worum geht es in diesem Projekt?", description: 'Responsives Angular-Portfolio mit modernem Design, flüssigen Animationen, Mehrsprachigkeit und interaktiven Projektpräsentationen. Inklusive Kontaktfunktion und optimierter Performance.' }
+      { code: "en", question: "What is this project about?", description: 'This Pokédex app is a responsive web application that provides Pokémon fans with a comprehensive database of all Pokémon. The app uses the official PokéAPI to present up-to-date and complete information.' },
+      { code: "de", question: "Worum geht es in diesem Projekt?", description: 'Diese Pokedex-App ist eine responsive Webanwendung, die Pokémon-Fans eine umfassende Datenbank aller Pokémon bietet. Die App nutzt die offizielle PokéAPI, um aktuelle und vollständige Informationen zu präsentieren.' }
     ],
-    icons: [{ img: "angular_icon.svg", alt: "Angular Icon", text: "Angular" },
-    { img: "typescript_icon.svg", alt: "TypeScript Icon", text: "TypeScript" },
+    icons: [{ img: "rest_api_icon.png", alt: "REST API Icon", text: "REST API" },
+    { img: "javascript_icon.svg", alt: "JavaScript Icon", text: "JavaScript" },
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
-    github: "https://github.com/b-rich-dev/portfolio",
-    link: "https://birich.it",
-    bigImg: [{ src: "portfolio.png", alt: "Portfolio Project Screenshot" }]
+    github: "https://github.com/b-rich-dev/pokedex",
+    link: "https://birich.it/pokedex",
+    bigImg: [{ src: "pokedex.png", alt: "Pokedex Project Screenshot" }]
   }];
 
   /**
    * Opens the project overlay dialog for a specific project
-   * @param id - Project ID to display (1: Join, 2: El Pollo Loco, 3: Portfolio)
+   * @param id - Project ID to display (1: Join, 2: El Pollo Loco, 3: Pokedex)
    */
   public openDialog(id: number): void {
     this.currentProjectId = id;

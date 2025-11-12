@@ -22,6 +22,38 @@ section {
             padding-bottom: 34px;
         }
 
+        .portfolio-info-wrapper {
+            @include dFlex($jc: space-between, $ai: center);
+            width: 100%;
+
+            .portfolio-left {
+                @include dFlex($jc: space-between, $g: 32px);
+                width: 70%;
+                padding: 0 32px 34px 0;
+
+                p {
+                    @include font-karla($fs: 1.125rem, $c: var(--white));
+
+                    span {
+                        color: var(--turquoise);
+                    }
+                }
+
+                .work-sets {
+                    @include font-karla($fs: 1.125rem);
+                    white-space: nowrap;
+
+                    span {
+                        color: var(--turquoise);
+                    }
+                }
+            }
+
+            .portfolio-right {
+                width: 30%;
+            }
+        }
+
         .block {
             @include dFlex($jc: space-between, $ai: center);
             width: 100%;
@@ -109,6 +141,16 @@ section {
 (pointer: coarse) {
     section {
         .featured-projects-wrapper {
+            .portfolio-info-wrapper {
+                .portfolio-left {
+                    width: 100%;
+                }
+
+                .portfolio-right {
+                    display: none;
+                }
+            }
+
             .block {
                 .block-left {
                     width: 100%;
@@ -130,6 +172,13 @@ section {
 
             span {
                 @include font-karla($fs: 1rem);
+            }
+
+            .portfolio-info-wrapper {
+                .portfolio-left {
+                    @include dFlex($fd: column, $ai: flex-start, $g: 16px);
+                    padding: 28px 0 28px 0;
+                }
             }
 
             .block {
