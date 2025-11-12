@@ -383,7 +383,7 @@ section {
                         width: 100% !important;
 
                         span {
-                            animation: scroll-text-button-mobile 3s linear infinite;
+                            animation: scroll-text-button-mobile 3.4s linear infinite;
                         }
                     }
                 }
@@ -391,22 +391,4 @@ section {
         }
     }
 
-}
-
-@keyframes scroll-text-button-mobile {
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(-300%);
-    }
-
-    50.01% {
-        transform: translateX(300%);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
 }

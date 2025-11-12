@@ -185,3 +185,21 @@ h2 {
         transform: translateX(0);
     }
 }
+
+@keyframes scroll-text-button-mobile {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-300%);
+    }
+
+    50.01% {
+        transform: translateX(300%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

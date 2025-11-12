@@ -1,4 +1,5 @@
 import { Component, inject, Signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { LanguageService } from '../../services/language';
 
 /**
@@ -13,7 +14,7 @@ import { LanguageService } from '../../services/language';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './footer.html',
   styleUrl: './footer.scss'
 })

@@ -35,44 +35,24 @@
         <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" autocomplete="off" data-form-type="other">
             <div class="label-wrapper">
                 <label for="name">{{ currentLanguage() === 'en' ? 'What\'s your name?' : 'Wie heißen Sie?' }}</label>
-                @if (currentLanguage() === 'en') {
-                <input #name="ngModel" autocomplete="off" [(ngModel)]="contactData.name" name="name" type="text"
-                    [placeholder]="(name.invalid && (name.touched || contactForm.submitted)) ? 'Oops! it seems your name is missing' : 'Your Name goes here'"
+                <input #name="ngModel" id="name" autocomplete="off" [(ngModel)]="contactData.name" name="name" type="text"
+                    [placeholder]="getNamePlaceholder(!!(name.invalid && (name.touched || contactForm.submitted)))"
                     required [class.invalid]="name.invalid && (name.touched || contactForm.submitted)" />
-                } @else {
-                <input #name="ngModel" autocomplete="off" [(ngModel)]="contactData.name" name="name" type="text"
-                    [placeholder]="(name.invalid && (name.touched || contactForm.submitted)) ? 'Hoppla! es scheint, als ob Ihr Name fehlt' : 'Ihr Name hier eingeben'"
-                    required [class.invalid]="name.invalid && (name.touched || contactForm.submitted)" />
-                }
             </div>
             <div class="label-wrapper">
                 <label for="email">{{ currentLanguage() === 'en' ? 'What\'s your email?' : 'Wie lautet Ihre E-Mail?'
                     }}</label>
-                @if (currentLanguage() === 'en') {
-                <input #email="ngModel" autocomplete="off" [(ngModel)]="contactData.email" name="email" type="email"
-                    [placeholder]="(email.invalid && (email.touched || contactForm.submitted)) ? 'Hoppla! your email is required' : 'yourmail@email.com'"
+                <input #email="ngModel" id="email" autocomplete="off" [(ngModel)]="contactData.email" name="email" type="email"
+                    [placeholder]="getEmailPlaceholder(!!(email.invalid && (email.touched || contactForm.submitted)))"
                     required pattern=".+@.+\..+"
                     [class.invalid]="email.invalid && (email.touched || contactForm.submitted)" />
-                } @else {
-                <input #email="ngModel" autocomplete="off" [(ngModel)]="contactData.email" name="email" type="email"
-                    [placeholder]="(email.invalid && (email.touched || contactForm.submitted)) ? 'Hoppla! Ihre E-Mail ist erforderlich' : 'deinemail@email.de'"
-                    required pattern=".+@.+\..+"
-                    [class.invalid]="email.invalid && (email.touched || contactForm.submitted)" />
-                }
             </div>
             <div class="label-wrapper">
                 <label for="message">{{ currentLanguage() === 'en' ? 'How can I help you?' : 'Wie kann ich Ihnen helfen?' }}</label>
-                @if (currentLanguage() === 'en') {
-                <textarea #message="ngModel" rows="1" minlength="3" [(ngModel)]="contactData.message" name="message"
+                <textarea #message="ngModel" id="message" rows="1" minlength="3" [(ngModel)]="contactData.message" name="message"
                     (input)="onTextareaInput($event)"
-                    [placeholder]="(message.invalid && (message.touched || contactForm.submitted)) ? 'What do you need to develop?' : 'Hello Eugen, I am interested in...'"
+                    [placeholder]="getMessagePlaceholder(!!(message.invalid && (message.touched || contactForm.submitted)))"
                     required [class.invalid]="message.invalid && (message.touched || contactForm.submitted)"></textarea>
-                } @else {
-                <textarea #message="ngModel" rows="1" minlength="3" [(ngModel)]="contactData.message" name="message"
-                    (input)="onTextareaInput($event)"
-                    [placeholder]="(message.invalid && (message.touched || contactForm.submitted)) ? 'Was müssen Sie entwickeln?' : 'Hallo Eugen, ich interessiere mich für...'"
-                    required [class.invalid]="message.invalid && (message.touched || contactForm.submitted)"></textarea>
-                }
             </div>
             <div class="warn-wrapper">
                 <div class="checkbox-wrapper">
@@ -80,10 +60,10 @@
                         [src]="acceptPolicy ? '/assets/img/contact/square_checked.svg' : '/assets/img/contact/square.svg'"
                         alt="Square icon to check" />
                     @if (currentLanguage() === 'en') {
-                    <p>I've read the <span (click)="openPrivacyPolicyDialog()">privacy policy</span> and agree to the
+                    <p>I've read the <a routerLink="/legal-notice">privacy policy</a> and agree to the
                         processing of my data as outlined.</p>
                     } @else {
-                    <p>Ich habe die <span (click)="openPrivacyPolicyDialog()">Datenschutzrichtlinie</span> gelesen und
+                    <p>Ich habe die <a routerLink="/legal-notice">Datenschutzrichtlinie</a> gelesen und
                         stimme der Verarbeitung meiner Daten wie beschrieben zu.</p>
                     }
                 </div>
@@ -109,107 +89,33 @@
                 <p>{{ currentLanguage() === 'en' ? 'Message sent successfully! I\'ll get back to you soon.' : 'Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.' }}</p>
             </div>
             }
+            @if (emailError) {
+            <div class="error-message">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8v4m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="var(--warn)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>{{ emailErrorMessage }}</p>
+            </div>
+            }
+            @if (emailValidationError) {
+            <div class="email-validation-message">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="var(--warn)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="22,6 12,13 2,6" stroke="var(--warn)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 12l-4 4M20 12l-4 4" stroke="var(--warn)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>{{ emailValidationMessage }}</p>
+            </div>
+            }
+            @if (validationError) {
+            <div class="validation-message">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="var(--warn)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 9v4M12 17h.01" stroke="var(--warn)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>{{ currentLanguage() === 'en' ? 'Please fill out all fields correctly and accept the privacy policy.' : 'Bitte füllen Sie alle Felder korrekt aus und akzeptieren Sie die Datenschutzrichtlinie.' }}</p>
+            </div>
+            }
         </form>
     </div>
-    <dialog #privacyPolicyDialog>
-        <div class="pp-wrapper">
-            @if (currentLanguage() === 'en') {
-            <h3>Privacy Policy</h3>
-            <p>
-                This website respects your privacy and is committed to protecting your personal data. This privacy
-                notice
-                will inform you about how we look after your personal data when you visit our website and tell you about
-                your privacy rights.
-            </p>
-            <h4>Data Collection</h4>
-            <p>
-                When you visit this website, our web server automatically collects certain information such as your IP
-                address,
-                browser type, operating system, and the pages you visit. This information is used solely for technical
-                purposes
-                to ensure the proper functioning of the website.
-            </p>
-            <h4>Cookies</h4>
-            <p>
-                This website may use cookies to enhance your browsing experience. Cookies are small text files stored on
-                your
-                device. You can control cookie settings through your browser preferences.
-            </p>
-            <h4>Contact Forms</h4>
-            <p>
-                If you contact us via email or contact forms, the data you provide (name, email address, message
-                content)
-                will be stored solely for the purpose of processing your inquiry and potential follow-up communication.
-                The legal basis for this processing is your consent according to Article 6(1)(a) GDPR.
-            </p>
-            <h4>Data Retention</h4>
-            <p>
-                Your personal data will be deleted as soon as the purpose for which it was collected no longer applies,
-                typically after your inquiry has been fully processed and no further communication is required.
-            </p>
-            <h4>Your Rights</h4>
-            <p>
-                Under the General Data Protection Regulation (GDPR), you have the right to access, rectify, erase, or
-                restrict
-                the processing of your personal data. You can withdraw your consent at any time by contacting us.
-                You also have the right to lodge a complaint with a supervisory authority if you believe your data
-                protection rights have been violated. For any privacy-related questions or to exercise your rights,
-                please contact us at <a href="mailto:info@birich.it">info@birich.it</a>.
-            </p>
-            } @else {
-            <h3>Datenschutzrichtlinie</h3>
-            <p>
-                Diese Website respektiert Ihre Privatsphäre und verpflichtet sich zum Schutz Ihrer personenbezogenen
-                Daten. Diese Datenschutzerklärung
-                informiert Sie darüber, wie wir Ihre personenbezogenen Daten verarbeiten, wenn Sie unsere Website
-                besuchen, und erläutert Ihre Datenschutzrechte.
-            </p>
-            <h4>Datenerhebung</h4>
-            <p>
-                Wenn Sie diese Website besuchen, erfasst unser Webserver automatisch bestimmte Informationen wie Ihre IP
-                Adresse,
-                Browsertyp, Betriebssystem und die von Ihnen besuchten Seiten. Diese Informationen werden ausschließlich
-                zu
-                technischen
-                Zwecken verwendet, um die ordnungsgemäße Funktion der Website sicherzustellen.
-            </p>
-            <h4>Cookies</h4>
-            <p>
-                Diese Website kann Cookies verwenden, um Ihr Surferlebnis zu verbessern. Cookies sind kleine
-                Textdateien, die auf
-                Ihrem Gerät gespeichert werden. Sie können die Cookie-Einstellungen über die Einstellungen Ihres
-                Browsers steuern.
-            </p>
-            <h4>Kontaktformulare</h4>
-            <p>
-                Wenn Sie uns per E-Mail oder über Kontaktformulare kontaktieren, werden die von Ihnen bereitgestellten
-                Daten (Name, E-Mail-Adresse, Nachricht-Inhalt)
-                ausschließlich zum Zweck der Bearbeitung Ihrer Anfrage und möglicher Folgekommunikation gespeichert.
-                Rechtsgrundlage für diese Verarbeitung ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.
-            </p>
-            <h4>Speicherdauer</h4>
-            <p>
-                Ihre personenbezogenen Daten werden gelöscht, sobald der Zweck, für den sie erhoben wurden, entfällt,
-                in der Regel nach vollständiger Bearbeitung Ihrer Anfrage und wenn keine weitere Kommunikation
-                erforderlich ist.
-            </p>
-            <h4>Ihre Rechte</h4>
-            <p>
-                Nach der Datenschutz-Grundverordnung (DSGVO) haben Sie das Recht auf Auskunft, Berichtigung, Löschung
-                oder
-                Einschränkung der Verarbeitung Ihrer personenbezogenen Daten. Sie können Ihre Einwilligung jederzeit
-                durch Kontaktaufnahme mit uns widerrufen.
-                Sie haben außerdem das Recht, sich bei einer Aufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind,
-                dass Ihre Datenschutzrechte verletzt wurden. Bei Fragen zum Datenschutz oder zur
-                Ausübung Ihrer Rechte kontaktieren Sie uns bitte unter <a href="mailto:info@birich.it">info@birich.it</a>.
-            </p>
-            }
-            <svg (click)="closePrivacyPolicyDialog()" class="close-x" width="18" height="18" viewBox="0 0 18 18"
-                fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M8.93957 10.3615L1.75507 17.546C1.54207 17.7587 1.30607 17.8587 1.04707 17.846C0.788067 17.833 0.552234 17.7202 0.339568 17.5075C0.126901 17.2948 0.0205673 17.0525 0.0205673 16.7805C0.0205673 16.5088 0.126901 16.2665 0.339568 16.0535L7.48557 8.9075L0.301068 1.773C0.0884014 1.56 -0.0115986 1.31767 0.00106805 1.046C0.014068 0.774336 0.126901 0.532 0.339568 0.319C0.552234 0.106334 0.794568 0 1.06657 0C1.33823 0 1.58057 0.106334 1.79357 0.319L8.93957 7.5035L16.0741 0.319C16.2871 0.106334 16.5231 0 16.7821 0C17.0411 0 17.2769 0.106334 17.4896 0.319C17.7102 0.539667 17.8206 0.783835 17.8206 1.0515C17.8206 1.3195 17.7102 1.56 17.4896 1.773L10.3436 8.9075L17.5281 16.092C17.7407 16.305 17.8471 16.541 17.8471 16.8C17.8471 17.059 17.7407 17.2948 17.5281 17.5075C17.3074 17.7282 17.0632 17.8385 16.7956 17.8385C17.5276 17.8385 16.2871 17.7282 16.0741 17.5075L8.93957 10.3615Z"
-                    fill="currentColor" />
-            </svg>
-        </div>
-    </dialog>
 </section>

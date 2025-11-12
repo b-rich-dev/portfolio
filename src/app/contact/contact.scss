@@ -106,7 +106,7 @@ section {
                     p {
                         @include font-karla($fs: 1rem, $fw: 400, $c: var(--white));
 
-                        span {
+                        a {
                             @include font-fira-code($fs: 1rem, $fw: 400, $c: var(--turquoise));
                             cursor: pointer;
 
@@ -164,79 +164,44 @@ section {
                     text-align: center;
                 }
             }
-        }
-    }
 
-    dialog {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: min(800px, 90%);
-        max-width: 800px;
-        max-height: 90vh;
-        overflow-y: auto;
-        background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
-        border-radius: 40px;
-        border: 1px solid var(--turquoise);
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
-        z-index: 1001;
+            .error-message,
+            .validation-message,
+            .email-validation-message {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                @include dFlex($ai: center, $g: 12px, $jc: center);
+                margin: 24px auto 0 auto;
+                padding: 16px 24px;
+                background: rgba(220, 38, 127, 0.1);
+                border: 1px solid var(--warn);
+                border-radius: 100px;
+                animation: fadeInUpCenter 0.5s ease-out;
+                width: 100%;
 
-        &::-webkit-scrollbar {
-            width: 0px;
-            background: transparent;
-        }
+                svg {
+                    flex-shrink: 0;
+                }
 
-        scrollbar-width: none;
-
-        &::backdrop {
-            background: rgba(0, 0, 0, 0.6);
-            -webkit-backdrop-filter: blur(2px);
-            backdrop-filter: blur(2px);
-        }
-
-        .pp-wrapper {
-            @include dFlex($fd: column, $ai: flex-start);
-            padding: 40px;
-
-            h3 {
-                @include font-fira-code($fs: 3rem, $fw: 700, $c: var(--turquoise));
-                margin-bottom: 12px;
-                margin-block-start: 0em;
-                margin-block-end: 0em;
-            }
-
-            h4 {
-                @include font-fira-code($fs: 1.5rem, $fw: 700, $c: var(--turquoise));
-                margin-bottom: 12px;
-            }
-
-            p {
-                @include font-karla($fs: 1.125rem, $fw: 400, $c: var(--white));
-                margin-bottom: 16px;
-            }
-
-            a {
-                color: var(--turquoise);
-                border: none;
-                transition: all 0.3s ease;
-
-                &:hover {
-                    color: var(--turquoise);
-                    text-shadow: 0 0 10px var(--turquoise), 0 0 20px var(--turquoise);
+                p {
+                    @include font-karla($fs: 1rem, $fw: 400, $c: var(--warn));
+                    margin: 0;
+                    text-align: center;
                 }
             }
 
-            .close-x {
-                position: absolute;
-                top: 40px;
-                right: 40px;
-                color: var(--white);
+            .email-validation-message {
+                background: rgba(255, 165, 0, 0.1);
+                border-color: #FFA500;
 
-                &:hover {
-                    cursor: pointer;
-                    color: var(--turquoise);
-                    transform: scale(1.3);
+                svg {
+                    stroke: #FFA500;
+                }
+
+                p {
+                    color: #FFA500;
                 }
             }
         }
@@ -303,6 +268,12 @@ section {
                 .success-message {
                     bottom: -100px;
                 }
+
+                .error-message,
+                .validation-message,
+                .email-validation-message {
+                    bottom: -100px;
+                }
             }
         }
     }
@@ -312,7 +283,7 @@ section {
 (pointer: coarse) {
     section {
         .contact-wrapper {
-            padding: 24px 24px;
+            padding: 24px 24px 100px 24px;
 
             .contact-text {
                 h3 {
@@ -340,6 +311,20 @@ section {
                         line-height: 1.4;
                     }
                 }
+
+                button {
+                    margin: 24px auto 0 auto;
+                }
+
+                .success-message {
+                    bottom: -84px;
+                }
+
+                .error-message,
+                .validation-message,
+                .email-validation-message {
+                    bottom: -84px;
+                }
             }
         }
     }
@@ -349,7 +334,24 @@ section {
 (pointer: coarse) {
     section {
         .contact-wrapper {
-            padding: 24px 16px;
+            padding: 24px 16px 100px 16px;
+        }
+    }
+}
+
+@media (max-width: 380px),
+(pointer: coarse) {
+    section {
+        .contact-wrapper {
+            form {
+                button {
+                    width: 100%;
+
+                    span {
+                        animation: scroll-text-button-mobile 3s linear infinite;
+                    }
+                }
+            }
         }
     }
 }

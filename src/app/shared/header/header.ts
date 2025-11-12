@@ -1,6 +1,7 @@
 import { Component, inject, Signal, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../services/language';
+import { RouterLink } from '@angular/router';
 
 /**
  * Header Component
@@ -14,7 +15,7 @@ import { LanguageService } from '../../services/language';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })

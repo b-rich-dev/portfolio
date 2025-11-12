@@ -90,15 +90,17 @@ header {
             }
         }
 
-        img {
-            width: auto;
-            height: 80px;
-            filter: brightness(1.05);
+        a {
+            img {
+                width: auto;
+                height: 80px;
+                filter: brightness(1.05);
 
-            &:hover {
-                cursor: pointer;
-                filter: invert(1) hue-rotate(180deg) saturate(2) brightness(1.05);
-                transform: scale(1.05);
+                &:hover {
+                    cursor: pointer;
+                    filter: invert(1) hue-rotate(180deg) saturate(2) brightness(1.05);
+                    transform: scale(1.05);
+                }
             }
         }
     }
@@ -198,10 +200,12 @@ dialog {
         .header-wrapper {
             @include dFlex($fd: row-reverse, $jc: space-between);
 
-            img {
-                content: url("/assets/img/logo_kit/transparent_logo_b_light.png");
-                height: 48px;
-                width: 48px;
+            a {
+                img {
+                    content: url("/assets/img/logo_kit/transparent_logo_b_light.png");
+                    height: 48px;
+                    width: 48px;
+                }
             }
 
             .nav-wrapper {
