@@ -1,5 +1,6 @@
 import { Component, Signal, inject } from '@angular/core';
 import { LanguageService } from '../services/language';
+import { RouterLink } from '@angular/router';
 
 /**
  * Legal Notice Component
@@ -12,7 +13,7 @@ import { LanguageService } from '../services/language';
 @Component({
   selector: 'app-legal-notice',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './legal-notice.html',
   styleUrl: './legal-notice.scss'
 })

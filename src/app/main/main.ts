@@ -5,6 +5,7 @@ import { SkillSet } from '../skill-set/skill-set';
 import { FeaturedProjects } from '../featured-projects/featured-projects';
 import { Social } from '../social/social';
 import { Contact } from '../contact/contact';
+import { PrivacyPolicy } from '../privacy-policy/privacy-policy';
 
 /**
  * Main Component
@@ -22,7 +23,7 @@ import { Contact } from '../contact/contact';
     SkillSet,
     FeaturedProjects,
     Social,
-    Contact
+    Contact,
   ],
   templateUrl: './main.html',
   styleUrl: './main.scss'

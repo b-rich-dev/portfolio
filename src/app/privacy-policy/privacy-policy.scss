@@ -6,12 +6,13 @@ section {
     background: linear-gradient(45deg, var(--dark) 36%, var(--dark-green) 69%);
     @include dFlex($fd: column);
 
-    .legal-notice-wrapper {
+    .privacy-policy-wrapper {
         @include dFlex($fd: column);
-        padding: 160px 80px 0 80px;
+        padding: 120px 80px 0 80px;
         max-width: 1940px;
 
         .arrow {
+            cursor: pointer;
             display: none;
             width: 32px;
             height: 32px;
@@ -21,7 +22,7 @@ section {
             }
         }
 
-        .legal-notice-content {
+        .privacy-policy-content {
             @include dFlex($fd: column, $ai: flex-start);
             padding: 0px 80px 0 80px;
 
@@ -62,11 +63,10 @@ section {
             display: flex !important;
         }
 
-        .legal-notice-wrapper {
+        .privacy-policy-wrapper {
             align-items: unset;
-            padding: 120px 80px 0 80px;
 
-            .legal-notice-content {
+            .privacy-policy-content {
                 padding: 0;
             }
         }
@@ -75,7 +75,7 @@ section {
 
 @media (max-width: 768px) {
     section {
-        .legal-notice-wrapper {
+        .privacy-policy-wrapper {
             padding: 100px 24px 0 24px;
         }
     }
@@ -83,7 +83,7 @@ section {
 
 @media (max-width: 480px) {
     section {
-        .legal-notice-wrapper {
+        .privacy-policy-wrapper {
             padding: 100px 16px 0 16px;
         }
     }

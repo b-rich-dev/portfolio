@@ -20,13 +20,13 @@ import { isPlatformBrowser } from '@angular/common';
     RouterOutlet,
     Header,
     Footer,
-    LandscapeModus
+    LandscapeModus,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App implements AfterViewInit, OnDestroy {
-  protected readonly title = signal('Eugen Birich - Frontend Developer | Web Developer Portfolio');
+  protected readonly title = signal('Eugen Birich');
   private glowElement?: HTMLElement;
 
   /** Initializes the favicon service and sets up platform detection */

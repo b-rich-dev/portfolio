@@ -339,6 +339,21 @@ section {
     }
 }
 
+@media (max-width: 440px),
+(pointer: coarse) {
+    section {
+        .contact-wrapper {
+            form {
+                .error-message,
+                .validation-message,
+                .email-validation-message {
+                    bottom: -120px;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 380px),
 (pointer: coarse) {
     section {
