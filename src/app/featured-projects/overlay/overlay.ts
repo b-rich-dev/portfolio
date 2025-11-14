@@ -90,8 +90,8 @@ export class Overlay {
     id: 0o3,
     title: 'Pokedex',
     language: [
-      { code: "en", question: "What is this project about?", description: 'This Pokédex app is a responsive web application that provides Pokémon fans with a comprehensive database of all Pokémon. The app uses the official PokéAPI to present up-to-date and complete information.' },
-      { code: "de", question: "Worum geht es in diesem Projekt?", description: 'Diese Pokedex-App ist eine responsive Webanwendung, die Pokémon-Fans eine umfassende Datenbank aller Pokémon bietet. Die App nutzt die offizielle PokéAPI, um aktuelle und vollständige Informationen zu präsentieren.' }
+      { code: "en", question: "What is this project about?", description: 'This Pokedex app is a responsive web application that uses the PokéAPI to provide a complete and up-to-date Pokémon database.' },
+      { code: "de", question: "Worum geht es in diesem Projekt?", description: 'Diese Pokedex-App ist eine responsive Webanwendung, die über die PokéAPI eine vollständige und aktuelle Pokémon-Datenbank bereitstellt.' }
     ],
     icons: [{ img: "rest_api_icon.png", alt: "REST API Icon", text: "REST API" },
     { img: "javascript_icon.svg", alt: "JavaScript Icon", text: "JavaScript" },
