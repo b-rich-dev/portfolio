@@ -108,10 +108,10 @@ export class Social {
       authorDe: 'Dominik Rapp - Teamkollege'
     },
     {
-      textEn: 'Eugen stands out through his structured and goal-oriented approach. He quickly understands complex contexts and delivers high-quality results with great attention to detail. His strong technical expertise in modern web technologies and his proactive, collaborative mindset make him a valuable team member. Working with him is always efficient, insightful, and enjoyable.',
-      textDe: 'Eugen überzeugt durch seine strukturierte und zielorientierte Arbeitsweise. Er erfasst komplexe Zusammenhänge schnell und liefert hochwertige Ergebnisse mit viel Sorgfalt und Detailgenauigkeit. Durch seine fundierte Fachkenntnis in modernen Webtechnologien und seine proaktive, teamorientierte Art ist er eine große Bereicherung für jedes Projekt. Die Zusammenarbeit mit ihm ist stets effizient, inspirierend und angenehm.',
-      authorEn: 'Sven Degen - Team Partner',
-      authorDe: 'Sven Degen - Teamkollege'
+      textEn: 'Eugen impresses with his strong prioritization and high efficiency. He delivers functional results quickly and refines them in close collaboration with his team. He always remains objective, open to feedback, and recognizes early on when complex solutions could hinder progress. His goal-oriented approach ensures balance within the project – an asset to any team.',
+      textDe: 'Eugen überzeugt durch starke Priorisierung und hohe Effizienz. Er liefert in kurzer Zeit funktionale Ergebnisse und verfeinert diese in enger Abstimmung mit seinem Team. Dabei bleibt er stets sachlich, offen für Feedback und erkennt früh, wenn komplexe Lösungen den Fortschritt bremsen könnten. Durch seine Zielstrebigkeit sorgt er für Balance im Projekt – ein Gewinn für jedes Team.',
+      authorEn: 'Claudia Wick - Team Partner',
+      authorDe: 'Claudia Wick - Teamkollegin'
     }
   ];
 
