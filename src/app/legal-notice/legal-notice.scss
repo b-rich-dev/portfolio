@@ -9,7 +9,7 @@ section {
     .legal-notice-wrapper {
         @include dFlex($fd: column);
         padding: 160px 80px 0 80px;
-        max-width: 1940px;
+        max-width: 1920px;
 
         .arrow {
             display: none;

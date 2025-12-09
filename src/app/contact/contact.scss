@@ -10,7 +10,7 @@ section {
         padding: 24px 80px 152px 80px;
         width: 100%;
         height: 100%;
-        max-width: 1940px;
+        max-width: 1920px;
 
         .contact-text {
             @include dFlex($jc: unset, $fd: column, $ai: flex-start, $g: 16px);

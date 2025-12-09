@@ -9,7 +9,7 @@ section {
     .privacy-policy-wrapper {
         @include dFlex($fd: column);
         padding: 120px 80px 0 80px;
-        max-width: 1940px;
+        max-width: 1920px;
 
         .arrow {
             cursor: pointer;
