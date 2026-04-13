@@ -5,6 +5,6 @@ git push
 
 ng build
 echo Build exit code: %ERRORLEVEL%
-git ftp push --syncroot dist/portfolio/browser --dirty
+git ftp push -D --syncroot dist/portfolio/browser
 echo FTP exit code: %ERRORLEVEL%
 pause
