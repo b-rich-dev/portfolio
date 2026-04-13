@@ -90,11 +90,55 @@ ng build && npm run serve:ssr:portfolio
 
 ## 📦 Deployment
 
-The project is configured for production deployment with:
-- Angular Universal SSR
-- Optimized bundle sizes
-- SEO-friendly routing
-- Express.js server setup
+### FTP Deployment with `up.bat`
+
+#### Prerequisites
+
+Install [git-ftp](https://github.com/git-ftp/git-ftp) before using the deployment script:
+
+```bash
+# Windows (via Chocolatey)
+choco install git-ftp
+
+# macOS (via Homebrew)
+brew install git-ftp
+```
+
+Then configure your FTP credentials once:
+
+```bash
+git config git-ftp.url "ftp://your-server.com"
+git config git-ftp.user "your-ftp-username"
+git config git-ftp.password "your-ftp-password"
+```
+
+The `up.bat` script automates the full deployment pipeline in one command:
+
+```bash
+up.bat "Your commit message"
+```
+
+It will:
+1. Pull the latest changes from the remote (`git pull`)
+2. Stage all changes (`git add .`)
+3. Commit with your message (`git commit -m "..."`)
+4. Push to the remote repository (`git push`)
+5. Build the Angular project (`ng build`)
+6. Upload only the browser build to the FTP server (`git ftp push --syncroot dist/portfolio/browser`)
+
+> **First-time setup:** Run `git ftp init --syncroot dist/portfolio/browser` once before using `up.bat` to initialize the FTP tracking.
+
+### PHP Mail Backend
+
+The contact form requires a PHP file on the server to send emails.
+
+1. Copy `sendMail.template.php` and rename it to `sendMail.php`
+2. Replace the placeholders with your actual values:
+   - `YOUR_EMAIL@EXAMPLE.COM` → the recipient email address
+   - `noreply@YOUR_DOMAIN.COM` → the sender domain (must match your hosting domain)
+3. Upload `sendMail.php` to your server root
+
+> **Note:** `sendMail.php` is excluded from version control to protect sensitive data. Never commit it with real credentials.
 
 ## 📧 Contact Form
 
