@@ -23,7 +23,6 @@ section {
 
         h1 {
             @include font-karla($fs: 8rem, $fw: 700);
-            color: aqua !important;
         }
 
         .btn-area {
