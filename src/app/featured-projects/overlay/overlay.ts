@@ -69,7 +69,7 @@ export class Overlay {
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
     github: "https://github.com/b-rich-dev/Join-Team-Work",
-    link: "https://birich.it/Join-Team-Work",
+    link: "https://join.birich.it",
     bigImg: [{ src: "join.png", alt: "Join Project Screenshot" }]
   },
   {
@@ -83,7 +83,7 @@ export class Overlay {
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
     github: "https://github.com/b-rich-dev/el_pollo_loco",
-    link: "https://birich.it/el_pollo_loco",
+    link: "https://pollo-loco.birich.it",
     bigImg: [{ src: "el_pollo_loco.png", alt: "El Pollo Loco Project Screenshot" }]
   },
   {
@@ -98,7 +98,7 @@ export class Overlay {
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
     github: "https://github.com/b-rich-dev/pokedex",
-    link: "https://birich.it/pokedex",
+    link: "https://pokedex.birich.it",
     bigImg: [{ src: "pokedex.png", alt: "Pokedex Project Screenshot" }]
   }];
 
