@@ -44,3 +44,6 @@ Thumbs.db
 
 # Email files
 sendMail.php
+
+# Deployment files
+/gh-actions
