@@ -32,6 +32,7 @@ interface ProjectData {
  * - Join: Kanban-style task manager
  * - El Pollo Loco: Object-oriented JavaScript game
  * - Pokedex: REST API based Pokemon encyclopedia
+ * - Coderr: Django REST API for a service marketplace
  * 
  * @author Eugen Birich
  * @version 1.0.1
@@ -69,7 +70,7 @@ export class Overlay {
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
     github: "https://github.com/b-rich-dev/Join-Team-Work",
-    link: "https://join.birich.it",
+    link: "https://join.birich.dev",
     bigImg: [{ src: "join.png", alt: "Join Project Screenshot" }]
   },
   {
@@ -83,7 +84,7 @@ export class Overlay {
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
     github: "https://github.com/b-rich-dev/el_pollo_loco",
-    link: "https://pollo-loco.birich.it",
+    link: "https://pollo-loco.birich.dev",
     bigImg: [{ src: "el_pollo_loco.png", alt: "El Pollo Loco Project Screenshot" }]
   },
   {
@@ -98,8 +99,24 @@ export class Overlay {
     { img: "css_icon.svg", alt: "CSS Icon", text: "CSS" },
     { img: "html_icon.svg", alt: "HTML Icon", text: "HTML" }],
     github: "https://github.com/b-rich-dev/pokedex",
-    link: "https://pokedex.birich.it",
+    link: "https://pokedex.birich.dev",
     bigImg: [{ src: "pokedex.png", alt: "Pokedex Project Screenshot" }]
+  },
+{
+    id: 0o4,
+    title: 'Coderr',
+    language: [
+      { code: "en", question: "What is this project about?", description: 'Coderr is a comprehensive Django REST API for a marketplace that connects customers with service providers. This API enables user authentication, profile management, service offerings, order processing, and rating functions.' },
+      { code: "de", question: "Worum geht es in diesem Projekt?", description: 'Coderr ist eine umfassendes Django REST API für einen Marktplatz, der Kunden mit Dienstleistern verbindet. Diese API ermöglicht Benutzerauthentifizierung, Profilverwaltung, Serviceangebote, Auftragsabwicklung und Bewertungsfunktionen.' }
+    ],
+    icons: [{ img: "python.png", alt: "Python Icon", text: "Python" },
+    { img: "django.png", alt: "Django Icon", text: "Django" },
+    { img: "drf.png", alt: "DRF Icon", text: "DRF" },
+    { img: "postgresql.png", alt: "PostgreSQL Icon", text: "PostgreSQL" },
+    { img: "docker.png", alt: "Docker Icon", text: "Docker" }],
+    github: "https://github.com/b-rich-dev/coderr.backend",
+    link: "https://coderr.birich.dev",
+    bigImg: [{ src: "coderr.png", alt: "Coderr Project Screenshot" }]
   }];
 
   /**

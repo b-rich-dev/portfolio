@@ -32,12 +32,24 @@ src/
 ├── app/
 │   ├── about-me/           # About section component
 │   ├── contact/            # Contact form with validation
-│   ├── featured-projects/  # Project showcase
+│   ├── featured-projects/  # Project showcase with overlay
 │   ├── landing-page/       # Hero section
+│   ├── legal-notice/       # Legal notice page
+│   ├── main/               # Main layout component
+│   ├── privacy-policy/     # Privacy policy page
 │   ├── services/           # Shared services
+│   │   ├── email-validation.service.ts
+│   │   ├── email.service.ts
+│   │   ├── favicon.service.ts
+│   │   ├── language.ts
+│   │   ├── placeholder.service.ts
+│   │   └── scroll.service.ts
 │   ├── shared/             # Reusable components
+│   │   ├── footer/
+│   │   ├── header/
+│   │   └── landscape-modus/
 │   ├── skill-set/          # Skills display
-│   └── social/             # Testimonials slider
+│   └── social/             # Colleague testimonials slider
 ├── assets/                 # Images, fonts, and static files
 └── styles/                 # Global SCSS files
 ```
@@ -158,11 +170,11 @@ The contact form includes:
 
 ## 👨‍💻 Author
 
-**Eugen Birich** - Frontend Developer
+**Eugen Birich** - Full-Stack Developer
 
-- Website: [birich.it](https://birich.it)
+- Website: [birich.dev](https://birich.dev)
 - GitHub: [@b-rich-dev](https://github.com/b-rich-dev)
-- Email: info@birich.it
+- Email: main@birich.dev
 
 ## 📄 License
 

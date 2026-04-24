@@ -4,56 +4,56 @@
             @if (currentLanguage() === 'en') {
             <h4>Technologies</h4>
             <div class="skill-set">
-                <h2>Skill Set</h2>
-                <p>
-                    I'm a passionate aspiring full-stack developer with a focus on modern frontend technologies like
-                    JavaScript, TypeScript, and Angular. I've also had some initial experience with other major
-                    frameworks such as Vue.js and React. Writing clean, well-structured code and creating
-                    high-performance user interfaces is particularly important to me.
-                    <br>
-                    <br>
-                    To expand my backend skills, I'm currently learning Python. Through continuous learning and my own
-                    projects, I've learned to quickly familiarize myself with new frameworks and tools.
-                    <br>
-                    <br>
-                    I'm always eager to learn and actively stay up-to-date with the latest developments in the web
-                    environment – ​​because in the dynamic world of software development, lifelong learning is essential
-                    for me.
-                </p>
-                <h4>You need <span class="turquoise">another skill?</span></h4>
-                <p>Feel free to contact me. I look forward to expanding on my previous knowledge.
-                </p>
-                <a class="btn" href="#contact" role="button">
-                    <span>Let's talk</span>
-                </a>
+                <div>
+                    <h2>Skill Set</h2>
+                    <p>
+                        I use modern frontend and backend technologies to build high-performance, scalable web
+                        applications.
+                        Focus is placed on clean architecture, maintainable code, and efficient interfaces between
+                        frontend
+                        and backend.
+                        <br>
+                        <br>
+                        Staying up to date with new technologies and best practices is a core part of
+                        my workflow and is actively integrated into my projects.
+                    </p>
+                </div>
+                <div>
+                    <h4>You need <span class="turquoise">another skill?</span></h4>
+                    <p>Feel free to contact me. I look forward to expanding on my previous knowledge.
+                    </p>
+                    <a class="btn" href="#contact" role="button" (click)="scroll.scrollTo('contact', $event)">
+                        <span>Let's talk</span>
+                    </a>
+                </div>
             </div>
             } @else {
             <h4>Technologien</h4>
             <div class="skill-set">
-                <h2>Fähigkeiten</h2>
-                <p>
-                    Ich bin ein leidenschaftlicher angehender Fullstack-Entwickler mit Fokus auf moderne
-                    Frontend-Technologien wie JavaScript, TypeScript und Angular. Darüber hinaus hatte ich bereits erste
-                    Berührungspunkte mit weiteren großen Frameworks wie Vue.js und React. Besonders wichtig ist mir,
-                    sauberen, strukturierten Code zu schreiben und performante Benutzeroberflächen zu gestalten.
-                    <br>
-                    <br>
-                    Um meine Backend-Kenntnisse zu erweitern, lerne ich derzeit Python. Durch meine kontinuierliche
-                    Weiterbildung und eigene Projekte habe ich gelernt, mich schnell in neue Frameworks und Tools
-                    einzuarbeiten.
-                    <br>
-                    <br>
-                    Ich bin stets wissbegierig und halte mich aktiv über aktuelle Entwicklungen im Web-Umfeld auf dem
-                    Laufenden – denn in der dynamischen Welt der Softwareentwicklung ist lebenslanges Lernen für mich
-                    selbstverständlich.
-                </p>
-                <h4>Sie brauchen <span class="turquoise">eine andere Fähigkeit?</span></h4>
-                <p>Fühlen Sie sich frei, mich zu kontaktieren. Ich freue mich darauf, mein vorheriges Wissen zu
-                    erweitern.
-                </p>
-                <a class="btn" href="#contact" role="button">
-                    <span>Lassen Sie uns reden</span>
-                </a>
+                <div>
+                    <h2>Fähigkeiten</h2>
+                    <p>
+                        Ich nutze moderne Frontend- und Backend-Technologien, um performante und skalierbare
+                        Webanwendungen
+                        zu entwickeln.
+                        Dabei achte ich auf saubere Architektur, wartbaren Code und effiziente Schnittstellen zwischen
+                        Frontend und Backend.
+                        <br>
+                        <br>
+                        Über neue Technologien und Best Practices im Web-Development halte ich mich kontinuierlich auf
+                        dem
+                        Laufenden und integriere diese gezielt in meine Projekte.
+                    </p>
+                </div>
+                <div>
+                    <h4>Sie brauchen <span class="turquoise">eine andere Fähigkeit?</span></h4>
+                    <p>Fühlen Sie sich frei, mich zu kontaktieren. Ich freue mich darauf, mein vorheriges Wissen zu
+                        erweitern.
+                    </p>
+                    <a class="btn" href="#contact" role="button" (click)="scroll.scrollTo('contact', $event)">
+                        <span>Lassen Sie uns reden</span>
+                    </a>
+                </div>
             </div>
             }
         </div>
@@ -87,6 +87,10 @@
                 <p>Firebase</p>
             </div>
             <div class="skill-item">
+                <img src="/assets/skill-icons/frontend_skills/supabase.svg" alt="Supabase Icon">
+                <p>Supabase</p>
+            </div>
+            <div class="skill-item">
                 <img src="/assets/skill-icons/frontend_skills/git.svg" alt="Git Icon">
                 <p>Git</p>
             </div>
@@ -98,12 +102,48 @@
                 <img src="/assets/skill-icons/frontend_skills/scrum.svg" alt="Scrum Icon">
                 <p>Scrum</p>
             </div>
+            <div class="skill-item">
+                <img src="/assets/skill-icons/backend_skills/python.svg" alt="Python Icon">
+                <p>Python</p>
+            </div>
+            <div class="skill-item">
+                <img src="/assets/skill-icons/backend_skills/django.svg" alt="Django Icon">
+                <p>Django</p>
+            </div>
+            <div class="skill-item">
+                <img src="/assets/skill-icons/dev_sec_ops_skills/drf.svg" alt="DRF Icon">
+                <p>DRF</p>
+            </div>
+            <div class="skill-item">
+                <img src="/assets/skill-icons/backend_skills/linux.svg" alt="Linux Icon">
+                <p>Linux</p>
+            </div>
+            <div class="skill-item">
+                <img src="/assets/skill-icons/backend_skills/redis.svg" alt="Redis Icon">
+                <p>Redis</p>
+            </div>
+            <div class="skill-item">
+                <img src="/assets/skill-icons/backend_skills/sql.svg" alt="SQL Icon">
+                <p>SQL</p>
+            </div>
+            <div class="skill-item">
+                <img src="/assets/skill-icons/backend_skills/postgresql.svg" alt="PostgreSQL Icon">
+                <p>PostgreSQL</p>
+            </div>
+            <div class="skill-item">
+                <img src="/assets/skill-icons/backend_skills/docker.svg" alt="Docker Icon">
+                <p>Docker</p>
+            </div>
+            <div class="skill-item">
+                <img src="/assets/skill-icons/backend_skills/cloud.svg" alt="Cloud Icon">
+                <p>Cloud</p>
+            </div>
             <div class="special-hover">
                 <img class="gm-icon" src="/assets/skill-icons/frontend_skills/growth_mindset.svg"
                     alt="Growth Mindset Icon">
                 <p [innerHTML]="currentLanguage() === 'en' ? 'Growth<br>Mindset' : 'Wachstums-<br>denken'"></p>
                 <img class="interest-skills"
-                    [src]="currentLanguage() === 'en' ? 'assets/skill-icons/frontend_skills/group.png' : 'assets/skill-icons/frontend_skills/group_de.png'"
+                    [src]="currentLanguage() === 'en' ? 'assets/skill-icons/frontend_skills/interests_group.png' : 'assets/skill-icons/frontend_skills/interests_group_de.png'"
                     alt="speech bubble with interest icons">
             </div>
         </div>

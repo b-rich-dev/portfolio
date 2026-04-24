@@ -1,20 +1,20 @@
 <section>
     <div class="landing-page-wrapper">
         @if (currentLanguage() === 'en') {
-        <h3>Frontend Developer</h3>
+        <h3>Full-Stack Developer</h3>
         } @else {
-        <h3>Frontend Entwickler</h3>
+        <h3>Full-Stack-Entwickler</h3>
         }
         <h1>Eugen Birich</h1>
         <div class="btn-area">
-            <a class="btn" href="#featured-projects" role="button">
+            <a class="btn" href="#featured-projects" role="button" (click)="scroll.scrollTo('featured-projects', $event)">
                 @if (currentLanguage() === 'en') {
                 <span>Check out my work</span>
                 } @else {
                 <span>Schau dir meine Arbeit an</span>
                 }
             </a>
-            <a class="btn" href="#contact" role="button">
+            <a class="btn" href="#contact" role="button" (click)="scroll.scrollTo('contact', $event)">
                 @if (currentLanguage() === 'en') {
                 <span>Contact Me</span>
                 } @else {
@@ -30,8 +30,8 @@
         </div>
         <div class="post-right-container">
             <div class="links-container">
-                <a class="mail-text" href="mailto:info@birich.it" target="_blank">info@birich.it</a>
-                <a class="mail-logo" href="mailto:info@birich.it" target="_blank">
+                <a class="mail-text" href="mailto:main@birich.dev" target="_blank">main@birich.dev</a>
+                <a class="mail-logo" href="mailto:main@birich.dev" target="_blank">
                     <img src="/assets/img/landing_page/mail_icon.svg" alt="Mail Logo">
                 </a>
                 <a href="https://github.com/b-rich-dev" target="_blank"><img src="/assets/img/landing_page/github.svg"
@@ -44,17 +44,17 @@
         <div class="beam-container">
             <div class="beam">
                 @if (currentLanguage() === 'en') {
-                <span>Frontend Developer &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Based in Gelnhausen
+                <span>Full-Stack Developer &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Based in Gelnhausen
                     &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Open to work &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Available for remote
                     work &nbsp;&nbsp;&#12539;&nbsp;&nbsp; </span>
-                <span>Frontend Developer &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Based in Gelnhausen
+                <span>Full-Stack Developer &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Based in Gelnhausen
                     &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Open to work &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Available for remote
                     work &nbsp;&nbsp;&#12539;&nbsp;&nbsp; </span>
                 } @else {
-                <span>Frontend Entwickler &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Mit Sitz in Gelnhausen
+                <span>Full-Stack-Entwickler &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Mit Sitz in Gelnhausen
                     &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Offen für neue Herausforderungen &nbsp;&nbsp;&#12539;&nbsp;&nbsp;
                     Für Remote-Arbeit geeignet &nbsp;&nbsp;&#12539;&nbsp;&nbsp; </span>
-                <span>Frontend Entwickler &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Mit Sitz in Gelnhausen
+                <span>Full-Stack-Entwickler &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Mit Sitz in Gelnhausen
                     &nbsp;&nbsp;&#12539;&nbsp;&nbsp; Offen für neue Herausforderungen &nbsp;&nbsp;&#12539;&nbsp;&nbsp;
                     Für Remote-Arbeit geeignet &nbsp;&nbsp;&#12539;&nbsp;&nbsp; </span>
                 }

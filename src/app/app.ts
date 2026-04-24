@@ -102,4 +102,5 @@ export class App implements AfterViewInit, OnDestroy {
       this.glowElement.remove();
     }
   }
+
 }

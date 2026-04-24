@@ -2,6 +2,7 @@ import { Component, inject, Signal, ViewChild, ElementRef } from '@angular/core'
 import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../services/language';
 import { RouterLink } from '@angular/router';
+import { ScrollService } from '../../services/scroll.service';
 
 /**
  * Header Component
@@ -22,6 +23,9 @@ import { RouterLink } from '@angular/router';
 export class Header {
   /** Current language signal from LanguageService for multilingual support */
   currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
+
+  /** ScrollService instance for handling smooth scrolling */
+  public scroll = inject(ScrollService);
 
   /** LanguageService instance for managing language state */
   set = inject(LanguageService);

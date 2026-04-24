@@ -29,6 +29,7 @@ section {
                 padding: 36px;
                 width: 100%;
                 height: 100%;
+                @include dFlex($jc: space-between, $ai: unset, $fd: column);
 
                 p {
                     @include font-karla($fs: 1.125rem, $fw: 400, $c: var(--light-grey));
@@ -59,8 +60,8 @@ section {
 
         .icons-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 64px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 32px;
             align-items: start;
             padding-top: 48px;
 
@@ -143,13 +144,37 @@ section {
     }
 }
 
-@media (max-width: 1480px),
+@media (min-width: 1690px),
+(pointer: coarse) {
+    section {
+        .skill-set-wrapper {
+            .icons-container {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 64px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1580px),
+(pointer: coarse) {
+    section {
+        .skill-set-wrapper {
+            .icons-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px),
 (pointer: coarse) {
     section {
         .skill-set-wrapper {
             .icons-container {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 48px;
+                gap: 32px;
             }
         }
     }

@@ -1,5 +1,6 @@
 import { Component, inject, Signal } from '@angular/core';
 import { LanguageService } from '../services/language';
+import { ScrollService } from '../services/scroll.service';
 
 /**
  * Skill Set Component
@@ -19,4 +20,7 @@ import { LanguageService } from '../services/language';
 export class SkillSet {
   /** Current language signal from LanguageService for multilingual support */
   public currentLanguage: Signal<'en' | 'de'> = inject(LanguageService).language;
+  
+  /** ScrollService instance for handling smooth scrolling */
+  public scroll = inject(ScrollService);
 }
