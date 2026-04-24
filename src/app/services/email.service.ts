@@ -30,12 +30,12 @@ export interface EmailSendResult {
 export class EmailService {
     private http = inject(HttpClient);
 
-    private readonly endPoint = 'https://birich.it/sendMail.php';
+    private readonly endPoint = 'https://birich.dev/sendMail.php';
     private readonly requestOptions = {
         headers: {
             'Content-Type': 'text/plain',
-            responseType: 'text',
         },
+        responseType: 'text' as const,
     };
 
     /**
