@@ -217,7 +217,7 @@ dialog {
         }
 
         .next-project {
-            bottom: 40px;
+            bottom: 20px;
             right: 40px;
         }
     }
@@ -230,6 +230,7 @@ dialog {
         max-height: fit-content;
         width: 96%;
         height: 99dvh;
+        overflow-y: auto;
 
         .content {
             height: 100%;
@@ -274,7 +275,7 @@ dialog {
         }
 
         .content {
-            padding: 36px 12px 36px 12px;
+            padding: 36px 12px 64px 12px;
 
             .text {
                 .id {
